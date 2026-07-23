@@ -403,11 +403,11 @@ main {
 
 .hero::before {
   border-bottom: 1px dashed var(--color-grid-dark);
+  bottom: 239px;
   content: "";
   left: 0;
   position: absolute;
   right: 0;
-  top: 776px;
 }
 
 .hero__content {
@@ -587,6 +587,12 @@ main {
 
 .stats-grid {
   align-items: start;
+  background: linear-gradient(
+      to bottom,
+      transparent 0 196px,
+      var(--color-off-white) 196px 100%
+    )
+    left top / 50% 100% no-repeat;
   bottom: 0;
   display: grid;
   grid-column: 1 / -1;
@@ -1886,7 +1892,7 @@ main {
   }
 
   .hero::before {
-    top: 804px;
+    bottom: 319px;
   }
 
   .hero__content {
@@ -1920,6 +1926,7 @@ main {
   }
 
   .stats-grid {
+    background: transparent;
     grid-template-columns: repeat(2, 1fr);
     height: 319px;
   }
