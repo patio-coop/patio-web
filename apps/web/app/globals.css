@@ -405,9 +405,11 @@ main {
   border-bottom: 1px dashed var(--color-grid-dark);
   bottom: 239px;
   content: "";
-  left: 0;
+  left: -88px;
+  pointer-events: none;
   position: absolute;
-  right: 0;
+  right: -88px;
+  z-index: 3;
 }
 
 .hero__content {
@@ -598,9 +600,10 @@ main {
   grid-column: 1 / -1;
   grid-template-columns: repeat(4, 1fr);
   height: 239px;
-  left: 0;
+  left: -88px;
   position: absolute;
-  right: 0;
+  right: -88px;
+  z-index: 2;
 }
 
 .stat-card {
@@ -611,9 +614,31 @@ main {
   height: 196px;
   justify-content: center;
   min-width: 0;
+  position: relative;
   transition:
     background 180ms ease,
     color 180ms ease;
+}
+
+.stat-card:not(:last-child)::before,
+.stat-card:not(:last-child)::after {
+  background: rgba(247, 247, 247, 0.78);
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+  z-index: 4;
+}
+
+.stat-card:not(:last-child)::before {
+  height: 28px;
+  width: 1px;
+}
+
+.stat-card:not(:last-child)::after {
+  height: 1px;
+  width: 28px;
 }
 
 .stat-card:nth-child(n + 3) {
@@ -1893,6 +1918,8 @@ main {
 
   .hero::before {
     bottom: 319px;
+    left: -16px;
+    right: -16px;
   }
 
   .hero__content {
@@ -1929,6 +1956,8 @@ main {
     background: transparent;
     grid-template-columns: repeat(2, 1fr);
     height: 319px;
+    left: -16px;
+    right: -16px;
   }
 
   .stat-card,
