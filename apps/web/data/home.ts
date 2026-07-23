@@ -201,15 +201,15 @@ export const processSteps = [
 export const qualificationPaths = [
   {
     title: "Annual membership fee",
-    text: "Each cooperative pays a yearly fee for the full Patio membership package."
+    text: "Each cooperative pays €500 per year for the Full Patio Membership Package. A straightforward, transparent, and sustainable default for all cooperatives."
   },
   {
     title: "Active unpaid contribution",
-    text: "A cooperative can contribute labour to Patio's shared internal work."
+    text: "A cooperative with a team member actively contributing in a Patio circle without pay is not required to pay the fee. Time and expertise count as membership."
   },
   {
     title: "Financial hardship application",
-    text: "Cooperatives with limited capacity can apply for a scholarship path."
+    text: "Cooperatives unable to pay or contribute labour may apply for a scholarship. The Internal Organisation & Community Support circle reviews each case based on a stated timeframe of need."
   }
 ];
 

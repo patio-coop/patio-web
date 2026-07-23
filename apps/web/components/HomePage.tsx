@@ -230,7 +230,13 @@ export function HomePage() {
           <div className="process-curve" aria-hidden="true">
             <svg viewBox="0 0 260 360" role="presentation">
               <defs>
-                <linearGradient id="processCurveGradient" x1="59" y1="323" x2="227" y2="0">
+                <linearGradient
+                  id="processCurveGradient"
+                  x1="59"
+                  y1="323"
+                  x2="227"
+                  y2="0"
+                >
                   <stop offset="0" stopColor="#96d8fd" />
                   <stop offset="0.62" stopColor="#96d8fd" />
                   <stop offset="1" stopColor="#35ff38" />
@@ -272,14 +278,16 @@ export function HomePage() {
 
         <section className="section membership" id="membership">
           <SectionIntro
-            eyebrow="04"
+            eyebrow="ID: 91201"
             title="Membership model"
             text="Be part of a global network where tech cooperatives collaborate, share work, and grow together. Join for free - or contribute and unlock full access to opportunities."
           />
           <div className="membership-model">
             <article className="membership-card membership-card--dark">
               <span>Full Patio</span>
-              <strong>€500<span>/ year</span></strong>
+              <strong>
+                €500<span>/ year</span>
+              </strong>
               <em>or qualify via contribution</em>
               <ul>
                 <li>Access to jobs & client opportunities</li>
@@ -327,7 +335,7 @@ export function HomePage() {
           </div>
           <div className="qualification">
             <SectionIntro
-              eyebrow="04"
+              eyebrow=""
               title="Ways to qualify for full membership"
               text=""
             />
@@ -513,7 +521,11 @@ function Header({
                 <div className="nav-dropdown__primary">
                   <h3>{item.label}</h3>
                   {item.groups.map((group) => (
-                    <div className="nav-dropdown__group" key={group.label} tabIndex={0}>
+                    <div
+                      className="nav-dropdown__group"
+                      key={group.label}
+                      tabIndex={0}
+                    >
                       <span className="nav-dropdown__group-label">
                         {group.label}
                         <b aria-hidden="true">›</b>

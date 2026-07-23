@@ -1001,7 +1001,7 @@ main {
   position: absolute;
 }
 
-.membership .section-intro {
+.membership > .section-intro {
   margin-left: auto;
   max-width: 405px;
   position: relative;
@@ -1009,16 +1009,16 @@ main {
   z-index: 1;
 }
 
-.membership .section-intro span {
+.membership > .section-intro span {
   color: rgba(0, 16, 59, 0.5);
 }
 
-.membership .section-intro h2 {
+.membership > .section-intro h2 {
   font-size: 48px;
   margin-bottom: 22px;
 }
 
-.membership .section-intro p {
+.membership > .section-intro p {
   font-size: 16px;
   line-height: 1.4;
 }
@@ -1154,41 +1154,108 @@ main {
   z-index: 1;
 }
 
+.qualification .section-intro {
+  margin: 0;
+  max-width: 520px;
+  text-align: left;
+}
+
+.qualification .section-intro span {
+  display: none;
+}
+
+.qualification .section-intro h2 {
+  font-size: 48px;
+  line-height: 1;
+  margin: 0;
+}
+
 .qualification-grid {
   display: grid;
-  gap: 24px;
+  gap: 0;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 56px;
+  margin-top: 120px;
+  position: relative;
+}
+
+.qualification-grid::before,
+.qualification-grid::after {
+  border-top: 1px dashed var(--color-grid-light);
+  content: "";
+  left: -88px;
+  position: absolute;
+  right: -88px;
+}
+
+.qualification-grid::before {
+  top: 0;
+}
+
+.qualification-grid::after {
+  bottom: 0;
 }
 
 .qualification article {
-  border-top: 2px solid var(--color-sky);
-  padding-top: 22px;
+  --path-color: #61b4e3;
+  border-left: 1px dashed var(--color-grid-light);
+  display: flex;
+  flex-direction: column;
+  min-height: 342px;
+  padding: 0 48px 92px 0;
+  position: relative;
 }
 
-.qualification article:nth-child(n + 2) {
-  border-top-color: var(--color-green);
+.qualification article:nth-child(2) {
+  --path-color: #8ed6e4;
+  padding-left: 0;
+}
+
+.qualification article:nth-child(3) {
+  --path-color: #6bdba0;
+  border-right: 1px dashed var(--color-grid-light);
+}
+
+.qualification article::before {
+  background:
+    linear-gradient(90deg, var(--path-color) 0 70%, transparent 70% 74%, var(--path-color) 74% 76%, transparent 76% 79%, var(--path-color) 79% 81%, transparent 81% 84%, var(--path-color) 84% 86%, transparent 86% 89%, var(--path-color) 89% 91%, transparent 91% 94%, var(--path-color) 94% 96%, transparent 96% 98%, var(--path-color) 98% 100%);
+  content: "";
+  height: 7px;
+  left: 0;
+  position: absolute;
+  right: 24px;
+  top: 102px;
+}
+
+.qualification article > span {
+  color: var(--path-color);
+  display: block;
+  font-size: 62px;
+  line-height: 1;
+  margin: 0 0 94px;
 }
 
 .qualification h3 {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 28px;
   font-weight: 400;
+  line-height: 1;
+  margin: 0 0 20px;
+  max-width: 340px;
   text-transform: uppercase;
-}
-
-.qualification article {
-  display: flex;
-  flex-direction: column;
 }
 
 .qualification article p {
   flex: 1;
+  font-size: 18px;
+  line-height: 1.36;
+  margin: 0;
+  max-width: 360px;
 }
 
 .qualification article .button {
-  align-self: flex-start;
-  margin-top: 18px;
+  bottom: -59px;
+  position: absolute;
+  right: 0;
 }
 
 .sociocracy {
@@ -2275,7 +2342,9 @@ main {
   }
 
   .process-grid::before,
-  .process-grid::after {
+  .process-grid::after,
+  .qualification-grid::before,
+  .qualification-grid::after {
     left: -16px;
     right: -16px;
   }
@@ -2291,6 +2360,21 @@ main {
 
   .process > .button {
     width: 100%;
+  }
+
+  .qualification-grid {
+    margin-top: 72px;
+  }
+
+  .qualification article {
+    border-right: 1px dashed var(--color-grid-light);
+    min-height: 320px;
+    padding-right: 0;
+  }
+
+  .qualification article .button {
+    bottom: 24px;
+    right: 0;
   }
 
   .work-card {
