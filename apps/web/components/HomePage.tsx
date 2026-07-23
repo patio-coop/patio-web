@@ -101,10 +101,10 @@ export function HomePage() {
               Bringing the latest technology in collaboration with you
             </p>
             <button
-              className="button button--primary"
+              className="button button--primary button--quote"
               onClick={() => setModal({ type: "contact", title: "Get a quote" })}
             >
-              Get a quote <span aria-hidden="true">↘</span>
+              Get a quote <span className="button__arrow" aria-hidden="true">↘</span>
             </button>
           </div>
           <HeroGlobe />

@@ -66,18 +66,16 @@ main {
   display: grid;
   grid-template-columns: 224px 1fr auto 64px;
   height: 104px;
-  left: 50%;
-  max-width: var(--page-width);
+  left: 0;
   position: fixed;
   top: 0;
-  transform: translateX(-50%);
   transition: transform 240ms ease;
-  width: min(100%, var(--page-width));
+  width: 100%;
   z-index: 50;
 }
 
 .site-header--hidden {
-  transform: translate(-50%, -110%);
+  transform: translateY(-110%);
 }
 
 .brand {
@@ -153,7 +151,7 @@ main {
 
 .nav-item:hover > a,
 .nav-item:focus-within > a {
-  background: rgba(247, 247, 247, 0.14);
+  background: rgba(247, 247, 247, 0.16);
 }
 
 .nav-dropdown {
@@ -183,7 +181,24 @@ main {
   font-family: var(--font-display);
   font-size: 18px;
   padding: 22px 32px;
+  position: relative;
   text-transform: uppercase;
+  transition: color 180ms ease;
+  z-index: 0;
+}
+
+.nav-dropdown a::before {
+  background: var(--gradient-action);
+  content: "";
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition:
+    opacity 180ms ease,
+    transform 220ms ease;
+  z-index: -1;
 }
 
 .nav-dropdown h3 {
@@ -192,7 +207,13 @@ main {
 
 .nav-dropdown a:hover,
 .nav-dropdown a:focus-visible {
-  background: var(--gradient-action);
+  color: var(--color-blue);
+}
+
+.nav-dropdown a:hover::before,
+.nav-dropdown a:focus-visible::before {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .header-actions {
@@ -306,8 +327,8 @@ main {
 
 .section {
   margin: 0 auto;
-  max-width: var(--page-width);
   position: relative;
+  width: 100%;
 }
 
 .section--light {
@@ -388,7 +409,7 @@ main {
 
 .button {
   align-items: center;
-  background: var(--color-green);
+  background: var(--color-sky);
   border: 0;
   color: var(--color-blue);
   cursor: pointer;
@@ -416,6 +437,37 @@ main {
   font-size: 22px;
   margin-left: 160px;
   min-height: 50px;
+}
+
+.button--quote {
+  gap: 18px;
+  padding: 0 0 0 24px;
+}
+
+.button__arrow {
+  align-items: center;
+  align-self: stretch;
+  background: #2f3c61;
+  color: var(--color-off-white);
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: 32px;
+  justify-content: center;
+  min-width: 50px;
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.button--quote:hover,
+.button--quote:focus-visible {
+  background: var(--color-sky);
+}
+
+.button--quote:hover .button__arrow,
+.button--quote:focus-visible .button__arrow {
+  background: var(--color-green);
+  color: var(--color-blue);
 }
 
 .button--small {
@@ -521,6 +573,9 @@ main {
   flex-direction: column;
   justify-content: center;
   min-width: 0;
+  transition:
+    background 180ms ease,
+    color 180ms ease;
 }
 
 .stat-card:hover {
@@ -570,6 +625,7 @@ main {
 }
 
 .who {
+  background: var(--color-off-white);
   min-height: 1107px;
   padding: 170px 88px 120px;
 }
@@ -590,6 +646,9 @@ main {
   height: 40px;
   padding: 0 24px;
   text-transform: uppercase;
+  transition:
+    background 180ms ease,
+    color 180ms ease;
 }
 
 .region-filter button.is-active,
@@ -618,10 +677,15 @@ main {
   min-height: 160px;
   padding: 28px;
   text-transform: uppercase;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 .coop-card:hover {
   background: var(--gradient-action);
+  transform: translateY(-1px);
 }
 
 .who > .button {
