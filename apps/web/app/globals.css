@@ -556,6 +556,7 @@ main {
 }
 
 .stats-grid {
+  align-items: end;
   bottom: 0;
   display: grid;
   grid-column: 1 / -1;
@@ -571,11 +572,16 @@ main {
   border-right: 1px dashed var(--color-grid-dark);
   display: flex;
   flex-direction: column;
+  height: 196px;
   justify-content: center;
   min-width: 0;
   transition:
     background 180ms ease,
     color 180ms ease;
+}
+
+.stat-card:nth-child(n + 3) {
+  height: 239px;
 }
 
 .stat-card:hover {
@@ -1886,6 +1892,11 @@ main {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
     height: 319px;
+  }
+
+  .stat-card,
+  .stat-card:nth-child(n + 3) {
+    height: 100%;
   }
 
   .stat-card strong {
