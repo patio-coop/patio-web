@@ -15,7 +15,7 @@ import {
   qualificationPaths,
   services,
   stats,
-  type Cooperative
+  type Cooperative,
 } from "@/data/home";
 
 type ModalState =
@@ -33,10 +33,10 @@ export function HomePage() {
   const [modal, setModal] = useState<ModalState>(null);
   const [activeRegion, setActiveRegion] = useState("All");
   const [workTab, setWorkTab] = useState<"industries" | "services">(
-    "industries"
+    "industries",
   );
   const [featuredCoops, setFeaturedCoops] = useState<Cooperative[]>(
-    cooperatives.slice(0, 6)
+    cooperatives.slice(0, 6),
   );
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobilePanel, setMobilePanel] = useState<number | null>(null);
@@ -65,7 +65,12 @@ export function HomePage() {
       activeRegion === "All"
         ? cooperatives
         : cooperatives.filter((coop) => coop.region === activeRegion);
-    setFeaturedCoops(filtered.slice().sort(() => Math.random() - 0.5).slice(0, 6));
+    setFeaturedCoops(
+      filtered
+        .slice()
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 6),
+    );
   }, [activeRegion]);
 
   const workItems = workTab === "industries" ? industries : services;
@@ -91,7 +96,6 @@ export function HomePage() {
       <main id="top">
         <section className="section hero" aria-labelledby="hero-heading">
           <div className="hero__content">
-            <p className="section-kicker">USR 10291</p>
             <h1 id="hero-heading">
               <span>A global</span>
               <span>network of tech</span>
@@ -102,9 +106,14 @@ export function HomePage() {
             </p>
             <button
               className="button button--primary button--quote"
-              onClick={() => setModal({ type: "contact", title: "Get a quote" })}
+              onClick={() =>
+                setModal({ type: "contact", title: "Get a quote" })
+              }
             >
-              Get a quote <span className="button__arrow" aria-hidden="true">↘</span>
+              Get a quote{" "}
+              <span className="button__arrow" aria-hidden="true">
+                ↘
+              </span>
             </button>
           </div>
           <HeroGlobe />
@@ -196,7 +205,11 @@ export function HomePage() {
           </div>
           <div className="work-grid">
             {workItems.map((item) => (
-              <a className="work-card" key={item} href="/ai-product-development">
+              <a
+                className="work-card"
+                key={item}
+                href="/ai-product-development"
+              >
                 {item}
                 <span aria-hidden="true">↘</span>
               </a>
@@ -290,7 +303,7 @@ export function HomePage() {
                             title:
                               index === 0
                                 ? "Pay annual membership"
-                                : "Join through contribution"
+                                : "Join through contribution",
                           })
                     }
                   >
@@ -359,7 +372,9 @@ export function HomePage() {
           </div>
           <button
             className="button button--small"
-            onClick={() => setModal({ type: "contact", title: "Talk to Patio" })}
+            onClick={() =>
+              setModal({ type: "contact", title: "Talk to Patio" })
+            }
           >
             Ask us
           </button>
@@ -400,14 +415,18 @@ export function HomePage() {
         <section className="cta" aria-labelledby="cta-heading">
           <div>
             <p className="section-kicker">CTA 12094</p>
-            <h2 id="cta-heading">Make us your organization&apos;s technology partner</h2>
+            <h2 id="cta-heading">
+              Make us your organization&apos;s technology partner
+            </h2>
             <p>
               Tell us briefly how you like to collaborate. A community member
               will reach out to explore next steps with you.
             </p>
             <button
               className="button button--dark"
-              onClick={() => setModal({ type: "contact", title: "Get in touch" })}
+              onClick={() =>
+                setModal({ type: "contact", title: "Get in touch" })
+              }
             >
               Get in touch
             </button>
@@ -424,7 +443,7 @@ function Header({
   hidden,
   menuOpen,
   setMenuOpen,
-  setModal
+  setModal,
 }: {
   hidden: boolean;
   menuOpen: boolean;
@@ -447,23 +466,33 @@ function Header({
             </a>
             {item.groups ? (
               <div className="nav-dropdown">
-                {item.groups.map((group) => (
-                  <div key={group.label}>
-                    <h3>{group.label}</h3>
-                    {group.items.map((entry) => (
-                      <a href="/ai-product-development" key={entry}>
-                        {entry}
-                      </a>
-                    ))}
-                  </div>
-                ))}
+                <div className="nav-dropdown__primary">
+                  <h3>{item.label}</h3>
+                  {item.groups.map((group) => (
+                    <div className="nav-dropdown__group" key={group.label} tabIndex={0}>
+                      <span className="nav-dropdown__group-label">
+                        {group.label}
+                        <b aria-hidden="true">›</b>
+                      </span>
+                      <div className="nav-dropdown__submenu">
+                        {group.items.map((entry) => (
+                          <a href="/ai-product-development" key={entry}>
+                            {entry}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             ) : null}
           </div>
         ))}
       </nav>
       <div className="header-actions">
-        <button onClick={() => setModal({ type: "contact", title: "Get in touch" })}>
+        <button
+          onClick={() => setModal({ type: "contact", title: "Get in touch" })}
+        >
           Get in touch
         </button>
       </div>
@@ -486,7 +515,7 @@ function MobileMenu({
   panel,
   setPanel,
   close,
-  setModal
+  setModal,
 }: {
   open: boolean;
   panel: number | null;
@@ -542,7 +571,7 @@ function MobileMenu({
                 <span>{navItem.index}</span>
                 {navItem.label}
               </a>
-            )
+            ),
           )}
           <button
             onClick={() => {
@@ -570,7 +599,7 @@ function SectionIntro({
   eyebrow,
   title,
   text,
-  inverted = false
+  inverted = false,
 }: {
   eyebrow: string;
   title: string;
@@ -578,7 +607,9 @@ function SectionIntro({
   inverted?: boolean;
 }) {
   return (
-    <div className={`section-intro ${inverted ? "section-intro--inverted" : ""}`}>
+    <div
+      className={`section-intro ${inverted ? "section-intro--inverted" : ""}`}
+    >
       <span>{eyebrow}</span>
       <h2>{title}</h2>
       {text ? <p>{text}</p> : null}
@@ -635,7 +666,7 @@ function Footer() {
 
 function Modal({
   modal,
-  setModal
+  setModal,
 }: {
   modal: ModalState;
   setModal: (modal: ModalState) => void;
@@ -645,23 +676,29 @@ function Modal({
   }
 
   return (
-    <div className="modal-backdrop" role="presentation" onClick={() => setModal(null)}>
+    <div
+      className="modal-backdrop"
+      role="presentation"
+      onClick={() => setModal(null)}
+    >
       <div
         className={`modal modal--${modal.type}`}
         role="dialog"
         aria-modal="true"
         onClick={(event) => event.stopPropagation()}
       >
-        <button className="modal__close" onClick={() => setModal(null)} aria-label="Close">
+        <button
+          className="modal__close"
+          onClick={() => setModal(null)}
+          aria-label="Close"
+        >
           ×
         </button>
         {modal.type === "contact" ? (
           <ContactModal title={modal.title ?? "Contact Patio"} />
         ) : null}
         {modal.type === "members" ? <MembersModal /> : null}
-        {modal.type === "network" ? (
-          <NetworkModal setModal={setModal} />
-        ) : null}
+        {modal.type === "network" ? <NetworkModal setModal={setModal} /> : null}
         {modal.type === "coop" ? (
           <CoopModal cooperative={modal.cooperative} setModal={setModal} />
         ) : null}
@@ -693,7 +730,10 @@ function ContactModal({ title }: { title: string }) {
         </label>
         <label>
           Project
-          <textarea name="message" placeholder="What would you like to explore?" />
+          <textarea
+            name="message"
+            placeholder="What would you like to explore?"
+          />
         </label>
         <button className="button button--primary" type="button">
           Send request
@@ -728,11 +768,7 @@ function MembersModal() {
   );
 }
 
-function NetworkModal({
-  setModal
-}: {
-  setModal: (modal: ModalState) => void;
-}) {
+function NetworkModal({ setModal }: { setModal: (modal: ModalState) => void }) {
   return (
     <>
       <h2>Full network</h2>
@@ -755,7 +791,7 @@ function NetworkModal({
 
 function CoopModal({
   cooperative,
-  setModal
+  setModal,
 }: {
   cooperative: Cooperative;
   setModal: (modal: ModalState) => void;
@@ -796,13 +832,14 @@ function CoopModal({
 
 function Lightbox({
   index,
-  setModal
+  setModal,
 }: {
   index: number;
   setModal: (modal: ModalState) => void;
 }) {
   const image = communityImages[index];
-  const previous = (index + communityImages.length - 1) % communityImages.length;
+  const previous =
+    (index + communityImages.length - 1) % communityImages.length;
   const next = (index + 1) % communityImages.length;
 
   return (
