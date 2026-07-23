@@ -1122,10 +1122,13 @@ main {
 
 .membership-card li::before {
   color: rgba(0, 16, 59, 0.3);
-  content: "↗";
+  content: "→";
+  display: inline-flex;
   font-family: var(--font-display);
   font-size: 20px;
+  justify-content: center;
   margin-right: 12px;
+  width: 20px;
 }
 
 .membership-card--dark li::before {
@@ -1178,17 +1181,12 @@ main {
   position: relative;
 }
 
-.qualification-grid::before,
 .qualification-grid::after {
   border-top: 1px dashed var(--color-grid-light);
   content: "";
   left: -88px;
   position: absolute;
   right: -88px;
-}
-
-.qualification-grid::before {
-  top: 0;
 }
 
 .qualification-grid::after {
@@ -1224,6 +1222,20 @@ main {
   position: absolute;
   right: 24px;
   top: 102px;
+}
+
+.qualification article:not(:first-child)::after {
+  background:
+    linear-gradient(var(--color-blue), var(--color-blue)) center / 1px 26px no-repeat,
+    linear-gradient(var(--color-blue), var(--color-blue)) center / 26px 1px no-repeat;
+  content: "";
+  height: 26px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 26px;
+  z-index: 2;
 }
 
 .qualification article > span {
