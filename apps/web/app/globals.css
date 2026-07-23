@@ -440,6 +440,7 @@ main {
 }
 
 .button--quote {
+  background: var(--color-green);
   gap: 18px;
   padding: 0 0 0 24px;
 }
@@ -461,13 +462,7 @@ main {
 
 .button--quote:hover,
 .button--quote:focus-visible {
-  background: var(--color-sky);
-}
-
-.button--quote:hover .button__arrow,
-.button--quote:focus-visible .button__arrow {
-  background: var(--color-green);
-  color: var(--color-blue);
+  background: var(--gradient-action);
 }
 
 .button--small {
