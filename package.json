@@ -1,0 +1,14 @@
+{
+  "name": "patio-web",
+  "private": true,
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @patio/web",
+    "build": "npm run build -w @patio/web",
+    "start": "npm run start -w @patio/web",
+    "lint": "npm run lint -w @patio/web",
+    "typecheck": "npm run typecheck -w @patio/web"
+  }
+}
