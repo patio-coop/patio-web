@@ -179,22 +179,22 @@ export const processSteps = [
   {
     number: "02",
     title: "Building the right team",
-    text: "We bring together the cooperatives and members best suited to the project."
+    text: "We find the right team for your project and manage the entire recruitment process."
   },
   {
     number: "03",
-    title: "Proposal & process",
-    text: "We prepare a structured scope, timeline, budget, and collaboration plan."
+    title: "Proposal & Roadmap",
+    text: "We present a detailed quote, introduce the team, and outline the collaboration plan."
   },
   {
     number: "04",
-    title: "Team assignment",
-    text: "You meet the delivery team and align on rituals, roles, and expectations."
+    title: "Team Assessment",
+    text: "You review the team and have the opportunity to ask any questions."
   },
   {
     number: "05",
     title: "Project kickoff",
-    text: "Once aligned, we begin the work and keep communication transparent."
+    text: "Once agreed, we schedule a kickoff meeting to start the project."
   }
 ];
 

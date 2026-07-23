@@ -812,47 +812,150 @@ main {
 }
 
 .process {
-  min-height: 960px;
-  padding: 170px 88px 120px;
+  background: var(--color-off-white);
+  min-height: 910px;
+  overflow: hidden;
+  padding: 124px 88px 120px;
+}
+
+.process::after {
+  background:
+    radial-gradient(circle at 8px calc(100% - 8px), var(--color-sky) 0 7px, transparent 8px),
+    linear-gradient(155deg, transparent 0 41%, var(--color-sky) 41% 42%, var(--color-green) 58% 59%, transparent 59% 100%);
+  content: "";
+  height: 330px;
+  pointer-events: none;
+  position: absolute;
+  right: 92px;
+  top: -30px;
+  width: 280px;
+}
+
+.process .section-intro {
+  max-width: 560px;
+}
+
+.process .section-intro span {
+  color: rgba(0, 16, 59, 0.48);
+}
+
+.process .section-intro h2 {
+  font-size: clamp(42px, 3.8vw, 56px);
+}
+
+.process .section-intro p {
+  font-size: 18px;
+  line-height: 1.45;
 }
 
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  margin-top: 72px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 150px;
+  position: relative;
+}
+
+.process-grid::before,
+.process-grid::after {
+  border-top: 1px dashed var(--color-grid-light);
+  content: "";
+  left: -88px;
+  position: absolute;
+  right: -88px;
+}
+
+.process-grid::before {
+  top: 0;
+}
+
+.process-grid::after {
+  bottom: 0;
 }
 
 .process-card {
-  border-top: 2px solid var(--color-sky);
-  min-height: 240px;
-  padding: 24px 18px;
+  --step-color: var(--color-sky);
+  border-left: 1px dashed var(--color-grid-light);
+  min-height: 296px;
+  padding: 0 28px 52px;
+  position: relative;
 }
 
-.process-card:nth-child(n + 3) {
-  border-top-color: var(--color-green);
+.process-card:nth-child(2) {
+  --step-color: #8ed6e4;
+}
+
+.process-card:nth-child(3) {
+  --step-color: #67dfa7;
+}
+
+.process-card:nth-child(4) {
+  --step-color: #64e795;
+}
+
+.process-card:nth-child(5) {
+  --step-color: var(--color-green);
+  border-right: 1px dashed var(--color-grid-light);
+}
+
+.process-card:not(:first-child)::after {
+  background:
+    linear-gradient(var(--color-blue), var(--color-blue)) center / 1px 26px no-repeat,
+    linear-gradient(var(--color-blue), var(--color-blue)) center / 26px 1px no-repeat;
+  content: "";
+  height: 26px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 26px;
+}
+
+.process-card::before {
+  background:
+    linear-gradient(90deg, var(--step-color) 0 61%, transparent 61% 66%, var(--step-color) 66% 68%, transparent 68% 71%, var(--step-color) 71% 73%, transparent 73% 76%, var(--step-color) 76% 78%, transparent 78% 81%, var(--step-color) 81% 83%, transparent 83% 86%, var(--step-color) 86% 88%, transparent 88% 91%, var(--step-color) 91% 93%, transparent 93% 96%, var(--step-color) 96% 100%);
+  content: "";
+  height: 6px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 96px;
 }
 
 .process-card strong {
-  color: var(--color-sky);
+  color: var(--step-color);
+  display: block;
   font-family: var(--font-display);
-  font-size: 64px;
+  font-size: 72px;
   font-weight: 400;
+  line-height: 1;
+  margin-bottom: 92px;
 }
 
 .process-card h3 {
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 400;
+  line-height: 1.12;
+  margin: 0 0 18px;
   text-transform: uppercase;
 }
 
 .process-card p {
-  font-size: 13px;
-  line-height: 1.45;
+  font-size: 18px;
+  line-height: 1.35;
+  margin: 0;
 }
 
 .process > .button {
+  background: var(--color-green);
   float: right;
+  margin-top: 0;
+  min-width: 244px;
+}
+
+.process > .button:hover,
+.process > .button:focus-visible {
+  background: var(--gradient-action);
 }
 
 .membership {
@@ -2019,6 +2122,33 @@ main {
   .process-grid,
   .qualification-grid {
     grid-template-columns: 1fr;
+  }
+
+  .process::after {
+    display: none;
+  }
+
+  .process-grid {
+    margin-top: 72px;
+  }
+
+  .process-grid::before,
+  .process-grid::after {
+    left: -16px;
+    right: -16px;
+  }
+
+  .process-card {
+    border-right: 1px dashed var(--color-grid-light);
+    min-height: 260px;
+  }
+
+  .process-card:not(:first-child)::after {
+    display: none;
+  }
+
+  .process > .button {
+    width: 100%;
   }
 
   .work-card {

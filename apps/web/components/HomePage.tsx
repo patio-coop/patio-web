@@ -223,9 +223,9 @@ export function HomePage() {
           aria-labelledby="process-heading"
         >
           <SectionIntro
-            eyebrow="03"
+            eyebrow="ID:90192"
             title="How we work"
-            text="Our collaboration process is transparent and designed to pair needs with the right cooperative team."
+            text="Our collaboration process is transparent and tailored to your needs. Here's how we guide you from the first conversation to project kickoff, ensuring clarity and confidence every step of the way:"
           />
           <div className="process-grid">
             {processSteps.map((step) => (
