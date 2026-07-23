@@ -10,17 +10,19 @@ New Patio website implemented with Next.js, React, and TypeScript.
 
 ## Installation
 
-From the project root:
+Clone the repository and install its dependencies:
 
 ```sh
-cd /Users/martinvallone/dev/patio-web
+git clone https://github.com/patio-coop/patio-web.git
+cd patio-web
 npm install
 ```
 
 ## Local Development
 
+From the project root:
+
 ```sh
-cd /Users/martinvallone/dev/patio-web
 npm run dev
 ```
 
@@ -33,8 +35,7 @@ http://localhost:3000
 If port `3000` is already in use, Next.js may offer another port. You can also force the local host:
 
 ```sh
-cd /Users/martinvallone/dev/patio-web/apps/web
-npm run dev -- -H 127.0.0.1
+npm run dev -w @patio/web -- -H 127.0.0.1
 ```
 
 The same workflow is available through `make`:
@@ -110,7 +111,6 @@ make docker-shell
 Before shipping changes, run:
 
 ```sh
-cd /Users/martinvallone/dev/patio-web
 make validate
 ```
 
