@@ -818,17 +818,14 @@ main {
   padding: 124px 88px 120px;
 }
 
-.process::after {
-  background:
-    radial-gradient(circle at 8px calc(100% - 8px), var(--color-sky) 0 7px, transparent 8px),
-    linear-gradient(155deg, transparent 0 41%, var(--color-sky) 41% 42%, var(--color-green) 58% 59%, transparent 59% 100%);
+.process::before {
+  border-left: 1px dashed var(--color-grid-light);
   content: "";
-  height: 330px;
+  height: 600px;
+  left: calc(60% + 35px);
   pointer-events: none;
   position: absolute;
-  right: 92px;
-  top: -30px;
-  width: 280px;
+  top: 0;
 }
 
 .process .section-intro {
@@ -846,6 +843,31 @@ main {
 .process .section-intro p {
   font-size: 18px;
   line-height: 1.45;
+}
+
+.process-curve {
+  height: 360px;
+  pointer-events: none;
+  position: absolute;
+  right: 122px;
+  top: 0;
+  width: 260px;
+}
+
+.process-curve svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.process-curve span {
+  bottom: 68px;
+  color: var(--color-blue);
+  font-family: var(--font-display);
+  font-size: 16px;
+  left: 90px;
+  line-height: 1.1;
+  position: absolute;
 }
 
 .process-grid {
@@ -897,16 +919,16 @@ main {
   border-right: 1px dashed var(--color-grid-light);
 }
 
-.process-card:not(:first-child)::after {
+.process-card:nth-child(2)::after {
   background:
     linear-gradient(var(--color-blue), var(--color-blue)) center / 1px 26px no-repeat,
     linear-gradient(var(--color-blue), var(--color-blue)) center / 26px 1px no-repeat;
+  bottom: 0;
   content: "";
   height: 26px;
-  left: 0;
   position: absolute;
-  top: 0;
-  transform: translate(-50%, -50%);
+  right: 0;
+  transform: translate(50%, 50%);
   width: 26px;
 }
 
@@ -960,23 +982,62 @@ main {
 
 .membership {
   background: var(--color-soft);
-  min-height: 1000px;
-  padding: 0 88px 140px;
+  min-height: 1737px;
+  overflow: hidden;
+  padding: 105px 88px 140px;
+}
+
+.membership::before {
+  background:
+    linear-gradient(90deg, transparent 87px, var(--color-grid-light) 88px, transparent 89px),
+    linear-gradient(90deg, transparent 946px, var(--color-grid-light) 947px, transparent 948px),
+    linear-gradient(90deg, transparent 1285px, var(--color-grid-light) 1286px, transparent 1287px),
+    linear-gradient(var(--color-grid-light) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 401px;
+  content: "";
+  inset: 0;
+  opacity: 0.45;
+  pointer-events: none;
+  position: absolute;
+}
+
+.membership .section-intro {
+  margin-left: auto;
+  max-width: 405px;
+  position: relative;
+  text-align: right;
+  z-index: 1;
+}
+
+.membership .section-intro span {
+  color: rgba(0, 16, 59, 0.5);
+}
+
+.membership .section-intro h2 {
+  font-size: 48px;
+  margin-bottom: 22px;
+}
+
+.membership .section-intro p {
+  font-size: 16px;
+  line-height: 1.4;
 }
 
 .membership-model {
   display: grid;
-  grid-template-columns: minmax(300px, 520px) minmax(260px, 420px);
   gap: 0;
-  justify-content: center;
-  padding-top: 90px;
+  grid-template-columns: minmax(0, 723px) minmax(0, 541px);
+  margin-top: 64px;
+  position: relative;
+  z-index: 1;
 }
 
 .membership-card {
   background: #d6e7f1;
   color: var(--color-blue);
-  min-height: 330px;
-  padding: 34px;
+  min-height: 390px;
+  padding: 34px 40px 0;
+  position: relative;
 }
 
 .membership-card--dark {
@@ -991,26 +1052,106 @@ main {
   text-transform: uppercase;
 }
 
+.membership-card > span {
+  align-items: center;
+  background: rgba(148, 201, 231, 0.48);
+  color: var(--color-blue);
+  display: inline-flex;
+  font-size: 24px;
+  height: 48px;
+  justify-content: center;
+  left: 0;
+  min-width: 280px;
+  position: absolute;
+  top: -48px;
+}
+
+.membership-card--dark > span {
+  background: rgba(53, 255, 56, 0.48);
+}
+
 .membership-card strong {
-  color: var(--color-green);
+  color: var(--color-blue);
   display: block;
   font-family: var(--font-display);
-  font-size: 48px;
+  font-size: 62px;
   font-weight: 400;
-  margin: 16px 0;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.membership-card--dark strong {
+  color: var(--color-green);
+}
+
+.membership-card strong span {
+  font-family: var(--font-display);
+  font-size: 24px;
+}
+
+.membership-card em {
+  color: rgba(0, 16, 59, 0.5);
+  display: block;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-style: normal;
+  line-height: 1;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.membership-card--dark em {
+  color: rgba(247, 247, 247, 0.52);
+}
+
+.membership-card ul {
+  display: grid;
+  gap: 18px;
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+}
+
+.membership-card li {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.membership-card li::before {
+  color: rgba(0, 16, 59, 0.3);
+  content: "↗";
+  font-family: var(--font-display);
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+.membership-card--dark li::before {
+  color: rgba(247, 247, 247, 0.3);
 }
 
 .membership-card p {
+  display: none;
   line-height: 1.55;
   max-width: 380px;
 }
 
 .membership-card .button {
-  margin-top: 28px;
+  bottom: 0;
+  position: absolute;
+  right: 0;
+}
+
+.membership-card--dark .button {
+  background: var(--color-green);
 }
 
 .qualification {
-  margin-top: 120px;
+  margin-top: 214px;
+  position: relative;
+  z-index: 1;
 }
 
 .qualification-grid {
@@ -2124,7 +2265,8 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .process::after {
+  .process::before,
+  .process-curve {
     display: none;
   }
 
@@ -2157,7 +2299,16 @@ main {
 
   .membership-model {
     grid-template-columns: 1fr;
-    padding-top: 0;
+    gap: 88px;
+    margin-top: 88px;
+  }
+
+  .membership-card {
+    min-height: 430px;
+  }
+
+  .membership-card > span {
+    min-width: min(280px, 100%);
   }
 
   .philosophy {

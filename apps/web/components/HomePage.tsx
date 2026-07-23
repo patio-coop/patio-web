@@ -227,6 +227,30 @@ export function HomePage() {
             title="How we work"
             text="Our collaboration process is transparent and tailored to your needs. Here's how we guide you from the first conversation to project kickoff, ensuring clarity and confidence every step of the way:"
           />
+          <div className="process-curve" aria-hidden="true">
+            <svg viewBox="0 0 260 360" role="presentation">
+              <defs>
+                <linearGradient id="processCurveGradient" x1="59" y1="323" x2="227" y2="0">
+                  <stop offset="0" stopColor="#96d8fd" />
+                  <stop offset="0.62" stopColor="#96d8fd" />
+                  <stop offset="1" stopColor="#35ff38" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M62 323 C42 226 132 182 185 130 C235 81 229 30 229 0"
+                fill="none"
+                stroke="url(#processCurveGradient)"
+                strokeLinecap="round"
+                strokeWidth="5"
+              />
+              <circle cx="62" cy="323" fill="#96d8fd" r="9" />
+            </svg>
+            <span>
+              USR
+              <br />
+              12421
+            </span>
+          </div>
           <div className="process-grid">
             {processSteps.map((step) => (
               <article className="process-card" key={step.number}>
@@ -247,10 +271,23 @@ export function HomePage() {
         </section>
 
         <section className="section membership" id="membership">
+          <SectionIntro
+            eyebrow="04"
+            title="Membership model"
+            text="Be part of a global network where tech cooperatives collaborate, share work, and grow together. Join for free - or contribute and unlock full access to opportunities."
+          />
           <div className="membership-model">
             <article className="membership-card membership-card--dark">
               <span>Full Patio</span>
-              <strong>€500</strong>
+              <strong>€500<span>/ year</span></strong>
+              <em>or qualify via contribution</em>
+              <ul>
+                <li>Access to jobs & client opportunities</li>
+                <li>Voting rights & governance participation</li>
+                <li>Collaboration on projects & proposals</li>
+                <li>Member-only content & events</li>
+                <li>Access to paid projects</li>
+              </ul>
               <p>
                 Per cooperative, per year. Full access to Patio opportunities,
                 internal support, and collaborative network activity.
@@ -267,6 +304,13 @@ export function HomePage() {
             <article className="membership-card">
               <span>Free Patio</span>
               <strong>€0</strong>
+              <em>no fee required</em>
+              <ul>
+                <li>Basic coop profile</li>
+                <li>Access to workshops & knowledge sharing</li>
+                <li>Local network & mentorship</li>
+                <li>Advocacy opportunities</li>
+              </ul>
               <p>
                 A first access path for cooperatives exploring Patio,
                 mentorship, and open collaboration.
