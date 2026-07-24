@@ -668,7 +668,7 @@ export function HomePage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer setModal={setModal} />
       <Modal modal={modal} setModal={setModal} />
     </>
   );
@@ -872,60 +872,175 @@ function SectionIntro({
   );
 }
 
-function Footer() {
+function Footer({
+  setModal,
+}: {
+  setModal: (modal: ModalState) => void;
+}) {
+  const footerIndustries = [
+    { label: "AI Product Dev", href: sitePath("/ai-product-development/") },
+    { label: "GovTech", href: "#industries" },
+    { label: "Web 3", href: "#industries" },
+    { label: "CyberSecurity", href: "#industries" },
+    { label: "HealthTech", href: "#industries" },
+    { label: "EdTech", href: "#industries" },
+    { label: "FinTech", href: "#industries" },
+  ];
+  const footerServices = [
+    "Full-Stack Development",
+    "UI/UX Design & Animation",
+    "Branding & Creative",
+    "Mobile Development",
+    "IoT",
+    "DevOps",
+    "Blockchain",
+    "Machine Learning",
+  ];
+
   return (
     <footer className="site-footer">
-      <div className="footer-grid">
-        <a className="brand" href="#top" aria-label="Back to top">
-          <Image
-            className="brand-logo"
-            src={sitePath("/assets/patio-logo.svg")}
-            alt=""
-            width={107}
-            height={27}
-          />
-        </a>
-        <div>
+      <div className="footer-guides" aria-hidden="true">
+        <span className="footer-guide footer-guide--top" />
+        <span className="footer-guide footer-guide--bottom" />
+        <span className="footer-guide footer-guide--outer-left" />
+        <span className="footer-guide footer-guide--outer-right" />
+        <span className="footer-guide footer-guide--column-1" />
+        <span className="footer-guide footer-guide--column-2" />
+        <span className="footer-guide footer-guide--column-3" />
+        <span className="footer-guide footer-guide--column-4" />
+        <span className="footer-guide footer-guide--row-1" />
+        <span className="footer-guide footer-guide--row-2" />
+        <span className="footer-guide footer-guide--row-3" />
+        <span className="footer-guide footer-guide--row-4" />
+        <span className="footer-guide footer-guide--bottom-column" />
+        <span className="footer-cross footer-cross--left" />
+        <span className="footer-cross footer-cross--center" />
+        <span className="footer-cross footer-cross--right" />
+      </div>
+
+      <a className="footer-logo" href="#top" aria-label="Back to top">
+        <Image
+          src={sitePath("/assets/patio-logo.svg")}
+          alt="Patio"
+          width={136}
+          height={35}
+        />
+      </a>
+
+      <nav className="footer-navigation" aria-label="Footer">
+        <a
+          className="footer-menu footer-menu--who"
+          href="#who-we-are"
+        >
+          <span className="footer-menu__index">01</span>
           <h2>Who we are</h2>
-          <a href="#who-we-are">Network</a>
-          <a href="#membership">Membership</a>
-          <a href="#community">Community</a>
+        </a>
+
+        <div className="footer-menu footer-menu--industries">
+          <a className="footer-menu__heading" href="#industries">
+            <span className="footer-menu__index">02</span>
+            <h2>Industries</h2>
+          </a>
+          <div className="footer-menu__items">
+            {footerIndustries.map((item) => (
+              <a href={item.href} key={item.label}>
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
-        <div>
-          <h2>Industries</h2>
-          {industries.slice(0, 5).map((item) => (
-            <a
-              href={
-                item === "AI Product Dev"
-                  ? sitePath("/ai-product-development/")
-                  : "#industries"
-              }
-              key={item}
-            >
-              {item}
-            </a>
-          ))}
+
+        <div className="footer-menu footer-menu--services">
+          <a className="footer-menu__heading" href="#services">
+            <span className="footer-menu__index">03</span>
+            <h2>Services</h2>
+          </a>
+          <div className="footer-menu__items">
+            {footerServices.map((item) => (
+              <a href="#services" key={item}>
+                {item}
+              </a>
+            ))}
+          </div>
         </div>
-        <div>
-          <h2>Services</h2>
-          {services.slice(0, 6).map((item) => (
-            <a href="#services" key={item}>
-              {item}
-            </a>
-          ))}
+
+        <div className="footer-menu footer-menu--work">
+          <a className="footer-menu__heading" href="#how-we-work">
+            <span className="footer-menu__index">04</span>
+            <h2>How we work</h2>
+          </a>
+          <div className="footer-menu__items">
+            <a href="#membership">Membership Model</a>
+            <a href="#qualification">Ways to Qualify</a>
+          </div>
         </div>
-        <div>
-          <h2>How we work</h2>
-          <a href="#how-we-work">Process</a>
-          <a href="#philosophy">Our philosophy</a>
-          <a href="#community">Community building</a>
+
+        <a
+          className="footer-menu footer-menu--philosophy"
+          href="#philosophy"
+        >
+          <span className="footer-menu__index">05</span>
+          <h2>Our philosophy</h2>
+        </a>
+
+        <a
+          className="footer-menu footer-menu--community"
+          href="#community"
+        >
+          <span className="footer-menu__index">06</span>
+          <h2>Community building</h2>
+        </a>
+
+        <button
+          className="footer-menu footer-menu--members"
+          onClick={() => setModal({ type: "members" })}
+          type="button"
+        >
+          <span className="footer-menu__index">07</span>
+          <span className="footer-menu__title">Members</span>
+        </button>
+      </nav>
+
+      <div className="footer-social">
+        <h2>Stay connected</h2>
+        <div className="footer-social__links">
+          <a
+            aria-label="Patio on LinkedIn"
+            href="https://www.linkedin.com/company/94212705"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <span className="footer-social__icon footer-social__icon--linkedin">
+              in
+            </span>
+          </a>
+          <span
+            aria-label="Instagram"
+            className="footer-social__icon footer-social__icon--instagram"
+            role="img"
+          >
+            <i />
+          </span>
+          <a
+            aria-label="Patio on X"
+            href="https://twitter.com/patiocoop"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <span className="footer-social__icon footer-social__icon--x">
+              X
+            </span>
+          </a>
         </div>
       </div>
+
       <div className="footer-bottom">
         <span>© 2026 Patio.coop. All rights reserved.</span>
-        <a href={sitePath("/privacy/")}>Privacy Policy</a>
-        <a href={sitePath("/terms/")}>Terms & Conditions</a>
-        <a href={sitePath("/cookies/")}>Cookie Policy</a>
+        <div className="footer-legal">
+          <a href={sitePath("/privacy/")}>Privacy Policy</a>
+          <a href={sitePath("/terms/")}>Terms &amp; Conditions</a>
+          <a href={sitePath("/cookies/")}>Cookie Policy</a>
+        </div>
       </div>
     </footer>
   );
