@@ -1,14 +1,28 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { services } from "@/data/home";
+import { sitePath } from "@/lib/sitePath";
 
 export default function AiProductDevelopmentPage() {
   return (
     <main className="internal-page">
       <header className="internal-header">
         <Link className="brand" href="/">
-          <span className="brand-mark" aria-hidden="true" />
-          <span>PATIO</span>
+          <Image
+            className="brand-mark"
+            src={sitePath("/assets/brand-mark.svg")}
+            alt=""
+            width={23}
+            height={23}
+          />
+          <Image
+            className="brand-wordmark"
+            src={sitePath("/assets/figma/logotype-3.svg")}
+            alt=""
+            width={61}
+            height={15}
+          />
         </Link>
         <Link className="button button--pale" href="/#what-we-do">
           Back

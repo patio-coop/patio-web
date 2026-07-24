@@ -352,6 +352,11 @@ export function HomePage() {
             </article>
           </div>
           <div className="qualification" id="qualification">
+            <div className="qualification-crosses" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
             <SectionIntro
               eyebrow=""
               title="Ways to qualify for full membership"
@@ -528,16 +533,25 @@ function Header({
   return (
     <header className={`site-header ${hidden ? "site-header--hidden" : ""}`}>
       <a className="brand" href="#top" aria-label="Patio home">
-        <span className="brand-mark" aria-hidden="true" />
-        <span>PATIO</span>
+        <Image
+          className="brand-logo"
+          src={sitePath("/assets/patio-logo.svg")}
+          alt=""
+          width={107}
+          height={27}
+        />
       </a>
       <nav className="desktop-nav" aria-label="Main navigation">
         {navItems.map((item) => (
           <div className="nav-item" key={item.label}>
             <a href={item.href}>
-              <span>{item.index}</span>
-              {item.label}
-              {item.groups ? <b aria-hidden="true">⌄</b> : null}
+              <span className="nav-item__content">
+                <span className="nav-item__index">{item.index}</span>
+                <span className="nav-item__label">
+                  {item.label}
+                  {item.groups ? <b aria-hidden="true">⌄</b> : null}
+                </span>
+              </span>
             </a>
             {item.groups ? (
               <div className="nav-dropdown">
@@ -708,8 +722,13 @@ function Footer() {
     <footer className="site-footer">
       <div className="footer-grid">
         <a className="brand" href="#top" aria-label="Back to top">
-          <span className="brand-mark" aria-hidden="true" />
-          <span>PATIO</span>
+          <Image
+            className="brand-logo"
+            src={sitePath("/assets/patio-logo.svg")}
+            alt=""
+            width={107}
+            height={27}
+          />
         </a>
         <div>
           <h2>Who we are</h2>

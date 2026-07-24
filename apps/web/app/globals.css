@@ -83,33 +83,30 @@ main {
   display: inline-flex;
   font-family: var(--font-display);
   font-size: 27px;
-  gap: 9px;
   letter-spacing: 0;
   padding: 0 24px;
 }
 
-.brand-mark {
-  background: linear-gradient(180deg, #c5d7e2 0%, #96d8fd 58%, #54f466 100%);
-  border-radius: 50%;
-  display: inline-block;
+.site-header .brand {
+  padding-left: 32px;
+}
+
+.brand-logo {
   height: 27px;
-  position: relative;
-  width: 27px;
+  max-width: none;
+  width: 107px;
 }
 
-.brand-mark::before,
-.brand-mark::after {
-  border: 2px solid var(--color-off-white);
-  border-left-color: transparent;
-  border-right-color: transparent;
-  border-radius: 50%;
-  content: "";
-  inset: 5px 0;
-  position: absolute;
+.brand-mark {
+  height: 23px;
+  max-width: none;
+  width: 23px;
 }
 
-.brand-mark::after {
-  inset: 10px 1px;
+.brand-wordmark {
+  height: auto;
+  max-width: none;
+  width: 61px;
 }
 
 .desktop-nav {
@@ -125,7 +122,6 @@ main {
 .nav-item > a {
   align-items: center;
   display: flex;
-  flex-direction: column;
   font-family: var(--font-display);
   font-size: 18px;
   height: 100%;
@@ -136,13 +132,24 @@ main {
   text-transform: uppercase;
 }
 
-.nav-item > a span {
+.nav-item__content {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.nav-item__index {
   color: rgba(247, 247, 247, 0.42);
   font-size: 14px;
   margin-bottom: 7px;
 }
 
-.nav-item > a b {
+.nav-item__label {
+  white-space: nowrap;
+}
+
+.nav-item__label b {
   font-family: var(--font-body);
   font-size: 15px;
   font-weight: 400;
@@ -1153,9 +1160,76 @@ main {
 }
 
 .qualification {
+  isolation: isolate;
   margin-top: 214px;
   position: relative;
   z-index: 1;
+}
+
+.qualification::before {
+  border-top: 1px dashed var(--color-grid-light);
+  content: "";
+  left: -88px;
+  position: absolute;
+  right: -88px;
+  top: -95px;
+}
+
+.qualification::after {
+  background:
+    repeating-linear-gradient(
+        to bottom,
+        var(--color-grid-light) 0 3px,
+        transparent 3px 6px
+      )
+      88px top / 1px 100% no-repeat,
+    repeating-linear-gradient(
+        to bottom,
+        var(--color-grid-light) 0 3px,
+        transparent 3px 6px
+      )
+      calc(100% - 88px) top / 1px 100% no-repeat,
+    var(--color-soft);
+  bottom: -96px;
+  content: "";
+  left: -88px;
+  position: absolute;
+  right: -88px;
+  top: -95px;
+  z-index: -1;
+}
+
+.qualification-crosses {
+  height: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: -95px;
+  z-index: 2;
+}
+
+.qualification-crosses span {
+  background:
+    linear-gradient(var(--color-blue), var(--color-blue)) center / 1px 26px no-repeat,
+    linear-gradient(var(--color-blue), var(--color-blue)) center / 26px 1px no-repeat;
+  height: 26px;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 26px;
+}
+
+.qualification-crosses span:first-child {
+  left: 0;
+}
+
+.qualification-crosses span:nth-child(2) {
+  left: 57.278%;
+}
+
+.qualification-crosses span:last-child {
+  right: 0;
+  transform: translate(50%, -50%);
 }
 
 .qualification .section-intro {
@@ -1175,6 +1249,7 @@ main {
 }
 
 .qualification-grid {
+  background: var(--color-soft);
   display: grid;
   gap: 0;
   grid-template-columns: repeat(3, 1fr);
@@ -1182,6 +1257,7 @@ main {
   position: relative;
 }
 
+.qualification-grid::before,
 .qualification-grid::after {
   border-top: 1px dashed var(--color-grid-light);
   content: "";
@@ -1190,13 +1266,16 @@ main {
   right: -88px;
 }
 
+.qualification-grid::before {
+  top: 0;
+}
+
 .qualification-grid::after {
   bottom: 0;
 }
 
 .qualification article {
   --path-color: #61b4e3;
-  border-left: 1px dashed var(--color-grid-light);
   display: flex;
   flex-direction: column;
   min-height: 342px;
@@ -1206,37 +1285,46 @@ main {
 
 .qualification article:nth-child(2) {
   --path-color: #8ed6e4;
+  border-left: 1px dashed var(--color-grid-light);
   padding-left: 0;
 }
 
 .qualification article:nth-child(3) {
   --path-color: #6bdba0;
-  border-right: 1px dashed var(--color-grid-light);
+  border-left: 1px dashed var(--color-grid-light);
 }
 
 .qualification article::before {
-  background:
-    linear-gradient(90deg, var(--path-color) 0 70%, transparent 70% 74%, var(--path-color) 74% 76%, transparent 76% 79%, var(--path-color) 79% 81%, transparent 81% 84%, var(--path-color) 84% 86%, transparent 86% 89%, var(--path-color) 89% 91%, transparent 91% 94%, var(--path-color) 94% 96%, transparent 96% 98%, var(--path-color) 98% 100%);
+  background: linear-gradient(
+    90deg,
+    var(--path-color) 0 62%,
+    transparent 62% 63%,
+    var(--path-color) 63% 67%,
+    transparent 67% 68.2%,
+    var(--path-color) 68.2% 69.4%,
+    transparent 69.4% 71.1%,
+    var(--path-color) 71.1% 74.2%,
+    transparent 74.2% 75.1%,
+    var(--path-color) 75.1% 76.2%,
+    transparent 76.2% 78.5%,
+    var(--path-color) 78.5% 81.4%,
+    transparent 81.4% 83.1%,
+    var(--path-color) 83.1% 84.2%,
+    transparent 84.2% 87.1%,
+    var(--path-color) 87.1% 89.6%,
+    transparent 89.6% 90.7%,
+    var(--path-color) 90.7% 91.5%,
+    transparent 91.5% 94.1%,
+    var(--path-color) 94.1% 96.4%,
+    transparent 96.4% 98%,
+    var(--path-color) 98% 100%
+  );
   content: "";
   height: 7px;
   left: 0;
   position: absolute;
   right: 24px;
   top: 102px;
-}
-
-.qualification article:not(:first-child)::after {
-  background:
-    linear-gradient(var(--color-blue), var(--color-blue)) center / 1px 26px no-repeat,
-    linear-gradient(var(--color-blue), var(--color-blue)) center / 26px 1px no-repeat;
-  content: "";
-  height: 26px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transform: translate(-50%, -50%);
-  width: 26px;
-  z-index: 2;
 }
 
 .qualification article > span {
@@ -1266,7 +1354,11 @@ main {
 }
 
 .qualification article .button {
-  bottom: -59px;
+  bottom: -48px;
+  font-size: 16px;
+  min-height: 48px;
+  min-width: 180px;
+  padding: 0 30px;
   position: absolute;
   right: 0;
 }
@@ -2380,10 +2472,28 @@ main {
     margin-top: 72px;
   }
 
+  .qualification::before {
+    left: -16px;
+    right: -16px;
+  }
+
+  .qualification::after {
+    display: none;
+  }
+
+  .qualification-crosses {
+    display: none;
+  }
+
   .qualification article {
+    border-left: 1px dashed var(--color-grid-light);
     border-right: 1px dashed var(--color-grid-light);
     min-height: 320px;
     padding-right: 0;
+  }
+
+  .qualification article::after {
+    display: none;
   }
 
   .qualification article .button {
