@@ -1683,38 +1683,136 @@ main {
 }
 
 .philosophy {
-  display: grid;
-  gap: 70px;
-  grid-template-columns: minmax(280px, 420px) 1fr;
-  min-height: 860px;
-  padding: 160px 88px 120px;
+  background:
+    repeating-linear-gradient(
+        to right,
+        var(--color-grid-light) 0 3px,
+        transparent 3px 6px
+      )
+      0 159px / 100% 1px no-repeat,
+    repeating-linear-gradient(
+        to right,
+        var(--color-grid-light) 0 3px,
+        transparent 3px 6px
+      )
+      0 714px / 100% 1px no-repeat,
+    repeating-linear-gradient(
+        to bottom,
+        var(--color-grid-light) 0 3px,
+        transparent 3px 6px
+      )
+      50% 0 / 1px 100% no-repeat,
+    var(--color-off-white);
+  height: 875px;
+  min-height: 875px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.philosophy-signal {
+  height: 30px;
+  left: 0;
+  position: absolute;
+  top: 52px;
+  width: 412px;
+}
+
+.philosophy-signal img {
+  display: block;
+  height: 30px;
+  max-width: none;
+  width: 364px;
+}
+
+.philosophy-signal span {
+  font-family: var(--font-display);
+  font-size: 14px;
+  left: 376px;
+  line-height: 15px;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0;
+}
+
+.philosophy-copy {
+  left: 6.111%;
+  position: absolute;
+  top: 265px;
+  width: 29.167%;
+}
+
+.philosophy-copy__index {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 15px;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+.philosophy-copy h2 {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 48px;
+  margin: 16px 0 0;
+  text-transform: uppercase;
+}
+
+.philosophy-copy__body {
+  margin-top: 16px;
+}
+
+.philosophy-copy__body p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.philosophy-copy__body p + p {
+  margin-top: 20px;
+}
+
+.philosophy-copy .button {
+  background: var(--color-green);
+  height: 42px;
+  margin-top: 32px;
+  min-height: 42px;
+  min-width: 111px;
 }
 
 .philosophy-list {
   display: grid;
-  gap: 0;
+  grid-template-rows: repeat(5, 111px);
+  height: 555px;
+  left: 50.069%;
+  position: absolute;
+  right: 6.875%;
+  top: 160px;
 }
 
 .philosophy-list div {
-  border-top: 1px solid rgba(0, 16, 59, 0.28);
-  padding: 24px 0;
+  border-top: 1px solid var(--color-blue);
+  padding: 23px 0 0 1px;
+}
+
+.philosophy-list div:last-child {
+  border-bottom: 1px solid var(--color-blue);
 }
 
 .philosophy-list span {
   display: block;
   font-family: var(--font-display);
-  font-size: 18px;
-  margin-bottom: 8px;
+  font-size: 32px;
+  line-height: 32px;
   text-transform: uppercase;
 }
 
 .philosophy-list p {
-  margin: 0;
-}
-
-.philosophy .button {
-  align-self: start;
-  grid-column: 1;
+  color: rgba(0, 16, 59, 0.6);
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 4px 0 0;
 }
 
 .community {
@@ -2797,11 +2895,60 @@ main {
   }
 
   .philosophy {
-    display: block;
+    background: var(--color-off-white);
+    height: auto;
+    min-height: auto;
+    overflow: hidden;
+    padding: 96px 16px;
+  }
+
+  .philosophy-signal {
+    display: none;
+  }
+
+  .philosophy-copy {
+    left: auto;
+    position: static;
+    top: auto;
+    width: auto;
+  }
+
+  .philosophy-copy h2 {
+    font-size: 36px;
+    line-height: 1;
+    margin-top: 12px;
+  }
+
+  .philosophy-copy__body {
+    margin-top: 18px;
+    max-width: 520px;
+  }
+
+  .philosophy-copy .button {
+    margin-top: 32px;
   }
 
   .philosophy-list {
-    margin: 48px 0 28px;
+    grid-template-rows: none;
+    height: auto;
+    left: auto;
+    margin: 48px 0 0;
+    position: static;
+    right: auto;
+    top: auto;
+  }
+
+  .philosophy-list div {
+    padding: 22px 0;
+  }
+
+  .philosophy-list span {
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  .philosophy-list p {
+    margin-top: 8px;
   }
 
   .sociocracy-diagram {

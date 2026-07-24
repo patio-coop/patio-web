@@ -455,30 +455,51 @@ export function HomePage() {
           id="philosophy"
           aria-labelledby="philosophy-heading"
         >
-          <SectionIntro
-            eyebrow="06"
-            title="Our philosophy"
-            text="Patio is a community building complex solutions together through mutual support, trust, and real collaboration."
-          />
+          <div className="philosophy-signal" aria-hidden="true">
+            <Image
+              src={sitePath("/assets/philosophy-signal.svg")}
+              alt=""
+              width={364}
+              height={30}
+            />
+            <span>
+              USR
+              <br />
+              11491
+            </span>
+          </div>
+          <div className="philosophy-copy">
+            <span className="philosophy-copy__index">ID:14042</span>
+            <h2 id="philosophy-heading">Our philosophy</h2>
+            <div className="philosophy-copy__body">
+              <p>
+                Patio is a community helping people build worker-owned tech
+                companies.
+              </p>
+              <p>
+                Whether you&apos;re part of a co-op or just starting out, we
+                bring people together to share knowledge and support each
+                other.
+              </p>
+              <p>Our goal is simple: help you build a thriving tech co-op.</p>
+            </div>
+            <button
+              className="button button--small"
+              onClick={() =>
+                setModal({ type: "contact", title: "Join Patio" })
+              }
+            >
+              Join us
+            </button>
+          </div>
           <div className="philosophy-list">
             {philosophy.map((item) => (
-              <div key={item}>
-                <span>{item}</span>
-                <p>
-                  Working relationships are stronger when knowledge, ownership,
-                  and responsibility are shared.
-                </p>
+              <div key={item.title}>
+                <span>{item.title}</span>
+                <p>{item.text}</p>
               </div>
             ))}
           </div>
-          <button
-            className="button button--small"
-            onClick={() =>
-              setModal({ type: "contact", title: "Talk to Patio" })
-            }
-          >
-            Ask us
-          </button>
         </section>
 
         <section

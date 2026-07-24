@@ -217,11 +217,26 @@ export const qualificationPaths = [
 ];
 
 export const philosophy = [
-  "Supportive community",
-  "Shared learning",
-  "Diverse perspectives",
-  "Access to expertise",
-  "Real collaboration"
+  {
+    title: "Supportive community",
+    text: "Connect with people who genuinely want to help you succeed"
+  },
+  {
+    title: "Shared learning",
+    text: "Learn faster by building and solving problems together"
+  },
+  {
+    title: "Diverse perspectives",
+    text: "Collaborate with people from different backgrounds"
+  },
+  {
+    title: "Access to expertise",
+    text: "Tap into a network of experienced builders across disciplines"
+  },
+  {
+    title: "Real collaboration",
+    text: "Join teams and work on meaningful projects together"
+  }
 ];
 
 export const communityImages = [
