@@ -450,33 +450,118 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="section section--dark sociocracy">
-          <SectionIntro
-            eyebrow="05"
-            title="Sociocracy in action"
-            text="We organize collaboration through transparent circles, feedback loops, decisions by consent, and linking roles."
-            inverted
-          />
-          <div className="sociocracy-diagram" aria-label="Sociocracy diagram">
-            <div className="orbit orbit--outer" />
-            <div className="orbit orbit--inner" />
-            <div className="node node--top" />
-            <div className="node node--right" />
-            <div className="node node--bottom" />
-            <div className="node node--left" />
-            <div className="diagram-center">Patio circles</div>
-            <span className="diagram-label diagram-label--feedback">
-              Feedback
-            </span>
-            <span className="diagram-label diagram-label--circles">
-              Circles / team of peers
-            </span>
-            <span className="diagram-label diagram-label--decisions">
-              Decisions by consent
-            </span>
-            <span className="diagram-label diagram-label--links">
-              Linking & connection
-            </span>
+        <section
+          className="section section--dark sociocracy"
+          id="sociocracy"
+          aria-labelledby="sociocracy-heading"
+        >
+          <div className="sociocracy-frame" aria-hidden="true">
+            <span className="sociocracy-frame__guide sociocracy-frame__guide--header" />
+            <span className="sociocracy-frame__guide sociocracy-frame__guide--top" />
+            <span className="sociocracy-frame__guide sociocracy-frame__guide--bottom" />
+            <span className="sociocracy-frame__guide sociocracy-frame__guide--left" />
+            <span className="sociocracy-frame__guide sociocracy-frame__guide--right" />
+            <span className="sociocracy-frame__guide sociocracy-frame__guide--center-v" />
+            <span className="sociocracy-frame__guide sociocracy-frame__guide--center-h" />
+            <span className="sociocracy-frame__guide sociocracy-frame__guide--tail" />
+            <span className="sociocracy-frame__cross" />
+            <span className="sociocracy-frame__cap sociocracy-frame__cap--top" />
+            <span className="sociocracy-frame__cap sociocracy-frame__cap--bottom" />
+            <div className="sociocracy-signal">
+              <Image
+                src={sitePath("/assets/sociocracy-signal.svg")}
+                alt=""
+                width={250}
+                height={245}
+              />
+              <span>
+                USR
+                <br />
+                91240
+              </span>
+            </div>
+          </div>
+
+          <div className="sociocracy-intro">
+            <span>ID:90192</span>
+            <h2 id="sociocracy-heading">Sociocracy in action</h2>
+            <p>
+              We innovate and implement cutting-edge technologies to create
+              digital products and services, supported by our global community
+              to ensure top-tier results.
+            </p>
+          </div>
+
+          <div className="sociocracy-graphic" aria-label="Sociocracy diagram">
+            <span className="sociocracy-connector sociocracy-connector--feedback-h" />
+            <span className="sociocracy-connector sociocracy-connector--feedback-v" />
+            <span className="sociocracy-connector sociocracy-connector--feedback-tail" />
+            <span className="sociocracy-connector sociocracy-connector--circles" />
+            <span className="sociocracy-connector sociocracy-connector--decisions" />
+            <span className="sociocracy-connector sociocracy-connector--linking-tail" />
+            <span className="sociocracy-connector sociocracy-connector--linking-v" />
+            <span className="sociocracy-connector sociocracy-connector--linking-h" />
+
+            <article className="sociocracy-principle sociocracy-principle--feedback">
+              <h3>Feedback</h3>
+              <p>
+                Build in feedback and increase information flow to make
+                incremental improvements a habit
+              </p>
+            </article>
+
+            <article className="sociocracy-principle sociocracy-principle--circles">
+              <h3>
+                Circles =<br />
+                team of peers
+              </h3>
+              <p>
+                Group of 4-8 people work together with a defined purpose (aim)
+                and with authority in their domain
+              </p>
+            </article>
+
+            <article className="sociocracy-principle sociocracy-principle--decisions">
+              <h3>
+                Decisions =<br />
+                consent
+              </h3>
+              <p>
+                Circles set their agreements by consent - if a circle member
+                has objection, the proposal needs to be improved
+              </p>
+            </article>
+
+            <article className="sociocracy-principle sociocracy-principle--linking">
+              <h3>
+                Linking =<br />
+                connectors
+              </h3>
+              <p>
+                Links between circles help align circles, help information flow
+                and balance circles with each other
+              </p>
+            </article>
+
+            <div className="sociocracy-globe" aria-hidden="true">
+              <span className="sociocracy-globe__orbit sociocracy-globe__orbit--outer" />
+              <span className="sociocracy-globe__orbit sociocracy-globe__orbit--vertical" />
+              <span className="sociocracy-globe__orbit sociocracy-globe__orbit--horizontal" />
+              <span className="sociocracy-globe__node sociocracy-globe__node--top" />
+              <span className="sociocracy-globe__node sociocracy-globe__node--left" />
+              <span className="sociocracy-globe__node sociocracy-globe__node--right" />
+              <span className="sociocracy-globe__node sociocracy-globe__node--bottom" />
+              <span className="sociocracy-globe__label sociocracy-globe__label--share">
+                Share
+                <br />
+                information
+              </span>
+              <span className="sociocracy-globe__label sociocracy-globe__label--power">
+                Decentralize
+                <br />
+                power
+              </span>
+            </div>
           </div>
         </section>
 

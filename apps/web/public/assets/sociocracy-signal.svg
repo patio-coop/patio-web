@@ -1,0 +1,12 @@
+<svg width="250" height="245" viewBox="0 0 250 245" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M89 -2C75.5 63 96 205.5 240 238" stroke="url(#sociocracy-signal-gradient)" stroke-width="4"/>
+  <circle cx="238" cy="237" r="6" fill="#35FF38"/>
+  <defs>
+    <linearGradient id="sociocracy-signal-gradient" x1="136.034" y1="71.0843" x2="225.027" y2="106.647" gradientUnits="userSpaceOnUse">
+      <stop offset="0.0800246" stop-color="#BBD7E7"/>
+      <stop offset="0.398579" stop-color="#96D8FD"/>
+      <stop offset="0.717946" stop-color="#AFD4E8"/>
+      <stop offset="1" stop-color="#45FA4F"/>
+    </linearGradient>
+  </defs>
+</svg>
