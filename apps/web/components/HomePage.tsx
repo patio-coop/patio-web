@@ -614,15 +614,40 @@ export function HomePage() {
           </button>
         </section>
 
-        <section className="cta" aria-labelledby="cta-heading">
-          <div>
-            <p className="section-kicker">CTA 12094</p>
+        <section className="section cta" aria-labelledby="cta-heading">
+          <div className="cta-panel" aria-hidden="true">
+            <span className="cta-panel__line cta-panel__line--v-1" />
+            <span className="cta-panel__line cta-panel__line--v-2" />
+            <span className="cta-panel__line cta-panel__line--v-3" />
+            <span className="cta-panel__line cta-panel__line--v-4" />
+            <span className="cta-panel__line cta-panel__line--v-5" />
+            <span className="cta-panel__line cta-panel__line--h-1" />
+            <span className="cta-panel__line cta-panel__line--h-2" />
+            <span className="cta-panel__line cta-panel__line--h-3" />
+            <span className="cta-panel__line cta-panel__line--h-4" />
+          </div>
+          <div className="cta-frame" aria-hidden="true">
+            <span className="cta-frame__cap cta-frame__cap--top-blue" />
+            <span className="cta-frame__cap cta-frame__cap--top-white" />
+            <span className="cta-frame__cap cta-frame__cap--bottom-white" />
+            <span className="cta-frame__cap cta-frame__cap--bottom-blue" />
+            <span className="cta-frame__line cta-frame__line--top-left" />
+            <span className="cta-frame__line cta-frame__line--top-right" />
+            <span className="cta-frame__line cta-frame__line--bottom-left" />
+            <span className="cta-frame__line cta-frame__line--bottom-right" />
+            <span className="cta-frame__line cta-frame__line--left" />
+            <span className="cta-frame__line cta-frame__line--right" />
+            <span className="cta-frame__line cta-frame__line--upper" />
+            <span className="cta-frame__line cta-frame__line--left-light" />
+          </div>
+          <div className="cta-copy">
+            <p className="cta-copy__index">ID:12024</p>
             <h2 id="cta-heading">
-              Make us your organization&apos;s technology partner
+              Make us your organization&rsquo;s technology partner
             </h2>
             <p>
-              Tell us briefly how you like to collaborate. A community member
-              will reach out to explore next steps with you.
+              Tell us briefly how you&rsquo;d like to collaborate. A community
+              member will reach out to explore the next steps with you.
             </p>
             <button
               className="button button--dark"
@@ -632,6 +657,14 @@ export function HomePage() {
             >
               Get in touch
             </button>
+          </div>
+          <div className="cta-globe" aria-hidden="true">
+            <Image
+              src={sitePath("/assets/cta-globe.svg")}
+              alt=""
+              width={402}
+              height={376}
+            />
           </div>
         </section>
       </main>
