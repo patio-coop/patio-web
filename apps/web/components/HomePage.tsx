@@ -17,6 +17,7 @@ import {
   stats,
   type Cooperative,
 } from "@/data/home";
+import { sitePath } from "@/lib/sitePath";
 
 type ModalState =
   | { type: "contact"; title?: string }
@@ -157,7 +158,7 @@ export function HomePage() {
               >
                 {coop.name === "Camplight" ? (
                   <Image
-                    src="/assets/figma/Camplight.svg"
+                    src={sitePath("/assets/figma/Camplight.svg")}
                     alt="Camplight"
                     width={180}
                     height={36}
@@ -208,7 +209,7 @@ export function HomePage() {
               <a
                 className="work-card"
                 key={item}
-                href="/ai-product-development"
+                href={sitePath("/ai-product-development/")}
               >
                 {item}
                 <span aria-hidden="true">↘</span>
@@ -450,7 +451,12 @@ export function HomePage() {
                 className={`gallery-item gallery-item--${index + 1}`}
                 onClick={() => setModal({ type: "lightbox", index })}
               >
-                <Image src={image.src} alt={image.alt} fill sizes="400px" />
+                <Image
+                  src={sitePath(image.src)}
+                  alt={image.alt}
+                  fill
+                  sizes="400px"
+                />
               </button>
             ))}
           </div>
@@ -532,7 +538,10 @@ function Header({
                       </span>
                       <div className="nav-dropdown__submenu">
                         {group.items.map((entry) => (
-                          <a href="/ai-product-development" key={entry}>
+                          <a
+                            href={sitePath("/ai-product-development/")}
+                            key={entry}
+                          >
                             {entry}
                           </a>
                         ))}
@@ -606,7 +615,11 @@ function MobileMenu({
             <div key={group.label}>
               <h3>{group.label}</h3>
               {group.items.map((entry) => (
-                <a href="/ai-product-development" key={entry} onClick={close}>
+                <a
+                  href={sitePath("/ai-product-development/")}
+                  key={entry}
+                  onClick={close}
+                >
                   {entry}
                 </a>
               ))}
@@ -690,7 +703,7 @@ function Footer() {
         <div>
           <h2>Industries</h2>
           {industries.slice(0, 5).map((item) => (
-            <a href="/ai-product-development" key={item}>
+            <a href={sitePath("/ai-product-development/")} key={item}>
               {item}
             </a>
           ))}
@@ -698,7 +711,7 @@ function Footer() {
         <div>
           <h2>Services</h2>
           {services.slice(0, 6).map((item) => (
-            <a href="/ai-product-development" key={item}>
+            <a href={sitePath("/ai-product-development/")} key={item}>
               {item}
             </a>
           ))}
@@ -712,9 +725,9 @@ function Footer() {
       </div>
       <div className="footer-bottom">
         <span>© 2026 Patio.coop. All rights reserved.</span>
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms & Conditions</a>
-        <a href="/cookies">Cookie Policy</a>
+        <a href={sitePath("/privacy/")}>Privacy Policy</a>
+        <a href={sitePath("/terms/")}>Terms & Conditions</a>
+        <a href={sitePath("/cookies/")}>Cookie Policy</a>
       </div>
     </footer>
   );
@@ -900,7 +913,7 @@ function Lightbox({
 
   return (
     <div className="lightbox">
-      <Image src={image.src} alt={image.alt} fill sizes="90vw" />
+      <Image src={sitePath(image.src)} alt={image.alt} fill sizes="90vw" />
       <button
         className="lightbox__prev"
         onClick={() => setModal({ type: "lightbox", index: previous })}

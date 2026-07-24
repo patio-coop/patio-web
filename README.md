@@ -61,6 +61,22 @@ Run the production server after building:
 make start
 ```
 
+## GitHub Pages
+
+Pushes to `main` automatically build and deploy a static version through
+`.github/workflows/deploy-pages.yml`. The workflow detects the repository name
+and publishes the site with the correct base path, such as:
+
+```text
+https://patio-coop.github.io/patio-web/
+```
+
+In the repository settings, set **Pages → Build and deployment → Source** to
+**GitHub Actions** before the first deployment.
+
+The local and Docker workflows continue to use the standalone Next.js server.
+Only the GitHub Pages build uses the static export.
+
 ## Docker
 
 Build the production Docker image:
