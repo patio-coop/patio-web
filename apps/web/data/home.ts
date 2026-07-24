@@ -156,7 +156,7 @@ export const cooperatives: Cooperative[] = [
 export const industries = [
   "AI Product Dev",
   "Government Tech",
-  "Web 3",
+  "Web3",
   "Cyber Security",
   "Health Tech",
   "Education Tech",

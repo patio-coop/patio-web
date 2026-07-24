@@ -198,11 +198,24 @@ export function HomePage() {
           aria-labelledby="what-heading"
         >
           <SectionIntro
-            eyebrow="02"
+            eyebrow="ID:90192"
             title="What we do"
-            text="We connect experienced cooperative teams across industries and services, matching technical skill with collaborative delivery."
+            text="We innovate and implement cutting-edge technologies to create digital products and services, supported by our global community to ensure top-tier results."
             inverted
           />
+          <div className="work-graphic" aria-hidden="true">
+            <Image
+              src={sitePath("/assets/what-we-do-curve.svg")}
+              alt=""
+              width={328}
+              height={262}
+            />
+            <span>
+              USR
+              <br />
+              91241
+            </span>
+          </div>
           <div className="segmented-control" role="tablist">
             <button
               id="industries"
@@ -222,16 +235,29 @@ export function HomePage() {
             </button>
           </div>
           <div className="work-grid">
-            {workItems.map((item) => (
+            {workItems.map((item, index) => (
               <a
                 className="work-card"
                 key={item}
-                href={sitePath("/ai-product-development/")}
+                href={
+                  workTab === "industries" && index === 0
+                    ? sitePath("/ai-product-development/")
+                    : workTab === "industries"
+                      ? "#industries"
+                      : "#services"
+                }
               >
-                {item}
-                <span aria-hidden="true">↘</span>
+                <span className="work-card__title">{item}</span>
+                <Image
+                  className="work-card__arrow"
+                  src={sitePath("/assets/arrow-outward.svg")}
+                  alt=""
+                  width={24}
+                  height={24}
+                />
               </a>
             ))}
+            <span className="work-card work-card--empty" aria-hidden="true" />
           </div>
         </section>
 

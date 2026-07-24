@@ -1,0 +1,12 @@
+<svg width="328" height="262" viewBox="75 0 328 262" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M75 0C75 141.385 217.373 256 393 256" stroke="url(#curve-gradient)" stroke-width="4"/>
+  <circle cx="397" cy="256" r="6" fill="#35FF38"/>
+  <defs>
+    <linearGradient id="curve-gradient" x1="174.051" y1="75.703" x2="309.299" y2="181.075" gradientUnits="userSpaceOnUse">
+      <stop offset="0.0800246" stop-color="#BBD7E7"/>
+      <stop offset="0.398579" stop-color="#96D8FD"/>
+      <stop offset="0.717946" stop-color="#AFD4E8"/>
+      <stop offset="1" stop-color="#45FA4F"/>
+    </linearGradient>
+  </defs>
+</svg>
