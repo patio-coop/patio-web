@@ -62,6 +62,21 @@ export function HomePage() {
   }, [modal, menuOpen]);
 
   useEffect(() => {
+    const selectWorkTabFromHash = () => {
+      if (window.location.hash === "#services") {
+        setWorkTab("services");
+      } else if (window.location.hash === "#industries") {
+        setWorkTab("industries");
+      }
+    };
+
+    selectWorkTabFromHash();
+    window.addEventListener("hashchange", selectWorkTabFromHash);
+    return () =>
+      window.removeEventListener("hashchange", selectWorkTabFromHash);
+  }, []);
+
+  useEffect(() => {
     const filtered =
       activeRegion === "All"
         ? cooperatives
@@ -190,6 +205,7 @@ export function HomePage() {
           />
           <div className="segmented-control" role="tablist">
             <button
+              id="industries"
               role="tab"
               aria-selected={workTab === "industries"}
               onClick={() => setWorkTab("industries")}
@@ -197,6 +213,7 @@ export function HomePage() {
               Industries
             </button>
             <button
+              id="services"
               role="tab"
               aria-selected={workTab === "services"}
               onClick={() => setWorkTab("services")}
@@ -334,7 +351,7 @@ export function HomePage() {
               </button>
             </article>
           </div>
-          <div className="qualification">
+          <div className="qualification" id="qualification">
             <SectionIntro
               eyebrow=""
               title="Ways to qualify for full membership"
@@ -539,10 +556,10 @@ function Header({
                       <div className="nav-dropdown__submenu">
                         {group.items.map((entry) => (
                           <a
-                            href={sitePath("/ai-product-development/")}
-                            key={entry}
+                            href={sitePath(entry.href)}
+                            key={entry.label}
                           >
-                            {entry}
+                            {entry.label}
                           </a>
                         ))}
                       </div>
@@ -616,11 +633,11 @@ function MobileMenu({
               <h3>{group.label}</h3>
               {group.items.map((entry) => (
                 <a
-                  href={sitePath("/ai-product-development/")}
-                  key={entry}
+                  href={sitePath(entry.href)}
+                  key={entry.label}
                   onClick={close}
                 >
-                  {entry}
+                  {entry.label}
                 </a>
               ))}
             </div>
@@ -703,7 +720,14 @@ function Footer() {
         <div>
           <h2>Industries</h2>
           {industries.slice(0, 5).map((item) => (
-            <a href={sitePath("/ai-product-development/")} key={item}>
+            <a
+              href={
+                item === "AI Product Dev"
+                  ? sitePath("/ai-product-development/")
+                  : "#industries"
+              }
+              key={item}
+            >
               {item}
             </a>
           ))}
@@ -711,7 +735,7 @@ function Footer() {
         <div>
           <h2>Services</h2>
           {services.slice(0, 6).map((item) => (
-            <a href={sitePath("/ai-product-development/")} key={item}>
+            <a href="#services" key={item}>
               {item}
             </a>
           ))}

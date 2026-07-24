@@ -4,18 +4,60 @@ import createGlobe from "cobe";
 import type { Marker } from "cobe";
 import { useEffect, useRef } from "react";
 
-const markers: Marker[] = [
-  { location: [40.7128, -74.006], size: 0.04 },
-  { location: [51.5072, -0.1276], size: 0.04 },
-  { location: [48.8566, 2.3522], size: 0.04 },
-  { location: [35.6762, 139.6503], size: 0.04 },
-  { location: [25.2048, 55.2708], size: 0.04 },
-  { location: [-33.9249, 18.4241], size: 0.04 },
-  { location: [-33.8688, 151.2093], size: 0.04 }
-];
+const locations = [
+  { label: "NYC ↔ London", location: [51.5072, -0.1276] },
+  { label: "Paris", location: [48.8566, 2.3522] },
+  { label: "Dubai", location: [25.2048, 55.2708] },
+  { label: "Tokyo", location: [35.6762, 139.6503] },
+  { label: "Sydney", location: [-33.8688, 151.2093] },
+  { label: "Cape Town", location: [-33.9249, 18.4241] }
+] satisfies { label: string; location: [number, number] }[];
+
+const markers: Marker[] = locations.map(({ location }) => ({
+  location,
+  size: 0.04
+}));
+
+const theta = 0.18;
+const globeScale = 0.95;
+
+function projectLocation(
+  [latitude, longitude]: [number, number],
+  phi: number,
+  size: number
+) {
+  const latitudeRadians = (latitude * Math.PI) / 180;
+  const longitudeRadians = (longitude * Math.PI) / 180 - Math.PI;
+  const latitudeCosine = Math.cos(latitudeRadians);
+  const point = [
+    -latitudeCosine * Math.cos(longitudeRadians),
+    Math.sin(latitudeRadians),
+    latitudeCosine * Math.sin(longitudeRadians)
+  ];
+  const thetaCosine = Math.cos(theta);
+  const thetaSine = Math.sin(theta);
+  const phiCosine = Math.cos(phi);
+  const phiSine = Math.sin(phi);
+  const x = phiCosine * point[0] + phiSine * point[2];
+  const y =
+    phiSine * thetaSine * point[0] +
+    thetaCosine * point[1] -
+    phiCosine * thetaSine * point[2];
+  const z =
+    -phiSine * thetaCosine * point[0] +
+    thetaSine * point[1] +
+    phiCosine * thetaCosine * point[2];
+
+  return {
+    x: size * (0.5 + 0.4 * globeScale * x),
+    y: size * (0.5 - 0.4 * globeScale * y),
+    visible: z > 0.08
+  };
+}
 
 export function HeroGlobe() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const labelRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
 
@@ -28,6 +70,7 @@ export function HeroGlobe() {
       return;
     }
 
+    const devicePixelRatio = Math.min(2, window.devicePixelRatio);
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -40,26 +83,39 @@ export function HeroGlobe() {
     window.addEventListener("resize", onResize);
 
     const globe = createGlobe(canvas, {
-      devicePixelRatio: Math.min(2, window.devicePixelRatio),
-      width: width * 2,
-      height: width * 2,
+      devicePixelRatio,
+      width: width * devicePixelRatio,
+      height: width * devicePixelRatio,
+      scale: globeScale,
       phi: 0.24,
-      theta: 0.18,
+      theta,
       dark: 1,
       diffuse: 1.3,
       mapSamples: 16000,
       mapBrightness: 4.4,
       baseColor: [0.35, 0.53, 0.72],
-      markerColor: [0.2, 1, 0.22],
-      glowColor: [0.74, 0.84, 0.9],
+      markerColor: [0.58, 0.72, 0.9],
+      glowColor: [0.08, 0.15, 0.28],
       markers,
       onRender: (state) => {
         if (!prefersReducedMotion && pointerInteracting.current === null) {
           phi += 0.0025;
         }
-        state.phi = phi + pointerInteractionMovement.current;
-        state.width = width * 2;
-        state.height = width * 2;
+        const renderedPhi = phi + pointerInteractionMovement.current;
+        state.phi = renderedPhi;
+        state.width = width * devicePixelRatio;
+        state.height = width * devicePixelRatio;
+        locations.forEach(({ location }, index) => {
+          const label = labelRefs.current[index];
+          if (!label) {
+            return;
+          }
+          const projected = projectLocation(location, renderedPhi, width);
+          label.style.left = `${projected.x}px`;
+          label.style.top = `${projected.y}px`;
+          label.style.opacity = projected.visible ? "1" : "0";
+          label.style.visibility = projected.visible ? "visible" : "hidden";
+        });
       }
     });
 
@@ -92,12 +148,17 @@ export function HeroGlobe() {
         width="900"
         height="900"
       />
-      <span className="globe-label globe-label--nyc">NYC + London</span>
-      <span className="globe-label globe-label--paris">Paris</span>
-      <span className="globe-label globe-label--dubai">Dubai</span>
-      <span className="globe-label globe-label--tokyo">Tokyo</span>
-      <span className="globe-label globe-label--sydney">Sydney</span>
-      <span className="globe-label globe-label--cape">Cape Town</span>
+      {locations.map(({ label }, index) => (
+        <span
+          className="globe-label"
+          key={label}
+          ref={(node) => {
+            labelRefs.current[index] = node;
+          }}
+        >
+          {label}
+        </span>
+      ))}
     </div>
   );
 }

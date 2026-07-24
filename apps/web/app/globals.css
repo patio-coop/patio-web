@@ -522,13 +522,14 @@ main {
   aspect-ratio: 1;
   max-width: 620px;
   position: relative;
+  transform: translateY(-48px);
   width: min(48vw, 620px);
 }
 
 .hero-globe::before {
-  border: 1px solid rgba(247, 247, 247, 0.35);
+  border: 1px solid rgba(150, 216, 253, 0.16);
   border-radius: 50%;
-  box-shadow: 0 0 40px rgba(150, 216, 253, 0.2);
+  box-shadow: 0 0 24px rgba(150, 216, 253, 0.06);
   content: "";
   inset: 12%;
   position: absolute;
@@ -547,44 +548,44 @@ main {
 }
 
 .globe-label {
-  background: rgba(247, 247, 247, 0.78);
+  background: rgba(219, 226, 241, 0.9);
   color: var(--color-blue);
   font-family: var(--font-display);
   font-size: 14px;
   letter-spacing: 0;
+  opacity: 0;
   padding: 5px 9px;
   position: absolute;
+  transform: translate(-50%, calc(-100% - 13px));
+  transition: opacity 120ms ease;
   text-transform: uppercase;
+  visibility: hidden;
+  white-space: nowrap;
+  will-change: left, top, opacity;
 }
 
-.globe-label--nyc {
-  left: 16%;
-  top: 27%;
+.globe-label::before {
+  background: rgba(183, 202, 232, 0.72);
+  content: "";
+  height: 13px;
+  left: 50%;
+  position: absolute;
+  top: 100%;
+  transform: translateX(-50%);
+  width: 1px;
 }
 
-.globe-label--paris {
-  left: 32%;
-  top: 44%;
-}
-
-.globe-label--dubai {
-  left: 51%;
-  top: 55%;
-}
-
-.globe-label--tokyo {
-  right: 7%;
-  top: 42%;
-}
-
-.globe-label--sydney {
-  bottom: 22%;
-  right: 4%;
-}
-
-.globe-label--cape {
-  bottom: 21%;
-  left: 22%;
+.globe-label::after {
+  background: #b7cae8;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(150, 216, 253, 0.3);
+  content: "";
+  height: 6px;
+  left: 50%;
+  position: absolute;
+  top: calc(100% + 12px);
+  transform: translate(-50%, -50%);
+  width: 6px;
 }
 
 .stats-grid {
@@ -2267,6 +2268,7 @@ main {
 
   .hero-globe {
     margin: 70px auto 0;
+    transform: translateY(-24px);
     width: min(328px, 100%);
   }
 

@@ -23,25 +23,25 @@ export const navItems = [
       {
         label: "Industries",
         items: [
-          "AI Product Dev",
-          "Government Tech",
-          "Web 3",
-          "CyberSecurity",
-          "HealthTech",
-          "EdTech",
-          "FinTech"
+          { label: "AI Product Dev", href: "/ai-product-development/" },
+          { label: "Government Tech", href: "#industries" },
+          { label: "Web 3", href: "#industries" },
+          { label: "CyberSecurity", href: "#industries" },
+          { label: "HealthTech", href: "#industries" },
+          { label: "EdTech", href: "#industries" },
+          { label: "FinTech", href: "#industries" }
         ]
       },
       {
         label: "Services",
         items: [
-          "Full-Stack Development",
-          "UI/UX Design & Animation",
-          "Branding & Creative",
-          "Mobile Development",
-          "DevOps",
-          "Blockchain",
-          "Machine Learning"
+          { label: "Full-Stack Development", href: "#services" },
+          { label: "UI/UX Design & Animation", href: "#services" },
+          { label: "Branding & Creative", href: "#services" },
+          { label: "Mobile Development", href: "#services" },
+          { label: "DevOps", href: "#services" },
+          { label: "Blockchain", href: "#services" },
+          { label: "Machine Learning", href: "#services" }
         ]
       }
     ]
@@ -53,7 +53,10 @@ export const navItems = [
     groups: [
       {
         label: "Our model",
-        items: ["Membership Model", "Ways to Qualify"]
+        items: [
+          { label: "Membership Model", href: "#membership" },
+          { label: "Ways to Qualify", href: "#qualification" }
+        ]
       }
     ]
   },
