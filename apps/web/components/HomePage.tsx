@@ -30,6 +30,36 @@ type ModalState =
 
 const regions = ["All", "Europe", "Americas"];
 
+const communityCrosses = [
+  [987, 453],
+  [1006, 453],
+  [987, 808],
+  [987, 828],
+  [987, 1076],
+  [90, 764],
+  [90, 784],
+  [90, 452],
+  [90, 433],
+  [90, 152],
+  [526, 433],
+  [526, 152],
+  [526, 453],
+  [526, 764],
+  [526, 784],
+  [545, 828],
+  [545, 1076],
+  [526, 1076],
+  [545, 808],
+  [545, 453],
+  [1006, 1076],
+  [1352, 453],
+  [1352, 774],
+  [1006, 774],
+  [1352, 754],
+  [1006, 754],
+  [90, 1076],
+] as const;
+
 export function HomePage() {
   const [modal, setModal] = useState<ModalState>(null);
   const [activeRegion, setActiveRegion] = useState("All");
@@ -507,12 +537,57 @@ export function HomePage() {
           id="community"
           aria-labelledby="community-heading"
         >
-          <SectionIntro
-            eyebrow="07"
-            title="Community building"
-            text="Connecting tech cooperatives to build relationships, share resources, and explore how technology can support cooperation."
-            inverted
-          />
+          <div className="community-top-cap" aria-hidden="true" />
+          <div className="community-signal" aria-hidden="true">
+            <Image
+              src={sitePath("/assets/community-signal.svg")}
+              alt=""
+              width={64}
+              height={315}
+            />
+            <span>
+              USR
+              <br />
+              22194
+            </span>
+          </div>
+          <div className="community-copy">
+            <span className="community-copy__index">ID:42019</span>
+            <h2 id="community-heading">Community building</h2>
+            <p>
+              Connecting local communities to foster collaboration, share
+              resources, and drive regional innovation. We provide tools, best
+              practices, and a supportive community, all guided by democratic
+              principles, equality and sociocracy.
+            </p>
+          </div>
+          <div className="community-guides" aria-hidden="true">
+            <span className="community-guide community-guide--v community-guide--v-1" />
+            <span className="community-guide community-guide--v community-guide--v-2" />
+            <span className="community-guide community-guide--v community-guide--v-3" />
+            <span className="community-guide community-guide--v community-guide--v-4" />
+            <span className="community-guide community-guide--v community-guide--v-5" />
+            <span className="community-guide community-guide--v community-guide--v-6" />
+            <span className="community-guide community-guide--h community-guide--h-1" />
+            <span className="community-guide community-guide--h community-guide--h-2" />
+            <span className="community-guide community-guide--h community-guide--h-3" />
+            <span className="community-guide community-guide--h community-guide--h-4" />
+            <span className="community-guide community-guide--h community-guide--h-5" />
+            <span className="community-guide community-guide--h community-guide--h-6" />
+            <span className="community-guide community-guide--h community-guide--h-7" />
+            <span className="community-guide community-guide--h community-guide--h-8" />
+            <span className="community-guide community-guide--h community-guide--h-9" />
+            <span className="community-guide community-guide--h community-guide--h-10" />
+            <span className="community-crosses">
+              {communityCrosses.map(([x, top]) => (
+                <span
+                  className="community-cross"
+                  key={`${x}-${top}`}
+                  style={{ left: `${(x / 1440) * 100}%`, top }}
+                />
+              ))}
+            </span>
+          </div>
           <div className="community-gallery">
             {communityImages.map((image, index) => (
               <button
@@ -524,7 +599,7 @@ export function HomePage() {
                   src={sitePath(image.src)}
                   alt={image.alt}
                   fill
-                  sizes="400px"
+                  sizes="(max-width: 1100px) 320px, 620px"
                 />
               </button>
             ))}
@@ -535,7 +610,7 @@ export function HomePage() {
               setModal({ type: "contact", title: "Join the community" })
             }
           >
-            Get in touch
+            Let&apos;s talk
           </button>
         </section>
 

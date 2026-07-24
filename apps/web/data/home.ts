@@ -241,31 +241,31 @@ export const philosophy = [
 
 export const communityImages = [
   {
-    src: "/assets/community/community-01.jpg",
-    alt: "Patio members smiling together outside a large wooden door"
+    src: "/assets/community/community-figma-01.webp",
+    alt: "Five Patio members taking a group selfie among indoor plants"
   },
   {
-    src: "/assets/community/community-02.jpg",
-    alt: "Patio members taking a group selfie at a conference"
+    src: "/assets/community/community-figma-02.webp",
+    alt: "Patio members taking a group selfie outdoors at a conference"
   },
   {
-    src: "/assets/community/community-03.jpg",
+    src: "/assets/community/community-figma-03.webp",
+    alt: "Six Patio members taking a group selfie indoors"
+  },
+  {
+    src: "/assets/community/community-figma-04.webp",
+    alt: "Patio members collaborating around a table"
+  },
+  {
+    src: "/assets/community/community-figma-05.webp",
     alt: "Large Patio group photo in an indoor garden venue"
   },
   {
-    src: "/assets/community/community-04.jpg",
-    alt: "Small Patio group selfie in front of plants"
-  },
-  {
-    src: "/assets/community/community-05.jpg",
-    alt: "Patio members seated around a table with Patio signs"
-  },
-  {
-    src: "/assets/community/community-06.jpg",
+    src: "/assets/community/community-figma-06.webp",
     alt: "Patio members standing outdoors in front of leafy trees"
   },
   {
-    src: "/assets/community/community-07.jpeg",
+    src: "/assets/community/community-figma-07.webp",
     alt: "Large Patio retreat group photo in front of a lake"
   }
 ];
