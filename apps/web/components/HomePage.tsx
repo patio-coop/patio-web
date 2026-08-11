@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { type FormEvent, useEffect, useRef, useState } from "react";
 
 import { HeroGlobe } from "@/components/HeroGlobe";
 import { ScholarshipApplication } from "@/components/ScholarshipApplication";
@@ -1163,9 +1163,114 @@ function Modal({
   modal: ModalState;
   setModal: (modal: ModalState) => void;
 }) {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef(modal);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
+  const isOpen = modal !== null;
+  const modalType = modal?.type;
+
+  modalRef.current = modal;
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    returnFocusRef.current =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const currentModal = modalRef.current;
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setModal(null);
+        return;
+      }
+
+      if (currentModal?.type === "lightbox") {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          setModal({
+            type: "lightbox",
+            index:
+              (currentModal.index + communityImages.length - 1) %
+              communityImages.length,
+          });
+          return;
+        }
+
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          setModal({
+            type: "lightbox",
+            index: (currentModal.index + 1) % communityImages.length,
+          });
+          return;
+        }
+      }
+
+      if (event.key !== "Tab" || !dialogRef.current) {
+        return;
+      }
+
+      const focusable = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((element) => element.getClientRects().length > 0);
+
+      if (focusable.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      returnFocusRef.current?.focus();
+      returnFocusRef.current = null;
+    };
+  }, [isOpen, setModal]);
+
+  useEffect(() => {
+    if (!modalType) {
+      return;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      closeButtonRef.current?.focus();
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [modalType]);
+
   if (!modal) {
     return null;
   }
+
+  const labelledBy =
+    modal.type === "lightbox"
+      ? undefined
+      : modal.type === "scholarship"
+        ? "scholarship-title"
+        : `modal-${modal.type}-title`;
 
   return (
     <div
@@ -1175,12 +1280,17 @@ function Modal({
     >
       <div
         className={`modal modal--${modal.type}`}
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
+        aria-label={modal.type === "lightbox" ? "Community gallery" : undefined}
+        aria-labelledby={labelledBy}
         onClick={(event) => event.stopPropagation()}
       >
         <button
           className="modal__close"
+          ref={closeButtonRef}
+          type="button"
           onClick={() => setModal(null)}
           aria-label="Close"
         >
@@ -1204,30 +1314,59 @@ function Modal({
 }
 
 function ContactModal({ title }: { title: string }) {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+    const subject = `Patio enquiry: ${title}`;
+    const body = [`Name: ${name}`, `Email: ${email}`, "", message].join("\n");
+
+    window.location.href = `mailto:hello@patio.coop?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <>
-      <h2>{title}</h2>
+      <h2 id="modal-contact-title">{title}</h2>
       <p>
-        Tell us what you want to build. This form is wired as a front-end shell
-        and can later post to the CMS/backoffice.
+        Tell us what you want to build and how we can help. We&apos;ll get back to
+        you shortly.
       </p>
-      <form className="modal-form">
+      <form className="modal-form" onSubmit={handleSubmit}>
         <label>
           Name
-          <input name="name" placeholder="Your name" />
+          <input
+            name="name"
+            autoComplete="name"
+            placeholder="Your name"
+            required
+          />
         </label>
         <label>
           Email
-          <input name="email" type="email" placeholder="you@example.com" />
+          <input
+            name="email"
+            type="email"
+            autoComplete="email"
+            placeholder="you@example.com"
+            required
+          />
         </label>
         <label>
           Project
           <textarea
             name="message"
             placeholder="What would you like to explore?"
+            required
           />
         </label>
-        <button className="button button--primary" type="button">
+        <small className="modal-form__note">
+          Sending opens your default email application.
+        </small>
+        <button className="button button--primary" type="submit">
           Send request
         </button>
       </form>
@@ -1238,7 +1377,7 @@ function ContactModal({ title }: { title: string }) {
 function MembersModal() {
   return (
     <>
-      <h2>Members login</h2>
+      <h2 id="modal-members-title">Members login</h2>
       <p>
         The future member area will let cooperatives manage profiles, members,
         services, and visibility.
@@ -1263,7 +1402,7 @@ function MembersModal() {
 function NetworkModal({ setModal }: { setModal: (modal: ModalState) => void }) {
   return (
     <>
-      <h2>Full network</h2>
+      <h2 id="modal-network-title">Full network</h2>
       <div className="network-list">
         {cooperatives.map((coop) => (
           <button
@@ -1292,7 +1431,14 @@ function CoopModal({
 }) {
   return (
     <>
-      <h2>{cooperative.name}</h2>
+      <button
+        className="modal__back"
+        onClick={() => setModal({ type: "network" })}
+        type="button"
+      >
+        ← Full network
+      </button>
+      <h2 id="modal-coop-title">{cooperative.name}</h2>
       <p>{cooperative.description}</p>
       <dl className="coop-details">
         {cooperative.country ? (
@@ -1316,11 +1462,22 @@ function CoopModal({
       <div className="modal-actions">
         <button
           className="button button--primary"
-          onClick={() => setModal({ type: "contact", title: "Send email" })}
+          onClick={() =>
+            setModal({
+              type: "contact",
+              title: `Contact ${cooperative.name}`,
+            })
+          }
+          type="button"
         >
           Send email
         </button>
-        <a className="button button--pale" href={cooperative.website}>
+        <a
+          className="button button--pale"
+          href={cooperative.website}
+          rel="noreferrer"
+          target="_blank"
+        >
           Open website
         </a>
       </div>

@@ -3395,6 +3395,12 @@ button.footer-menu {
   resize: vertical;
 }
 
+.modal-form__note {
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: 0.65;
+}
+
 .scholarship-application {
   background: var(--color-off-white);
   display: grid;
@@ -3740,6 +3746,24 @@ button.footer-menu {
 
 .network-list button:hover {
   background: var(--gradient-action);
+}
+
+.network-list button:focus-visible,
+.modal__back:focus-visible {
+  outline: 3px solid #61b4e3;
+  outline-offset: 2px;
+}
+
+.modal__back {
+  background: transparent;
+  border: 0;
+  color: var(--color-blue);
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 14px;
+  margin: 0 0 24px;
+  padding: 0;
+  text-transform: uppercase;
 }
 
 .coop-details {

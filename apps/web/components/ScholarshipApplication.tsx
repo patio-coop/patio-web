@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { type FormEvent } from "react";
 
 import { cooperatives } from "@/data/home";
 
@@ -26,11 +26,32 @@ const confirmations = [
 ];
 
 export function ScholarshipApplication() {
-  const [submissionBlocked, setSubmissionBlocked] = useState(false);
-
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmissionBlocked(true);
+    const data = new FormData(event.currentTarget);
+    const fieldLabels: Record<string, string> = {
+      cooperative: "Cooperative",
+      contactName: "Contact name",
+      contactEmail: "Contact email",
+      country: "Country",
+      website: "Website",
+      networkDuration: "Time in the Patio network",
+      reason: "Reason for applying",
+      feeConstraint: "Fee constraint",
+      labourConstraint: "Labour constraint",
+      expectedChange: "Expected change",
+      constraintDuration: "Expected duration",
+      informalContribution: "Possible informal contribution",
+    };
+    const body = Array.from(data.entries())
+      .filter(([name]) => !name.startsWith("confirmation"))
+      .map(([name, value]) => `${fieldLabels[name] ?? name}: ${String(value)}`)
+      .join("\n\n");
+    const cooperative = String(data.get("cooperative") ?? "Cooperative");
+
+    window.location.href = `mailto:hello@patio.coop?subject=${encodeURIComponent(
+      `Financial hardship application — ${cooperative}`,
+    )}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -265,12 +286,10 @@ export function ScholarshipApplication() {
           fair, human process.
         </p>
 
-        {submissionBlocked ? (
-          <p className="scholarship-form__status" role="status">
-            The application could not be sent because the submission service
-            has not been connected yet.
-          </p>
-        ) : null}
+        <p className="scholarship-form__status">
+          Submitting opens your default email application with the completed
+          application ready to send.
+        </p>
 
         <button className="button button--dark scholarship-form__submit" type="submit">
           Submit application
