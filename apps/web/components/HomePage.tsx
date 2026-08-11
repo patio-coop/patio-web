@@ -28,7 +28,18 @@ type ModalState =
   | { type: "scholarship" }
   | null;
 
-const regions = ["All", "Europe", "Americas"];
+const regions = ["All", "Middle East", "Europe", "South East Asia"];
+
+function shuffledCooperatives(items: Cooperative[]) {
+  const shuffled = items.slice();
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const target = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[target]] = [shuffled[target], shuffled[index]];
+  }
+
+  return shuffled;
+}
 
 const communityCrosses = [
   [987, 453],
@@ -67,7 +78,7 @@ export function HomePage() {
     "industries",
   );
   const [featuredCoops, setFeaturedCoops] = useState<Cooperative[]>(
-    cooperatives.slice(0, 6),
+    cooperatives,
   );
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobilePanel, setMobilePanel] = useState<number | null>(null);
@@ -111,12 +122,7 @@ export function HomePage() {
       activeRegion === "All"
         ? cooperatives
         : cooperatives.filter((coop) => coop.region === activeRegion);
-    setFeaturedCoops(
-      filtered
-        .slice()
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 6),
-    );
+    setFeaturedCoops(shuffledCooperatives(filtered));
   }, [activeRegion]);
 
   const workItems = workTab === "industries" ? industries : services;
@@ -179,9 +185,9 @@ export function HomePage() {
           aria-labelledby="who-heading"
         >
           <SectionIntro
-            eyebrow="01"
+            eyebrow="ID:90192"
             title="Who we are"
-            text="We are a global network of tech cooperatives bringing deep technical knowledge, community, and cooperation into ambitious digital work."
+            text="We are a global network of worker cooperatives in digital technology, communication, and design. We collaborate on international projects, scaling remote, interdisciplinary teams to fit each project’s needs."
           />
           <div className="region-filter" aria-label="Filter cooperatives">
             {regions.map((region) => (
@@ -201,16 +207,12 @@ export function HomePage() {
                 key={coop.name}
                 onClick={() => setModal({ type: "coop", cooperative: coop })}
               >
-                {coop.name === "Camplight" ? (
-                  <Image
-                    src={sitePath("/assets/figma/Camplight.svg")}
-                    alt="Camplight"
-                    width={180}
-                    height={36}
-                  />
-                ) : (
-                  <span>{coop.name}</span>
-                )}
+                <Image
+                  src={sitePath(coop.logo.src)}
+                  alt={coop.name}
+                  width={coop.logo.width}
+                  height={coop.logo.height}
+                />
               </button>
             ))}
           </div>
@@ -1247,7 +1249,9 @@ function NetworkModal({ setModal }: { setModal: (modal: ModalState) => void }) {
           >
             <strong>{coop.name}</strong>
             <span>
-              {coop.country} · {coop.members} members
+              {[coop.country, coop.members ? `${coop.members} members` : null]
+                .filter(Boolean)
+                .join(" · ")}
             </span>
           </button>
         ))}
@@ -1268,14 +1272,18 @@ function CoopModal({
       <h2>{cooperative.name}</h2>
       <p>{cooperative.description}</p>
       <dl className="coop-details">
-        <div>
-          <dt>Location</dt>
-          <dd>{cooperative.country}</dd>
-        </div>
-        <div>
-          <dt>Members</dt>
-          <dd>{cooperative.members}</dd>
-        </div>
+        {cooperative.country ? (
+          <div>
+            <dt>Location</dt>
+            <dd>{cooperative.country}</dd>
+          </div>
+        ) : null}
+        {cooperative.members ? (
+          <div>
+            <dt>Members</dt>
+            <dd>{cooperative.members}</dd>
+          </div>
+        ) : null}
       </dl>
       <div className="tags">
         {cooperative.services.map((service) => (

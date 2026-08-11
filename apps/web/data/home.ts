@@ -1,12 +1,17 @@
 export type Cooperative = {
   name: string;
   region: string;
-  country: string;
-  members: number;
+  country?: string;
+  members?: number;
   services: string[];
   website: string;
   email: string;
   description: string;
+  logo: {
+    src: string;
+    width: number;
+    height: number;
+  };
 };
 
 export const navItems = [
@@ -81,53 +86,111 @@ export const stats = [
 
 export const cooperatives: Cooperative[] = [
   {
-    name: "Camplight",
-    region: "Europe",
-    country: "Bulgaria",
-    members: 42,
-    services: [
-      "AI Development",
-      "Software Development",
-      "Mobile Development",
-      "Product Development"
-    ],
-    website: "https://camplight.net",
-    email: "hi@camplight.net",
+    name: "ALT.coop",
+    region: "Middle East",
+    country: "Germany",
+    services: ["Software Development", "Product Development"],
+    website: "https://control.alt.coop",
+    email: "hello@patio.coop",
     description:
-      "Camplight is a global network of digital artisans evolving human collaboration through software."
+      "A Patio member cooperative delivering collaborative digital products and technology services.",
+    logo: {
+      src: "/assets/cooperatives/alt-coop.png",
+      width: 170,
+      height: 33
+    }
   },
   {
     name: "Animus",
     region: "Europe",
-    country: "Italy",
+    country: "Argentina",
     members: 18,
     services: ["Branding", "Creative", "UI/UX", "Animation"],
-    website: "https://patio.coop",
+    website: "https://animus.coop",
     email: "hello@patio.coop",
     description:
-      "A cooperative studio focused on identity, product experience, and digital storytelling."
+      "A cooperative studio focused on identity, product experience, and digital storytelling.",
+    logo: {
+      src: "/assets/cooperatives/animus.png",
+      width: 172,
+      height: 30
+    }
   },
   {
-    name: "CocosoLab",
-    region: "Europe",
-    country: "Spain",
-    members: 21,
-    services: ["Software Development", "Product Strategy", "DevOps"],
+    name: "Boot Coop",
+    region: "South East Asia",
+    services: ["Software Development", "Product Strategy"],
+    website: "https://bootcoop.com.ar",
+    email: "hello@patio.coop",
+    description:
+      "A Patio member cooperative building resilient products and long-term software partnerships.",
+    logo: {
+      src: "/assets/cooperatives/boot-coop.png",
+      width: 177,
+      height: 70
+    }
+  },
+  {
+    name: "Cambá",
+    region: "South East Asia",
+    country: "Argentina",
+    members: 38,
+    services: ["Government Tech", "Training", "Open Source"],
     website: "https://patio.coop",
     email: "hello@patio.coop",
     description:
-      "A technology cooperative building resilient products and long-term software partnerships."
+      "A cooperative committed to open source, public-interest technology, and technical education.",
+    logo: {
+      src: "/assets/cooperatives/camba.png",
+      width: 179,
+      height: 60
+    }
+  },
+  {
+    name: "Código Libre",
+    region: "Middle East",
+    country: "Argentina",
+    services: ["Open Source", "Software Development", "Training"],
+    website: "https://patio.coop",
+    email: "hello@patio.coop",
+    description:
+      "A technology cooperative focused on free software, shared knowledge, and collaborative delivery.",
+    logo: {
+      src: "/assets/cooperatives/codigo-libre.png",
+      width: 143,
+      height: 52
+    }
+  },
+  {
+    name: "El Maizal",
+    region: "Middle East",
+    country: "Argentina",
+    services: ["Software Development", "Community Technology"],
+    website: "https://patio.coop",
+    email: "hello@patio.coop",
+    description:
+      "A Patio member cooperative combining technology practice with democratic collaboration.",
+    logo: {
+      src: "/assets/cooperatives/el-maizal.png",
+      width: 98,
+      height: 98
+    }
   },
   {
     name: "Eryx",
-    region: "Americas",
+    region: "Europe",
     country: "Argentina",
     members: 27,
     services: ["Web 3", "FinTech", "CyberSecurity"],
     website: "https://patio.coop",
     email: "hello@patio.coop",
     description:
-      "An engineering collective working across secure digital systems, fintech, and decentralized products."
+      "An engineering collective working across secure digital systems, fintech, and decentralized products.",
+    logo: {
+      src: "/assets/cooperatives/eryx.png",
+      width: 120,
+      height: 53
+    }
   },
   {
     name: "Focus",
@@ -138,18 +201,12 @@ export const cooperatives: Cooperative[] = [
     website: "https://patio.coop",
     email: "hello@patio.coop",
     description:
-      "A cooperative team helping mission-driven organizations design and ship useful digital services."
-  },
-  {
-    name: "Cambá",
-    region: "Americas",
-    country: "Argentina",
-    members: 38,
-    services: ["Government Tech", "Training", "Open Source"],
-    website: "https://patio.coop",
-    email: "hello@patio.coop",
-    description:
-      "A cooperative committed to open source, public-interest technology, and technical education."
+      "A cooperative team helping mission-driven organizations design and ship useful digital services.",
+    logo: {
+      src: "/assets/cooperatives/focus.png",
+      width: 120,
+      height: 46
+    }
   }
 ];
 
@@ -177,7 +234,7 @@ export const processSteps = [
   {
     number: "01",
     title: "Understanding your needs",
-    text: "We meet with you to fully understand the problem and your success criteria."
+    text: "We meet with you to fully understand the problem you want solved."
   },
   {
     number: "02",
