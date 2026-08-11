@@ -29,6 +29,7 @@ type ModalState =
   | null;
 
 const regions = ["All", "Middle East", "Europe", "South East Asia"];
+const membersAreaEnabled = false;
 
 function shuffledCooperatives(items: Cooperative[]) {
   const shuffled = items.slice();
@@ -915,14 +916,16 @@ function MobileMenu({
               </a>
             ),
           )}
-          <button
-            onClick={() => {
-              close();
-              setModal({ type: "members" });
-            }}
-          >
-            Members
-          </button>
+          {membersAreaEnabled ? (
+            <button
+              onClick={() => {
+                close();
+                setModal({ type: "members" });
+              }}
+            >
+              Members
+            </button>
+          ) : null}
           <button
             onClick={() => {
               close();
@@ -1078,14 +1081,16 @@ function Footer({
           <h2>Community building</h2>
         </a>
 
-        <button
-          className="footer-menu footer-menu--members"
-          onClick={() => setModal({ type: "members" })}
-          type="button"
-        >
-          <span className="footer-menu__index">07</span>
-          <span className="footer-menu__title">Members</span>
-        </button>
+        {membersAreaEnabled ? (
+          <button
+            className="footer-menu footer-menu--members"
+            onClick={() => setModal({ type: "members" })}
+            type="button"
+          >
+            <span className="footer-menu__index">07</span>
+            <span className="footer-menu__title">Members</span>
+          </button>
+        ) : null}
       </nav>
 
       <div className="footer-social">

@@ -29,7 +29,7 @@ export const navItems = [
         label: "Industries",
         items: [
           { label: "AI Product Dev", href: "/ai-product-development/" },
-          { label: "Government Tech", href: "#industries" },
+          { label: "GovTech", href: "#industries" },
           { label: "Web 3", href: "#industries" },
           { label: "CyberSecurity", href: "#industries" },
           { label: "HealthTech", href: "#industries" },
@@ -44,6 +44,7 @@ export const navItems = [
           { label: "UI/UX Design & Animation", href: "#services" },
           { label: "Branding & Creative", href: "#services" },
           { label: "Mobile Development", href: "#services" },
+          { label: "IoT", href: "#services" },
           { label: "DevOps", href: "#services" },
           { label: "Blockchain", href: "#services" },
           { label: "Machine Learning", href: "#services" }
