@@ -1095,10 +1095,17 @@ main {
 }
 
 .process {
-  background: var(--color-off-white);
+  background:
+    linear-gradient(
+        to right,
+        var(--color-off-white) 0 27.5%,
+        var(--color-blue) 27.5% 100%
+      )
+      0 0 / 100% 32px no-repeat,
+    var(--color-off-white);
   min-height: 910px;
   overflow: hidden;
-  padding: 124px 88px 120px;
+  padding: 136px 88px 120px;
 }
 
 .process::before {
@@ -1121,11 +1128,12 @@ main {
 
 .process .section-intro h2 {
   font-size: clamp(42px, 3.8vw, 56px);
+  margin: 17px 0 5px;
 }
 
 .process .section-intro p {
   font-size: 18px;
-  line-height: 1.45;
+  line-height: 1.25;
 }
 
 .process-curve {
@@ -1156,7 +1164,7 @@ main {
 .process-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  margin-top: 150px;
+  margin-top: 138px;
   position: relative;
 }
 
@@ -1233,7 +1241,7 @@ main {
   font-size: 72px;
   font-weight: 400;
   line-height: 1;
-  margin-bottom: 92px;
+  margin-bottom: 57px;
 }
 
 .process-card h3 {
@@ -1310,7 +1318,7 @@ main {
   display: grid;
   gap: 0;
   grid-template-columns: minmax(0, 723px) minmax(0, 541px);
-  margin-top: 64px;
+  margin-top: 104px;
   position: relative;
   z-index: 1;
 }
@@ -1436,7 +1444,7 @@ main {
 
 .qualification {
   isolation: isolate;
-  margin-top: 214px;
+  margin-top: 241px;
   position: relative;
   z-index: 1;
 }
@@ -1528,7 +1536,7 @@ main {
   display: grid;
   gap: 0;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 120px;
+  margin-top: 102px;
   position: relative;
 }
 
@@ -1629,6 +1637,7 @@ main {
 }
 
 .qualification article .button {
+  background: var(--color-green);
   bottom: -48px;
   font-size: 16px;
   min-height: 48px;
@@ -4491,6 +4500,18 @@ button.footer-menu {
     display: none;
   }
 
+  .process {
+    background: var(--color-off-white);
+  }
+
+  .process .section-intro h2 {
+    margin: 12px 0 18px;
+  }
+
+  .process .section-intro p {
+    line-height: 1.45;
+  }
+
   .process-grid {
     margin-top: 72px;
   }
@@ -4508,6 +4529,10 @@ button.footer-menu {
     min-height: 260px;
   }
 
+  .process-card strong {
+    margin-bottom: 92px;
+  }
+
   .process-card:not(:first-child)::after {
     display: none;
   }
@@ -4518,6 +4543,10 @@ button.footer-menu {
 
   .qualification-grid {
     margin-top: 72px;
+  }
+
+  .qualification {
+    margin-top: 214px;
   }
 
   .qualification::before {

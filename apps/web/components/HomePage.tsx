@@ -457,26 +457,14 @@ export function HomePage() {
                   <span>Path 0{index + 1}</span>
                   <h3>{path.title}</h3>
                   <p>{path.text}</p>
-                  <button
-                    className="button button--small button--pale"
-                    onClick={() =>
-                      index === 2
-                        ? setModal({ type: "scholarship" })
-                        : setModal({
-                            type: "contact",
-                            title:
-                              index === 0
-                                ? "Pay annual membership"
-                                : "Join through contribution",
-                          })
-                    }
-                  >
-                    {index === 0
-                      ? "Pay now"
-                      : index === 1
-                        ? "Join for free"
-                        : "Submit application"}
-                  </button>
+                  {index === 2 ? (
+                    <button
+                      className="button button--small"
+                      onClick={() => setModal({ type: "scholarship" })}
+                    >
+                      Join the network
+                    </button>
+                  ) : null}
                 </article>
               ))}
             </div>
