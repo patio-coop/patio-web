@@ -190,6 +190,36 @@ export function HomePage() {
             title="Who we are"
             text="We are a global network of worker cooperatives in digital technology, communication, and design. We collaborate on international projects, scaling remote, interdisciplinary teams to fit each project’s needs."
           />
+          <div className="who-graphic" aria-hidden="true">
+            <svg viewBox="0 0 420 320" role="presentation">
+              <defs>
+                <linearGradient
+                  id="whoCurveGradient"
+                  x1="340"
+                  y1="0"
+                  x2="20"
+                  y2="290"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0" stopColor="#35ff38" />
+                  <stop offset="0.55" stopColor="#b8d7e8" />
+                  <stop offset="1" stopColor="#96d8fd" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M340 0 C340 164 250 290 20 290"
+                fill="none"
+                stroke="url(#whoCurveGradient)"
+                strokeWidth="4"
+              />
+              <circle cx="20" cy="290" fill="#96d8fd" r="7" />
+            </svg>
+            <span>
+              USR
+              <br />
+              43119
+            </span>
+          </div>
           <div className="region-filter" aria-label="Filter cooperatives">
             {regions.map((region) => (
               <button

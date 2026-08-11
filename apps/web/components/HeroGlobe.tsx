@@ -5,13 +5,21 @@ import type { Marker } from "cobe";
 import { useEffect, useRef } from "react";
 
 const locations = [
-  { label: "NYC ↔ London", location: [51.5072, -0.1276] },
-  { label: "Paris", location: [48.8566, 2.3522] },
+  {
+    label: "NYC ↔ London",
+    location: [51.5072, -0.1276],
+    offset: [-18, -18]
+  },
+  { label: "Paris", location: [48.8566, 2.3522], offset: [16, 18] },
   { label: "Dubai", location: [25.2048, 55.2708] },
   { label: "Tokyo", location: [35.6762, 139.6503] },
   { label: "Sydney", location: [-33.8688, 151.2093] },
   { label: "Cape Town", location: [-33.9249, 18.4241] }
-] satisfies { label: string; location: [number, number] }[];
+] satisfies {
+  label: string;
+  location: [number, number];
+  offset?: [number, number];
+}[];
 
 const markers: Marker[] = locations.map(({ location }) => ({
   location,
@@ -19,7 +27,7 @@ const markers: Marker[] = locations.map(({ location }) => ({
 }));
 
 const theta = 0.18;
-const globeScale = 0.95;
+const globeScale = 1.08;
 
 function projectLocation(
   [latitude, longitude]: [number, number],
@@ -62,7 +70,7 @@ export function HeroGlobe() {
   const pointerInteractionMovement = useRef(0);
 
   useEffect(() => {
-    let phi = 0;
+    let phi = Math.PI;
     let width = 0;
     const canvas = canvasRef.current;
 
@@ -105,14 +113,14 @@ export function HeroGlobe() {
         state.phi = renderedPhi;
         state.width = width * devicePixelRatio;
         state.height = width * devicePixelRatio;
-        locations.forEach(({ location }, index) => {
+        locations.forEach(({ location, offset = [0, 0] }, index) => {
           const label = labelRefs.current[index];
           if (!label) {
             return;
           }
           const projected = projectLocation(location, renderedPhi, width);
-          label.style.left = `${projected.x}px`;
-          label.style.top = `${projected.y}px`;
+          label.style.left = `${projected.x + offset[0]}px`;
+          label.style.top = `${projected.y + offset[1]}px`;
           label.style.opacity = projected.visible ? "1" : "0";
           label.style.visibility = projected.visible ? "visible" : "hidden";
         });

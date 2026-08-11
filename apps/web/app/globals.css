@@ -568,7 +568,7 @@ main {
   aspect-ratio: 1;
   max-width: 620px;
   position: relative;
-  transform: translateY(-48px);
+  transform: translate(-28px, -108px);
   width: min(48vw, 620px);
 }
 
@@ -577,7 +577,7 @@ main {
   border-radius: 50%;
   box-shadow: 0 0 24px rgba(150, 216, 253, 0.06);
   content: "";
-  inset: 12%;
+  inset: 7%;
   position: absolute;
 }
 
@@ -741,13 +741,45 @@ main {
 .who {
   background: var(--color-off-white);
   min-height: 1107px;
-  padding: 170px 88px 120px;
+  overflow: hidden;
+  padding: 130px 88px 120px;
+}
+
+.who .section-intro {
+  max-width: 455px;
+  position: relative;
+  z-index: 1;
+}
+
+.who-graphic {
+  height: 320px;
+  pointer-events: none;
+  position: absolute;
+  right: 88px;
+  top: 0;
+  width: 420px;
+}
+
+.who-graphic svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.who-graphic span {
+  color: var(--color-blue);
+  font-family: var(--font-display);
+  font-size: 12px;
+  left: 12px;
+  line-height: 1.15;
+  position: absolute;
+  top: 248px;
 }
 
 .region-filter {
   display: flex;
   gap: 1px;
-  margin: 56px 0 0;
+  margin: 136px 0 0;
   width: 632px;
 }
 
@@ -776,7 +808,7 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin: 0;
-  padding-top: 38px;
+  padding-top: 0;
 }
 
 .coop-card {
@@ -4359,9 +4391,14 @@ button.footer-menu {
     font-size: 36px;
   }
 
+  .who-graphic {
+    display: none;
+  }
+
   .region-filter {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 56px;
     width: 100%;
   }
 
