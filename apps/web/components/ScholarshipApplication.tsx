@@ -72,8 +72,15 @@ export function ScholarshipApplication() {
           </p>
         </div>
 
-        <div className="scholarship-paths" aria-label="Full membership paths">
-          <article className="scholarship-path scholarship-path--fee">
+        <div
+          className="scholarship-paths"
+          aria-label="Full membership paths"
+          role="list"
+        >
+          <article
+            className="scholarship-path scholarship-path--fee"
+            role="listitem"
+          >
             <span>Path 01</span>
             <div className="scholarship-path__rule" aria-hidden="true" />
             <h3>€500 annual membership fee</h3>
@@ -85,7 +92,10 @@ export function ScholarshipApplication() {
             <strong>Funds operations</strong>
           </article>
 
-          <article className="scholarship-path scholarship-path--labour">
+          <article
+            className="scholarship-path scholarship-path--labour"
+            role="listitem"
+          >
             <span>Path 02</span>
             <div className="scholarship-path__rule" aria-hidden="true" />
             <h3>Active unpaid labour contribution</h3>
@@ -97,7 +107,10 @@ export function ScholarshipApplication() {
             <strong>Builds the network</strong>
           </article>
 
-          <article className="scholarship-path scholarship-path--active">
+          <article
+            className="scholarship-path scholarship-path--active"
+            role="listitem"
+          >
             <span>Path 03</span>
             <div className="scholarship-path__rule" aria-hidden="true" />
             <h3>Why we offer this option</h3>

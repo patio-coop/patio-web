@@ -134,7 +134,11 @@ export function HeroGlobe() {
   }, []);
 
   return (
-    <div className="hero-globe" aria-label="Animated global network map">
+    <div
+      className="hero-globe"
+      aria-label="Animated global network map"
+      role="img"
+    >
       <canvas
         ref={canvasRef}
         className="hero-globe__canvas"

@@ -1,7 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { type FormEvent, useEffect, useRef, useState } from "react";
+import {
+  type FormEvent,
+  type KeyboardEvent as ReactKeyboardEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import { HeroGlobe } from "@/components/HeroGlobe";
 import { ScholarshipApplication } from "@/components/ScholarshipApplication";
@@ -30,6 +36,14 @@ type ModalState =
 
 const regions = ["All", "Middle East", "Europe", "South East Asia"];
 const membersAreaEnabled = false;
+
+function getFocusableElements(container: HTMLElement) {
+  return Array.from(
+    container.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    ),
+  ).filter((element) => element.getClientRects().length > 0);
+}
 
 function shuffledCooperatives(items: Cooperative[]) {
   const shuffled = items.slice();
@@ -128,8 +142,31 @@ export function HomePage() {
 
   const workItems = workTab === "industries" ? industries : services;
 
+  const handleWorkTabKeyDown = (
+    event: ReactKeyboardEvent<HTMLButtonElement>,
+  ) => {
+    let nextTab: "industries" | "services" | null = null;
+
+    if (event.key === "ArrowLeft" || event.key === "Home") {
+      nextTab = "industries";
+    } else if (event.key === "ArrowRight" || event.key === "End") {
+      nextTab = "services";
+    }
+
+    if (!nextTab) {
+      return;
+    }
+
+    event.preventDefault();
+    setWorkTab(nextTab);
+    document.getElementById(nextTab)?.focus();
+  };
+
   return (
     <>
+      <a className="skip-link" href="#top">
+        Skip to content
+      </a>
       <Header
         hidden={headerHidden}
         menuOpen={menuOpen}
@@ -146,7 +183,7 @@ export function HomePage() {
         }}
         setModal={setModal}
       />
-      <main id="top">
+      <main id="top" tabIndex={-1}>
         <section className="section hero" aria-labelledby="hero-heading">
           <div className="hero__content">
             <h1 id="hero-heading">
@@ -170,9 +207,13 @@ export function HomePage() {
             </button>
           </div>
           <HeroGlobe />
-          <div className="stats-grid" aria-label="Patio network statistics">
+          <div
+            className="stats-grid"
+            aria-label="Patio network statistics"
+            role="list"
+          >
             {stats.map((stat) => (
-              <div className="stat-card" key={stat.label}>
+              <div className="stat-card" key={stat.label} role="listitem">
                 <strong>{stat.value}</strong>
                 <span>{stat.label}</span>
               </div>
@@ -220,12 +261,18 @@ export function HomePage() {
               43119
             </span>
           </div>
-          <div className="region-filter" aria-label="Filter cooperatives">
+          <div
+            className="region-filter"
+            aria-label="Filter cooperatives"
+            role="group"
+          >
             {regions.map((region) => (
               <button
                 key={region}
                 className={region === activeRegion ? "is-active" : ""}
+                aria-pressed={region === activeRegion}
                 onClick={() => setActiveRegion(region)}
+                type="button"
               >
                 {region}
               </button>
@@ -237,6 +284,7 @@ export function HomePage() {
                 className="coop-card"
                 key={coop.name}
                 onClick={() => setModal({ type: "coop", cooperative: coop })}
+                type="button"
               >
                 <Image
                   src={sitePath(coop.logo.src)}
@@ -250,6 +298,7 @@ export function HomePage() {
           <button
             className="button button--small"
             onClick={() => setModal({ type: "network" })}
+            type="button"
           >
             View full network
           </button>
@@ -279,25 +328,42 @@ export function HomePage() {
               91241
             </span>
           </div>
-          <div className="segmented-control" role="tablist">
+          <div
+            className="segmented-control"
+            role="tablist"
+            aria-label="Browse Patio capabilities"
+          >
             <button
               id="industries"
               role="tab"
+              aria-controls="work-panel"
               aria-selected={workTab === "industries"}
               onClick={() => setWorkTab("industries")}
+              onKeyDown={handleWorkTabKeyDown}
+              tabIndex={workTab === "industries" ? 0 : -1}
+              type="button"
             >
               Industries
             </button>
             <button
               id="services"
               role="tab"
+              aria-controls="work-panel"
               aria-selected={workTab === "services"}
               onClick={() => setWorkTab("services")}
+              onKeyDown={handleWorkTabKeyDown}
+              tabIndex={workTab === "services" ? 0 : -1}
+              type="button"
             >
               Services
             </button>
           </div>
-          <div className="work-grid">
+          <div
+            className="work-grid"
+            id="work-panel"
+            role="tabpanel"
+            aria-labelledby={workTab}
+          >
             {workItems.map((item, index) => (
               <a
                 className="work-card"
@@ -513,7 +579,11 @@ export function HomePage() {
             </p>
           </div>
 
-          <div className="sociocracy-graphic" aria-label="Sociocracy diagram">
+          <div
+            className="sociocracy-graphic"
+            aria-label="Sociocracy principles"
+            role="group"
+          >
             <span className="sociocracy-connector sociocracy-connector--feedback-h" />
             <span className="sociocracy-connector sociocracy-connector--feedback-v" />
             <span className="sociocracy-connector sociocracy-connector--feedback-tail" />
@@ -697,9 +767,11 @@ export function HomePage() {
           <div className="community-gallery">
             {communityImages.map((image, index) => (
               <button
+                aria-label={`Open image: ${image.alt}`}
                 key={image.src}
                 className={`gallery-item gallery-item--${index + 1}`}
                 onClick={() => setModal({ type: "lightbox", index })}
+                type="button"
               >
                 <Image
                   src={sitePath(image.src)}
@@ -817,7 +889,7 @@ function Header({
             {item.groups ? (
               <div className="nav-dropdown">
                 <div className="nav-dropdown__primary">
-                  <h3>{item.label}</h3>
+                  <p className="nav-dropdown__title">{item.label}</p>
                   {item.groups.map((group) => (
                     <div
                       className="nav-dropdown__group"
@@ -849,15 +921,18 @@ function Header({
       <div className="header-actions">
         <button
           onClick={() => setModal({ type: "contact", title: "Get in touch" })}
+          type="button"
         >
           Get in touch
         </button>
       </div>
       <button
         className="menu-button"
-        aria-label="Open menu"
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        aria-controls={menuOpen ? "mobile-navigation" : undefined}
         aria-expanded={menuOpen}
         onClick={() => setMenuOpen(!menuOpen)}
+        type="button"
       >
         <span />
         <span />
@@ -880,6 +955,67 @@ function MobileMenu({
   close: () => void;
   setModal: (modal: ModalState) => void;
 }) {
+  const menuRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const closeMenuRef = useRef(close);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
+
+  closeMenuRef.current = close;
+
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    returnFocusRef.current =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+
+    const frame = window.requestAnimationFrame(() => {
+      closeButtonRef.current?.focus();
+    });
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeMenuRef.current();
+        return;
+      }
+
+      if (event.key !== "Tab" || !menuRef.current) {
+        return;
+      }
+
+      const focusable = getFocusableElements(menuRef.current);
+
+      if (focusable.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("keydown", handleKeyDown);
+      returnFocusRef.current?.focus();
+      returnFocusRef.current = null;
+    };
+  }, [open]);
+
   if (!open) {
     return null;
   }
@@ -887,16 +1023,32 @@ function MobileMenu({
   const item = panel !== null ? navItems[panel] : null;
 
   return (
-    <div className="mobile-menu">
+    <div
+      aria-label="Navigation menu"
+      aria-modal="true"
+      className="mobile-menu"
+      id="mobile-navigation"
+      ref={menuRef}
+      role="dialog"
+    >
       <div className="mobile-menu__bar">
         {item ? (
-          <button onClick={() => setPanel(null)} aria-label="Back">
+          <button
+            onClick={() => setPanel(null)}
+            aria-label="Back"
+            type="button"
+          >
             ←
           </button>
         ) : (
           <span />
         )}
-        <button onClick={close} aria-label="Close menu">
+        <button
+          onClick={close}
+          aria-label="Close menu"
+          ref={closeButtonRef}
+          type="button"
+        >
           ×
         </button>
       </div>
@@ -922,7 +1074,11 @@ function MobileMenu({
         <div className="mobile-menu__panel">
           {navItems.map((navItem, index) =>
             navItem.groups ? (
-              <button key={navItem.label} onClick={() => setPanel(index)}>
+              <button
+                key={navItem.label}
+                onClick={() => setPanel(index)}
+                type="button"
+              >
                 <span>{navItem.index}</span>
                 {navItem.label}
                 <b>→</b>
@@ -940,6 +1096,7 @@ function MobileMenu({
                 close();
                 setModal({ type: "members" });
               }}
+              type="button"
             >
               Members
             </button>
@@ -949,6 +1106,7 @@ function MobileMenu({
               close();
               setModal({ type: "contact", title: "Get in touch" });
             }}
+            type="button"
           >
             Get in touch
           </button>
@@ -1217,11 +1375,7 @@ function Modal({
         return;
       }
 
-      const focusable = Array.from(
-        dialogRef.current.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
-        ),
-      ).filter((element) => element.getClientRects().length > 0);
+      const focusable = getFocusableElements(dialogRef.current);
 
       if (focusable.length === 0) {
         event.preventDefault();
