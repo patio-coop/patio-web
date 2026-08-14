@@ -1231,7 +1231,7 @@ main:focus {
   border-left: 1px dashed var(--color-grid-light);
   content: "";
   height: 600px;
-  left: calc(60% + 35px);
+  left: calc(60% - 17.6px);
   pointer-events: none;
   position: absolute;
   top: 0;
@@ -1329,7 +1329,7 @@ main:focus {
   border-right: 1px dashed var(--color-grid-light);
 }
 
-.process-card:nth-child(2)::after {
+.process-card:first-child::after {
   background:
     linear-gradient(var(--color-blue), var(--color-blue)) center / 1px 26px no-repeat,
     linear-gradient(var(--color-blue), var(--color-blue)) center / 26px 1px no-repeat;
