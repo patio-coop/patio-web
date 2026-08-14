@@ -15,7 +15,7 @@ export type Cooperative = {
     row: number;
     height: number;
   };
-  logo: {
+  logo?: {
     src: string;
     width: number;
     height: number;

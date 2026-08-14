@@ -887,6 +887,7 @@ main:focus {
   height: 42px;
   flex: 1 1 0;
   padding: 0 16px;
+  white-space: nowrap;
   text-transform: uppercase;
   transition:
     background 180ms ease,
@@ -4831,6 +4832,7 @@ button.footer-menu {
   }
 
   .region-filter button {
+    font-size: 14px;
     padding: 0 8px;
   }
 

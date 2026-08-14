@@ -34,7 +34,7 @@ type ModalState =
   | { type: "scholarship" }
   | null;
 
-const regions = ["All", "Middle East", "Europe", "South East Asia"];
+const regions = ["All", "Middle East", "Europe", "South East Asia", "America"];
 const membersAreaEnabled = false;
 
 function getFocusableElements(container: HTMLElement) {
@@ -75,10 +75,10 @@ const communityCrosses = [
   [90, 1076],
 ] as const;
 
-const whoCrosses = Array.from({ length: 15 }, (_, index) => [
-  index % 5,
-  Math.floor(index / 5),
-] as const);
+const whoCrosses = Array.from(
+  { length: 15 },
+  (_, index) => [index % 5, Math.floor(index / 5)] as const,
+);
 
 export function HomePage() {
   const [modal, setModal] = useState<ModalState>(null);
@@ -126,8 +126,10 @@ export function HomePage() {
   const workItems = workTab === "industries" ? industries : services;
   const featuredCoops =
     activeRegion === "All"
-      ? cooperatives
-      : cooperatives.filter((coop) => coop.region === activeRegion);
+      ? cooperatives.filter((coop) => coop.logo)
+      : cooperatives.filter(
+          (coop) => coop.region === activeRegion && coop.logo,
+        );
 
   const handleWorkTabKeyDown = (
     event: ReactKeyboardEvent<HTMLButtonElement>,
@@ -273,12 +275,14 @@ export function HomePage() {
                 onClick={() => setModal({ type: "coop", cooperative: coop })}
                 type="button"
               >
-                <Image
-                  src={sitePath(coop.logo.src)}
-                  alt={coop.name}
-                  width={coop.logo.width}
-                  height={coop.logo.height}
-                />
+                {coop.logo ? (
+                  <Image
+                    src={sitePath(coop.logo.src)}
+                    alt={coop.name}
+                    width={coop.logo.width}
+                    height={coop.logo.height}
+                  />
+                ) : null}
               </button>
             ))}
             <div className="who-grid-crosses" aria-hidden="true">
@@ -614,8 +618,8 @@ export function HomePage() {
                 consent
               </h3>
               <p>
-                Circles set their agreements by consent - if a circle member
-                has objection, the proposal needs to be improved
+                Circles set their agreements by consent - if a circle member has
+                objection, the proposal needs to be improved
               </p>
             </article>
 
@@ -680,16 +684,13 @@ export function HomePage() {
               </p>
               <p>
                 Whether you&apos;re part of a co-op or just starting out, we
-                bring people together to share knowledge and support each
-                other.
+                bring people together to share knowledge and support each other.
               </p>
               <p>Our goal is simple: help you build a thriving tech co-op.</p>
             </div>
             <button
               className="button button--small"
-              onClick={() =>
-                setModal({ type: "contact", title: "Join Patio" })
-              }
+              onClick={() => setModal({ type: "contact", title: "Join Patio" })}
             >
               Join us
             </button>
@@ -908,10 +909,7 @@ function Header({
                       </a>
                       <div className="nav-dropdown__submenu">
                         {group.items.map((entry) => (
-                          <a
-                            href={sitePath(entry.href)}
-                            key={entry.label}
-                          >
+                          <a href={sitePath(entry.href)} key={entry.label}>
                             {entry.label}
                           </a>
                         ))}
@@ -1152,11 +1150,7 @@ function SectionIntro({
   );
 }
 
-function Footer({
-  setModal,
-}: {
-  setModal: (modal: ModalState) => void;
-}) {
+function Footer({ setModal }: { setModal: (modal: ModalState) => void }) {
   const footerIndustries = [
     { label: "AI Product Dev", href: sitePath("/ai-product-development/") },
     { label: "GovTech", href: "#industries" },
@@ -1208,10 +1202,7 @@ function Footer({
       </a>
 
       <nav className="footer-navigation" aria-label="Footer">
-        <a
-          className="footer-menu footer-menu--who"
-          href="#who-we-are"
-        >
+        <a className="footer-menu footer-menu--who" href="#who-we-are">
           <span className="footer-menu__index">01</span>
           <h2>Who we are</h2>
         </a>
@@ -1255,18 +1246,12 @@ function Footer({
           </div>
         </div>
 
-        <a
-          className="footer-menu footer-menu--philosophy"
-          href="#philosophy"
-        >
+        <a className="footer-menu footer-menu--philosophy" href="#philosophy">
           <span className="footer-menu__index">05</span>
           <h2>Our philosophy</h2>
         </a>
 
-        <a
-          className="footer-menu footer-menu--community"
-          href="#community"
-        >
+        <a className="footer-menu footer-menu--community" href="#community">
           <span className="footer-menu__index">06</span>
           <h2>Community building</h2>
         </a>
@@ -1520,7 +1505,9 @@ function ContactModal({ title }: { title: string }) {
         <label className="contact-field">
           <span>Subject</span>
           <select name="enquiryType" defaultValue="" required>
-            <option value="" disabled>Select an option ...</option>
+            <option value="" disabled>
+              Select an option ...
+            </option>
             <option value="New project">New project</option>
             <option value="Join the community">Join the community</option>
             <option value="Partnership">Partnership</option>
@@ -1530,16 +1517,32 @@ function ContactModal({ title }: { title: string }) {
         <div className="contact-form__name-row">
           <label className="contact-field">
             <span>Name</span>
-            <input name="name" autoComplete="given-name" placeholder="Your name ..." required />
+            <input
+              name="name"
+              autoComplete="given-name"
+              placeholder="Your name ..."
+              required
+            />
           </label>
           <label className="contact-field">
             <span>Surname</span>
-            <input name="surname" autoComplete="family-name" placeholder="Your surname ..." required />
+            <input
+              name="surname"
+              autoComplete="family-name"
+              placeholder="Your surname ..."
+              required
+            />
           </label>
         </div>
         <label className="contact-field">
           <span>Email</span>
-          <input name="email" type="email" autoComplete="email" placeholder="Your email ..." required />
+          <input
+            name="email"
+            type="email"
+            autoComplete="email"
+            placeholder="Your email ..."
+            required
+          />
         </label>
         <label className="contact-field">
           <span>Subject</span>
@@ -1551,7 +1554,9 @@ function ContactModal({ title }: { title: string }) {
           <textarea
             maxLength={300}
             name="message"
-            onChange={(event) => setMessageLength(event.currentTarget.value.length)}
+            onChange={(event) =>
+              setMessageLength(event.currentTarget.value.length)
+            }
             placeholder="Your message ..."
             required
           />
@@ -1592,7 +1597,9 @@ function MembersModal() {
 function NetworkModal({ setModal }: { setModal: (modal: ModalState) => void }) {
   return (
     <div className="network-modal">
-      <h2 className="sr-only" id="modal-network-title">All cooperatives</h2>
+      <h2 className="sr-only" id="modal-network-title">
+        All cooperatives
+      </h2>
       <div className="network-grid">
         {cooperatives.map((coop) => (
           <button
@@ -1604,12 +1611,16 @@ function NetworkModal({ setModal }: { setModal: (modal: ModalState) => void }) {
             }}
             type="button"
           >
-            <Image
-              src={sitePath(coop.logo.src)}
-              alt={coop.name}
-              width={coop.logo.width}
-              height={coop.logo.height}
-            />
+            {coop.logo ? (
+              <Image
+                src={sitePath(coop.logo.src)}
+                alt={coop.name}
+                width={coop.logo.width}
+                height={coop.logo.height}
+              />
+            ) : (
+              <strong>{coop.name}</strong>
+            )}
           </button>
         ))}
       </div>
@@ -1627,22 +1638,23 @@ function CoopModal({
   return (
     <div className="coop-modal">
       <div className="coop-modal__breadcrumb">
-        <button
-          onClick={() => setModal({ type: "network" })}
-          type="button"
-        >
+        <button onClick={() => setModal({ type: "network" })} type="button">
           All
         </button>
         <span aria-hidden="true">→</span>
         <h2 id="modal-coop-title">{cooperative.name}</h2>
       </div>
       <div className="coop-modal__logo">
-        <Image
-          src={sitePath(cooperative.logo.src)}
-          alt={cooperative.name}
-          width={cooperative.logo.width}
-          height={cooperative.logo.height}
-        />
+        {cooperative.logo ? (
+          <Image
+            src={sitePath(cooperative.logo.src)}
+            alt={cooperative.name}
+            width={cooperative.logo.width}
+            height={cooperative.logo.height}
+          />
+        ) : (
+          <strong>{cooperative.name}</strong>
+        )}
       </div>
       <div className="coop-modal__content">
         <h3>{cooperative.headline}</h3>
