@@ -113,6 +113,7 @@ export const services = [
   "UI/UX Design & Animation",
   "Branding & Creative",
   "Mobile Development",
+  "IoT",
   "DevOps",
   "Blockchain",
   "Machine Learning"

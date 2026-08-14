@@ -124,12 +124,12 @@ export function HomePage() {
   }, []);
 
   const workItems = workTab === "industries" ? industries : services;
-  const featuredCoops =
-    activeRegion === "All"
+  const featuredCoops = (activeRegion === "All"
       ? cooperatives.filter((coop) => coop.logo)
       : cooperatives.filter(
           (coop) => coop.region === activeRegion && coop.logo,
-        );
+        )
+  ).slice(0, 8);
 
   const handleWorkTabKeyDown = (
     event: ReactKeyboardEvent<HTMLButtonElement>,
@@ -386,7 +386,9 @@ export function HomePage() {
                 />
               </a>
             ))}
-            <span className="work-card work-card--empty" aria-hidden="true" />
+            {workItems.length % 4 !== 0 ? (
+              <span className="work-card work-card--empty" aria-hidden="true" />
+            ) : null}
           </div>
         </section>
 

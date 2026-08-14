@@ -970,12 +970,13 @@ main:focus {
 .segmented-control {
   bottom: auto;
   display: grid;
-  grid-template-columns: 309px 325px;
+  grid-template-columns: 308fr 324fr;
   height: 42px;
-  left: 88px;
+  left: 6.111%;
   margin: 0;
   position: absolute;
   top: 419px;
+  width: 43.889%;
   z-index: 2;
 }
 
@@ -1259,7 +1260,7 @@ main:focus {
   pointer-events: none;
   position: absolute;
   right: 122px;
-  top: 0;
+  top: 32px;
   width: 260px;
 }
 
