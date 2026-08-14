@@ -877,29 +877,39 @@ function Header({
       <nav className="desktop-nav" aria-label="Main navigation">
         {navItems.map((item) => (
           <div className="nav-item" key={item.label}>
-            <a href={item.href}>
-              <span className="nav-item__content">
-                <span className="nav-item__index">{item.index}</span>
-                <span className="nav-item__label">
-                  {item.label}
-                  {item.groups ? <b aria-hidden="true">⌄</b> : null}
+            {item.groups ? (
+              <button aria-haspopup="true" type="button">
+                <span className="nav-item__content">
+                  <span className="nav-item__index">{item.index}</span>
+                  <span className="nav-item__label">
+                    {item.label}
+                    <b aria-hidden="true">⌄</b>
+                  </span>
                 </span>
-              </span>
-            </a>
+              </button>
+            ) : (
+              <a href={item.href}>
+                <span className="nav-item__content">
+                  <span className="nav-item__index">{item.index}</span>
+                  <span className="nav-item__label">{item.label}</span>
+                </span>
+              </a>
+            )}
             {item.groups ? (
               <div className="nav-dropdown">
                 <div className="nav-dropdown__primary">
-                  <p className="nav-dropdown__title">{item.label}</p>
+                  <a className="nav-dropdown__title" href={item.href}>
+                    {item.label}
+                  </a>
                   {item.groups.map((group) => (
-                    <div
-                      className="nav-dropdown__group"
-                      key={group.label}
-                      tabIndex={0}
-                    >
-                      <span className="nav-dropdown__group-label">
+                    <div className="nav-dropdown__group" key={group.label}>
+                      <a
+                        className="nav-dropdown__group-label"
+                        href={group.href}
+                      >
                         {group.label}
                         <b aria-hidden="true">›</b>
-                      </span>
+                      </a>
                       <div className="nav-dropdown__submenu">
                         {group.items.map((entry) => (
                           <a
@@ -1054,10 +1064,18 @@ function MobileMenu({
       </div>
       {item?.groups ? (
         <div className="mobile-menu__panel">
-          <h2>{item.label}</h2>
+          <h2>
+            <a href={item.href} onClick={close}>
+              {item.label}
+            </a>
+          </h2>
           {item.groups.map((group) => (
             <div key={group.label}>
-              <h3>{group.label}</h3>
+              <h3>
+                <a href={group.href} onClick={close}>
+                  {group.label}
+                </a>
+              </h3>
               {group.items.map((entry) => (
                 <a
                   href={sitePath(entry.href)}

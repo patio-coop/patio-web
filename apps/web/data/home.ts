@@ -27,6 +27,7 @@ export const navItems = [
     groups: [
       {
         label: "Industries",
+        href: "#industries",
         items: [
           { label: "AI Product Dev", href: "/ai-product-development/" },
           { label: "GovTech", href: "#industries" },
@@ -39,6 +40,7 @@ export const navItems = [
       },
       {
         label: "Services",
+        href: "#services",
         items: [
           { label: "Full-Stack Development", href: "#services" },
           { label: "UI/UX Design & Animation", href: "#services" },
@@ -59,6 +61,7 @@ export const navItems = [
     groups: [
       {
         label: "Our model",
+        href: "#how-we-work",
         items: [
           { label: "Membership Model", href: "#membership" },
           { label: "Ways to Qualify", href: "#qualification" }
