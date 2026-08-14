@@ -1486,14 +1486,25 @@ function Modal({
 }
 
 function ContactModal({ title }: { title: string }) {
+  const [messageLength, setMessageLength] = useState(0);
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const name = String(data.get("name") ?? "").trim();
+    const surname = String(data.get("surname") ?? "").trim();
     const email = String(data.get("email") ?? "").trim();
+    const enquiryType = String(data.get("enquiryType") ?? "").trim();
+    const messageSubject = String(data.get("subject") ?? "").trim();
     const message = String(data.get("message") ?? "").trim();
-    const subject = `Patio enquiry: ${title}`;
-    const body = [`Name: ${name}`, `Email: ${email}`, "", message].join("\n");
+    const subject = messageSubject || `Patio enquiry: ${title}`;
+    const body = [
+      `Enquiry: ${enquiryType}`,
+      `Name: ${name} ${surname}`,
+      `Email: ${email}`,
+      "",
+      message,
+    ].join("\n");
 
     window.location.href = `mailto:hello@patio.coop?subject=${encodeURIComponent(
       subject,
@@ -1501,48 +1512,59 @@ function ContactModal({ title }: { title: string }) {
   };
 
   return (
-    <>
-      <h2 id="modal-contact-title">{title}</h2>
-      <p>
-        Tell us what you want to build and how we can help. We&apos;ll get back to
-        you shortly.
-      </p>
-      <form className="modal-form" onSubmit={handleSubmit}>
-        <label>
-          Name
-          <input
-            name="name"
-            autoComplete="name"
-            placeholder="Your name"
-            required
-          />
+    <div className="contact-modal">
+      <div className="contact-modal__intro">
+        <h2 id="modal-contact-title">{title}</h2>
+        <p>
+          Tell us briefly how you&apos;d like to collaborate. A community member
+          will reach out to explore the next steps with you.
+        </p>
+      </div>
+      <form className="contact-form" onSubmit={handleSubmit}>
+        <label className="contact-field">
+          <span>Subject</span>
+          <select name="enquiryType" defaultValue="" required>
+            <option value="" disabled>Select an option ...</option>
+            <option value="New project">New project</option>
+            <option value="Join the community">Join the community</option>
+            <option value="Partnership">Partnership</option>
+            <option value="Other">Other</option>
+          </select>
         </label>
-        <label>
-          Email
-          <input
-            name="email"
-            type="email"
-            autoComplete="email"
-            placeholder="you@example.com"
-            required
-          />
+        <div className="contact-form__name-row">
+          <label className="contact-field">
+            <span>Name</span>
+            <input name="name" autoComplete="given-name" placeholder="Your name ..." required />
+          </label>
+          <label className="contact-field">
+            <span>Surname</span>
+            <input name="surname" autoComplete="family-name" placeholder="Your surname ..." required />
+          </label>
+        </div>
+        <label className="contact-field">
+          <span>Email</span>
+          <input name="email" type="email" autoComplete="email" placeholder="Your email ..." required />
         </label>
-        <label>
-          Project
+        <label className="contact-field">
+          <span>Subject</span>
+          <input name="subject" placeholder="Subject ..." required />
+        </label>
+        <label className="contact-field contact-field--message">
+          <span>Message</span>
+          <span className="contact-field__count">{messageLength}/300</span>
           <textarea
+            maxLength={300}
             name="message"
-            placeholder="What would you like to explore?"
+            onChange={(event) => setMessageLength(event.currentTarget.value.length)}
+            placeholder="Your message ..."
             required
           />
         </label>
-        <small className="modal-form__note">
-          Sending opens your default email application.
-        </small>
-        <button className="button button--primary" type="submit">
-          Send request
+        <button className="contact-form__submit" type="submit">
+          Send message
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

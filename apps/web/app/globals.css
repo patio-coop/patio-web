@@ -3389,6 +3389,146 @@ button.footer-menu {
   width: min(100%, 1225px);
 }
 
+.modal--contact {
+  height: min(742px, calc(100dvh - 48px));
+  max-width: 1225px;
+  overflow: auto;
+  padding: 0;
+  width: min(100%, 1225px);
+}
+
+.modal--contact .modal__close {
+  background: transparent;
+  color: var(--color-blue);
+  font-family: var(--font-body);
+  font-size: 29px;
+  font-weight: 300;
+  height: 48px;
+  right: 12px;
+  top: 12px;
+  width: 48px;
+}
+
+.contact-modal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100%;
+}
+
+.contact-modal__intro {
+  padding: 46px 40px;
+}
+
+.modal .contact-modal__intro h2 {
+  font-size: 48px;
+  line-height: 1;
+  margin-bottom: 17px;
+}
+
+.contact-modal__intro p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 329px;
+}
+
+.contact-form {
+  border-left: 1px dashed rgba(0, 16, 59, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  min-width: 0;
+  padding: 86px 40px 59px 0;
+  position: relative;
+}
+
+.contact-field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  position: relative;
+}
+
+.contact-field > span {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.contact-field input,
+.contact-field select,
+.contact-field textarea {
+  appearance: none;
+  background-color: #fff;
+  border: 0;
+  border-bottom: 1px dashed rgba(0, 16, 59, 0.3);
+  border-radius: 0;
+  color: var(--color-blue);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  height: 41px;
+  line-height: 1.5;
+  outline: 0;
+  padding: 9px 16px;
+  width: 100%;
+}
+
+.contact-field input:focus,
+.contact-field select:focus,
+.contact-field textarea:focus {
+  box-shadow: inset 0 0 0 2px var(--color-blue);
+}
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder,
+.contact-field select:invalid {
+  color: rgba(0, 16, 59, 0.5);
+  opacity: 1;
+}
+
+.contact-field select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--color-blue) 50%), linear-gradient(135deg, var(--color-blue) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 17px, calc(100% - 15px) 17px;
+  background-repeat: no-repeat;
+  background-size: 5px 5px, 5px 5px;
+  padding-right: 42px;
+}
+
+.contact-form__name-row {
+  display: grid;
+  gap: 27px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.contact-field--message textarea {
+  height: 101px;
+  padding-top: 13px;
+  resize: none;
+}
+
+.contact-field .contact-field__count {
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+}
+
+.contact-form__submit {
+  align-self: flex-end;
+  background: var(--color-blue);
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 18px;
+  height: 40px;
+  margin-top: 37px;
+  padding: 11px 16px;
+  text-transform: uppercase;
+  width: 140px;
+}
+
 .modal--scholarship .modal__close {
   background: transparent;
   color: var(--color-blue);
@@ -4825,6 +4965,41 @@ button.footer-menu {
   .modal--scholarship {
     max-height: calc(100dvh - 16px);
     width: 100%;
+  }
+
+  .modal--contact {
+    height: auto;
+    max-height: calc(100dvh - 16px);
+    padding: 0;
+    width: 100%;
+  }
+
+  .contact-modal {
+    display: block;
+  }
+
+  .contact-modal__intro {
+    padding: 56px 18px 32px;
+  }
+
+  .modal .contact-modal__intro h2 {
+    font-size: 36px;
+  }
+
+  .contact-form {
+    border-left: 0;
+    border-top: 1px dashed rgba(0, 16, 59, 0.3);
+    gap: 20px;
+    padding: 28px 18px 32px;
+  }
+
+  .contact-form__name-row {
+    gap: 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form__submit {
+    margin-top: 8px;
   }
 
   .scholarship-application {
