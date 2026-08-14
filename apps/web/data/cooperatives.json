@@ -1,0 +1,101 @@
+[
+  {
+    "name": "ALT.coop",
+    "region": "Middle East",
+    "country": "Germany",
+    "services": ["Software Development", "Product Development"],
+    "website": "https://control.alt.coop",
+    "email": "hello@patio.coop",
+    "description": "A Patio member cooperative delivering collaborative digital products and technology services.",
+    "headline": "Collaborative technology solutions",
+    "networkLayout": { "column": 1, "row": 1, "height": 210 },
+    "logo": { "src": "/assets/cooperatives/alt-coop.png", "width": 170, "height": 33 }
+  },
+  {
+    "name": "Animus",
+    "region": "Europe",
+    "country": "Argentina",
+    "members": 18,
+    "services": ["Branding", "Creative", "UI/UX", "Animation"],
+    "website": "https://animus.coop",
+    "email": "hello@patio.coop",
+    "description": "A cooperative studio focused on identity, product experience, and digital storytelling.",
+    "headline": "We create technological solutions",
+    "networkLayout": { "column": 2, "row": 1, "height": 120 },
+    "logo": { "src": "/assets/cooperatives/animus.png", "width": 172, "height": 30 }
+  },
+  {
+    "name": "Boot Coop",
+    "region": "South East Asia",
+    "services": ["Software Development", "Product Strategy"],
+    "website": "https://bootcoop.com.ar",
+    "email": "hello@patio.coop",
+    "description": "A Patio member cooperative building resilient products and long-term software partnerships.",
+    "headline": "Resilient products and partnerships",
+    "networkLayout": { "column": 3, "row": 1, "height": 289 },
+    "logo": { "src": "/assets/cooperatives/boot-coop.png", "width": 177, "height": 70 }
+  },
+  {
+    "name": "Cambá",
+    "region": "South East Asia",
+    "country": "Argentina",
+    "members": 38,
+    "services": ["Government Tech", "Training", "Open Source"],
+    "website": "https://patio.coop",
+    "email": "hello@patio.coop",
+    "description": "A cooperative committed to open source, public-interest technology, and technical education.",
+    "headline": "Technology for the public interest",
+    "networkLayout": { "column": 4, "row": 1, "height": 210 },
+    "logo": { "src": "/assets/cooperatives/camba.png", "width": 179, "height": 60 }
+  },
+  {
+    "name": "Código Libre",
+    "region": "Middle East",
+    "country": "Argentina",
+    "services": ["Open Source", "Software Development", "Training"],
+    "website": "https://patio.coop",
+    "email": "hello@patio.coop",
+    "description": "A technology cooperative focused on free software, shared knowledge, and collaborative delivery.",
+    "headline": "Free software and shared knowledge",
+    "networkLayout": { "column": 1, "row": 211, "height": 212 },
+    "logo": { "src": "/assets/cooperatives/codigo-libre.png", "width": 143, "height": 52 }
+  },
+  {
+    "name": "El Maizal",
+    "region": "Middle East",
+    "country": "Argentina",
+    "services": ["Software Development", "Community Technology"],
+    "website": "https://patio.coop",
+    "email": "hello@patio.coop",
+    "description": "A Patio member cooperative combining technology practice with democratic collaboration.",
+    "headline": "Technology through democratic collaboration",
+    "networkLayout": { "column": 2, "row": 121, "height": 302 },
+    "logo": { "src": "/assets/cooperatives/el-maizal.png", "width": 98, "height": 98 }
+  },
+  {
+    "name": "Eryx",
+    "region": "Europe",
+    "country": "Argentina",
+    "members": 27,
+    "services": ["Web 3", "FinTech", "CyberSecurity"],
+    "website": "https://patio.coop",
+    "email": "hello@patio.coop",
+    "description": "An engineering collective working across secure digital systems, fintech, and decentralized products.",
+    "headline": "Engineering secure digital systems",
+    "networkLayout": { "column": 3, "row": 290, "height": 133 },
+    "logo": { "src": "/assets/cooperatives/eryx.png", "width": 120, "height": 53 }
+  },
+  {
+    "name": "Focus",
+    "region": "Europe",
+    "country": "Germany",
+    "members": 15,
+    "services": ["HealthTech", "Education Tech", "Research"],
+    "website": "https://patio.coop",
+    "email": "hello@patio.coop",
+    "description": "A cooperative team helping mission-driven organizations design and ship useful digital services.",
+    "headline": "Useful services for meaningful missions",
+    "networkLayout": { "column": 4, "row": 211, "height": 212 },
+    "logo": { "src": "/assets/cooperatives/focus.png", "width": 120, "height": 46 }
+  }
+]

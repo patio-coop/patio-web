@@ -45,17 +45,6 @@ function getFocusableElements(container: HTMLElement) {
   ).filter((element) => element.getClientRects().length > 0);
 }
 
-function shuffledCooperatives(items: Cooperative[]) {
-  const shuffled = items.slice();
-
-  for (let index = shuffled.length - 1; index > 0; index -= 1) {
-    const target = Math.floor(Math.random() * (index + 1));
-    [shuffled[index], shuffled[target]] = [shuffled[target], shuffled[index]];
-  }
-
-  return shuffled;
-}
-
 const communityCrosses = [
   [987, 453],
   [1006, 453],
@@ -86,14 +75,16 @@ const communityCrosses = [
   [90, 1076],
 ] as const;
 
+const whoCrosses = Array.from({ length: 15 }, (_, index) => [
+  index % 5,
+  Math.floor(index / 5),
+] as const);
+
 export function HomePage() {
   const [modal, setModal] = useState<ModalState>(null);
   const [activeRegion, setActiveRegion] = useState("All");
   const [workTab, setWorkTab] = useState<"industries" | "services">(
     "industries",
-  );
-  const [featuredCoops, setFeaturedCoops] = useState<Cooperative[]>(
-    cooperatives,
   );
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobilePanel, setMobilePanel] = useState<number | null>(null);
@@ -132,15 +123,11 @@ export function HomePage() {
       window.removeEventListener("hashchange", selectWorkTabFromHash);
   }, []);
 
-  useEffect(() => {
-    const filtered =
-      activeRegion === "All"
-        ? cooperatives
-        : cooperatives.filter((coop) => coop.region === activeRegion);
-    setFeaturedCoops(shuffledCooperatives(filtered));
-  }, [activeRegion]);
-
   const workItems = workTab === "industries" ? industries : services;
+  const featuredCoops =
+    activeRegion === "All"
+      ? cooperatives
+      : cooperatives.filter((coop) => coop.region === activeRegion);
 
   const handleWorkTabKeyDown = (
     event: ReactKeyboardEvent<HTMLButtonElement>,
@@ -294,6 +281,15 @@ export function HomePage() {
                 />
               </button>
             ))}
+            <div className="who-grid-crosses" aria-hidden="true">
+              {whoCrosses.map(([column, row]) => (
+                <span
+                  className="who-grid-cross"
+                  key={`${column}-${row}`}
+                  style={{ left: `${column * 25}%`, top: `${row * 50}%` }}
+                />
+              ))}
+            </div>
           </div>
           <button
             className="button button--small"
@@ -1595,24 +1591,29 @@ function MembersModal() {
 
 function NetworkModal({ setModal }: { setModal: (modal: ModalState) => void }) {
   return (
-    <>
-      <h2 id="modal-network-title">Full network</h2>
-      <div className="network-list">
+    <div className="network-modal">
+      <h2 className="sr-only" id="modal-network-title">All cooperatives</h2>
+      <div className="network-grid">
         {cooperatives.map((coop) => (
           <button
             key={coop.name}
             onClick={() => setModal({ type: "coop", cooperative: coop })}
+            style={{
+              gridColumn: coop.networkLayout.column,
+              gridRow: `${coop.networkLayout.row} / span ${coop.networkLayout.height}`,
+            }}
+            type="button"
           >
-            <strong>{coop.name}</strong>
-            <span>
-              {[coop.country, coop.members ? `${coop.members} members` : null]
-                .filter(Boolean)
-                .join(" · ")}
-            </span>
+            <Image
+              src={sitePath(coop.logo.src)}
+              alt={coop.name}
+              width={coop.logo.width}
+              height={coop.logo.height}
+            />
           </button>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
@@ -1624,38 +1625,36 @@ function CoopModal({
   setModal: (modal: ModalState) => void;
 }) {
   return (
-    <>
-      <button
-        className="modal__back"
-        onClick={() => setModal({ type: "network" })}
-        type="button"
-      >
-        ← Full network
-      </button>
-      <h2 id="modal-coop-title">{cooperative.name}</h2>
-      <p>{cooperative.description}</p>
-      <dl className="coop-details">
-        {cooperative.country ? (
-          <div>
-            <dt>Location</dt>
-            <dd>{cooperative.country}</dd>
-          </div>
-        ) : null}
-        {cooperative.members ? (
-          <div>
-            <dt>Members</dt>
-            <dd>{cooperative.members}</dd>
-          </div>
-        ) : null}
-      </dl>
-      <div className="tags">
-        {cooperative.services.map((service) => (
-          <span key={service}>{service}</span>
-        ))}
-      </div>
-      <div className="modal-actions">
+    <div className="coop-modal">
+      <div className="coop-modal__breadcrumb">
         <button
-          className="button button--primary"
+          onClick={() => setModal({ type: "network" })}
+          type="button"
+        >
+          All
+        </button>
+        <span aria-hidden="true">→</span>
+        <h2 id="modal-coop-title">{cooperative.name}</h2>
+      </div>
+      <div className="coop-modal__logo">
+        <Image
+          src={sitePath(cooperative.logo.src)}
+          alt={cooperative.name}
+          width={cooperative.logo.width}
+          height={cooperative.logo.height}
+        />
+      </div>
+      <div className="coop-modal__content">
+        <h3>{cooperative.headline}</h3>
+        <p>{cooperative.description}</p>
+        <div className="coop-modal__tags">
+          {cooperative.services.map((service) => (
+            <span key={service}>{service}</span>
+          ))}
+        </div>
+      </div>
+      <div className="coop-modal__footer">
+        <button
           onClick={() =>
             setModal({
               type: "contact",
@@ -1664,18 +1663,10 @@ function CoopModal({
           }
           type="button"
         >
-          Send email
+          Contact us
         </button>
-        <a
-          className="button button--pale"
-          href={cooperative.website}
-          rel="noreferrer"
-          target="_blank"
-        >
-          Open website
-        </a>
       </div>
-    </>
+    </div>
   );
 }
 
