@@ -89,6 +89,7 @@ export function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobilePanel, setMobilePanel] = useState<number | null>(null);
   const [headerHidden, setHeaderHidden] = useState(false);
+  const sociocracyRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     let previousY = window.scrollY;
@@ -107,6 +108,28 @@ export function HomePage() {
       document.body.style.overflow = "";
     };
   }, [modal, menuOpen]);
+
+  useEffect(() => {
+    const section = sociocracyRef.current;
+    if (!section) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            section.classList.add("sociocracy--in-view");
+            observer.disconnect();
+          }
+        }
+      },
+      { threshold: 0.25 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const selectWorkTabFromHash = () => {
@@ -543,6 +566,7 @@ export function HomePage() {
           className="section section--dark sociocracy"
           id="sociocracy"
           aria-labelledby="sociocracy-heading"
+          ref={sociocracyRef}
         >
           <div className="sociocracy-frame" aria-hidden="true">
             <span className="sociocracy-frame__guide sociocracy-frame__guide--header" />

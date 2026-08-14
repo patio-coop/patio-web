@@ -1766,6 +1766,50 @@ main:focus {
   right: 0;
 }
 
+@keyframes sociocracy-sphere-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes sociocracy-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes sociocracy-draw-x {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes sociocracy-draw-y {
+  from {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
 .sociocracy {
   background: var(--color-blue);
   height: 1290px;
@@ -2203,6 +2247,82 @@ main:focus {
   left: 178px;
   top: 235px;
   width: 95px;
+}
+
+.sociocracy-globe__orbit,
+.sociocracy-globe__node,
+.sociocracy-globe__label,
+.sociocracy-connector,
+.sociocracy-principle {
+  opacity: 0;
+}
+
+.sociocracy--in-view .sociocracy-globe__orbit {
+  animation: sociocracy-sphere-in 0.6s ease-out both;
+}
+
+.sociocracy--in-view .sociocracy-globe__node {
+  animation: sociocracy-pop-in 0.4s ease-out 0.2s both;
+}
+
+.sociocracy--in-view .sociocracy-connector--feedback-tail {
+  animation: sociocracy-draw-x 0.4s ease-out 0.55s both;
+  transform-origin: right center;
+}
+
+.sociocracy--in-view .sociocracy-connector--feedback-v {
+  animation: sociocracy-draw-y 0.4s ease-out 0.75s both;
+  transform-origin: bottom center;
+}
+
+.sociocracy--in-view .sociocracy-connector--feedback-h {
+  animation: sociocracy-draw-x 0.4s ease-out 0.95s both;
+  transform-origin: right center;
+}
+
+.sociocracy--in-view .sociocracy-connector--circles {
+  animation: sociocracy-draw-x 0.4s ease-out 0.75s both;
+  transform-origin: left center;
+}
+
+.sociocracy--in-view .sociocracy-connector--linking-tail {
+  animation: sociocracy-draw-x 0.4s ease-out 0.95s both;
+  transform-origin: left center;
+}
+
+.sociocracy--in-view .sociocracy-connector--linking-v {
+  animation: sociocracy-draw-y 0.4s ease-out 1.15s both;
+  transform-origin: top center;
+}
+
+.sociocracy--in-view .sociocracy-connector--linking-h {
+  animation: sociocracy-draw-x 0.4s ease-out 1.35s both;
+  transform-origin: left center;
+}
+
+.sociocracy--in-view .sociocracy-connector--decisions {
+  animation: sociocracy-draw-x 0.4s ease-out 1.15s both;
+  transform-origin: right center;
+}
+
+.sociocracy--in-view .sociocracy-globe__label {
+  animation: fade-up 0.5s ease-out 1.4s both;
+}
+
+.sociocracy--in-view .sociocracy-principle--feedback {
+  animation: fade-up 0.5s ease-out 1.5s both;
+}
+
+.sociocracy--in-view .sociocracy-principle--circles {
+  animation: fade-up 0.5s ease-out 1.65s both;
+}
+
+.sociocracy--in-view .sociocracy-principle--decisions {
+  animation: fade-up 0.5s ease-out 1.8s both;
+}
+
+.sociocracy--in-view .sociocracy-principle--linking {
+  animation: fade-up 0.5s ease-out 1.95s both;
 }
 
 .philosophy {
@@ -4694,6 +4814,7 @@ button.footer-menu {
   *,
   *::before,
   *::after {
+    animation-delay: 0ms !important;
     animation-duration: 1ms !important;
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
