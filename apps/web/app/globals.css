@@ -2887,7 +2887,7 @@ main:focus {
 .cta-panel__line--v-5 {
   background-image: repeating-linear-gradient(
     180deg,
-    rgba(247, 247, 247, 0.28) 0 3px,
+    rgba(247, 247, 247, 0.62) 0 3px,
     transparent 3px 6px
   );
   width: 1px;
@@ -2929,7 +2929,7 @@ main:focus {
 .cta-panel__line--h-4 {
   background-image: repeating-linear-gradient(
     90deg,
-    rgba(247, 247, 247, 0.28) 0 3px,
+    rgba(247, 247, 247, 0.62) 0 3px,
     transparent 3px 6px
   );
   height: 1px;
@@ -3126,6 +3126,11 @@ main:focus {
   min-height: 42px;
   padding: 0 24px;
   width: 156px;
+}
+
+.cta-copy .button:hover,
+.cta-copy .button:focus-visible {
+  background: linear-gradient(90deg, #bbd7e7 0%, #96d8fd 52%, #61b4e3 100%);
 }
 
 .cta-globe {
