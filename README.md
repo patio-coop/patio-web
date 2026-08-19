@@ -29,10 +29,10 @@ npm run dev
 Then open:
 
 ```text
-http://localhost:3000
+http://localhost:3001
 ```
 
-If port `3000` is already in use, Next.js may offer another port. You can also force the local host:
+Local development is configured to use port `3001`. You can also force the local host:
 
 ```sh
 npm run dev -w @patio/web -- -H 127.0.0.1

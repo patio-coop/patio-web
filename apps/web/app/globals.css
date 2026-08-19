@@ -1399,11 +1399,18 @@ main:focus {
 
 .membership::before {
   background:
-    linear-gradient(90deg, transparent 87px, var(--color-grid-light) 88px, transparent 89px),
-    linear-gradient(90deg, transparent 946px, var(--color-grid-light) 947px, transparent 948px),
-    linear-gradient(90deg, transparent 1285px, var(--color-grid-light) 1286px, transparent 1287px),
-    linear-gradient(var(--color-grid-light) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 401px;
+    repeating-linear-gradient(
+        to bottom,
+        var(--color-grid-light) 0 3px,
+        transparent 3px 6px
+      )
+      88px 0 / 1px 100% no-repeat,
+    repeating-linear-gradient(
+        to bottom,
+        var(--color-grid-light) 0 3px,
+        transparent 3px 6px
+      )
+      calc(57.2% - 12.7px) 0 / 1px 100% no-repeat;
   content: "";
   inset: 0;
   opacity: 0.45;
@@ -1436,7 +1443,7 @@ main:focus {
 .membership-model {
   display: grid;
   gap: 0;
-  grid-template-columns: minmax(0, 723px) minmax(0, 541px);
+  grid-template-columns: minmax(0, 723fr) minmax(0, 541fr);
   margin-top: 104px;
   position: relative;
   z-index: 1;
@@ -1534,10 +1541,12 @@ main:focus {
   color: rgba(0, 16, 59, 0.3);
   content: "→";
   display: inline-flex;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 20px;
+  font-weight: 700;
   justify-content: center;
   margin-right: 12px;
+  -webkit-text-stroke: 0.35px currentColor;
   width: 20px;
 }
 
@@ -1552,7 +1561,9 @@ main:focus {
 }
 
 .membership-card .button {
-  bottom: 0;
+  bottom: -42px;
+  font-size: 18px;
+  min-height: 42px;
   position: absolute;
   right: 0;
 }
@@ -1592,7 +1603,7 @@ main:focus {
       )
       calc(100% - 88px) top / 1px 100% no-repeat,
     var(--color-soft);
-  bottom: -96px;
+  bottom: 0;
   content: "";
   left: -88px;
   position: absolute;
@@ -1612,13 +1623,13 @@ main:focus {
 
 .qualification-crosses span {
   background:
-    linear-gradient(var(--color-blue), var(--color-blue)) center / 1px 26px no-repeat,
-    linear-gradient(var(--color-blue), var(--color-blue)) center / 26px 1px no-repeat;
-  height: 26px;
+    linear-gradient(var(--color-blue), var(--color-blue)) center / 1px 17px no-repeat,
+    linear-gradient(var(--color-blue), var(--color-blue)) center / 17px 1px no-repeat;
+  height: 17px;
   position: absolute;
   top: 0;
   transform: translate(-50%, -50%);
-  width: 26px;
+  width: 17px;
 }
 
 .qualification-crosses span:first-child {
@@ -1678,6 +1689,7 @@ main:focus {
 
 .qualification article {
   --path-color: #61b4e3;
+  border-left: 1px dashed var(--color-grid-light);
   display: flex;
   flex-direction: column;
   min-height: 342px;
@@ -1694,6 +1706,10 @@ main:focus {
 .qualification article:nth-child(3) {
   --path-color: #6bdba0;
   border-left: 1px dashed var(--color-grid-light);
+}
+
+.qualification article:last-child {
+  border-right: 1px dashed var(--color-grid-light);
 }
 
 .qualification article::before {
@@ -1756,7 +1772,7 @@ main:focus {
 }
 
 .qualification article .button {
-  background: var(--color-green);
+  background: #94c9e7;
   bottom: -48px;
   font-size: 16px;
   min-height: 48px;
@@ -1764,6 +1780,11 @@ main:focus {
   padding: 0 30px;
   position: absolute;
   right: 0;
+}
+
+.qualification article .button:hover,
+.qualification article .button:focus-visible {
+  background: var(--gradient-action);
 }
 
 @keyframes sociocracy-sphere-in {
