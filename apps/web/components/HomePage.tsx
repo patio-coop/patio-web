@@ -110,6 +110,41 @@ export function HomePage() {
   }, [modal, menuOpen]);
 
   useEffect(() => {
+    const root = document.documentElement;
+    const lines = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-scroll-line]"),
+    );
+
+    root.classList.add("motion-ready");
+
+    if (!("IntersectionObserver" in window)) {
+      lines.forEach((line) => line.classList.add("is-line-visible"));
+      return () => root.classList.remove("motion-ready");
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("is-line-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -15% 0px", threshold: 0.2 },
+    );
+
+    lines.forEach((line) => observer.observe(line));
+
+    return () => {
+      observer.disconnect();
+      root.classList.remove("motion-ready");
+    };
+  }, []);
+
+  useEffect(() => {
     const section = sociocracyRef.current;
     if (!section) {
       return;
@@ -243,7 +278,11 @@ export function HomePage() {
             title="Who we are"
             text="We are a global network of worker cooperatives in digital technology, communication, and design. We collaborate on international projects, scaling remote, interdisciplinary teams to fit each project’s needs."
           />
-          <div className="who-graphic" aria-hidden="true">
+          <div
+            className="who-graphic"
+            aria-hidden="true"
+            data-scroll-line
+          >
             <svg viewBox="0 0 420 320" role="presentation">
               <defs>
                 <linearGradient
@@ -261,11 +300,20 @@ export function HomePage() {
               </defs>
               <path
                 d="M340 0 C340 164 250 290 20 290"
+                className="scroll-line__path"
                 fill="none"
+                pathLength="1"
                 stroke="url(#whoCurveGradient)"
+                strokeLinecap="round"
                 strokeWidth="4"
               />
-              <circle cx="20" cy="290" fill="#96d8fd" r="7" />
+              <circle
+                className="scroll-line__endpoint"
+                cx="20"
+                cy="290"
+                fill="#96d8fd"
+                r="7"
+              />
             </svg>
             <span>
               USR
@@ -338,13 +386,48 @@ export function HomePage() {
             text="We innovate and implement cutting-edge technologies to create digital products and services, supported by our global community to ensure top-tier results."
             inverted
           />
-          <div className="work-graphic" aria-hidden="true">
-            <Image
-              src={sitePath("/assets/what-we-do-curve.svg")}
-              alt=""
-              width={328}
-              height={262}
-            />
+          <div
+            className="work-graphic"
+            aria-hidden="true"
+            data-scroll-line
+          >
+            <svg
+              className="scroll-line__graphic"
+              viewBox="75 0 328 262"
+              role="presentation"
+            >
+              <defs>
+                <linearGradient
+                  id="workCurveGradient"
+                  x1="174.051"
+                  x2="309.299"
+                  y1="75.703"
+                  y2="181.075"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.0800246" stopColor="#bbd7e7" />
+                  <stop offset="0.398579" stopColor="#96d8fd" />
+                  <stop offset="0.717946" stopColor="#afd4e8" />
+                  <stop offset="1" stopColor="#45fa4f" />
+                </linearGradient>
+              </defs>
+              <path
+                className="scroll-line__path"
+                d="M75 0C75 141.385 217.373 256 393 256"
+                fill="none"
+                pathLength="1"
+                stroke="url(#workCurveGradient)"
+                strokeLinecap="round"
+                strokeWidth="4"
+              />
+              <circle
+                className="scroll-line__endpoint"
+                cx="397"
+                cy="256"
+                fill="#35ff38"
+                r="6"
+              />
+            </svg>
             <span>
               USR
               <br />
@@ -425,7 +508,11 @@ export function HomePage() {
             title="How we work"
             text="Our collaboration process is transparent and tailored to your needs. Here's how we guide you from the first conversation to project kickoff, ensuring clarity and confidence every step of the way:"
           />
-          <div className="process-curve" aria-hidden="true">
+          <div
+            className="process-curve"
+            aria-hidden="true"
+            data-scroll-line
+          >
             <svg viewBox="0 0 260 360" role="presentation">
               <defs>
                 <linearGradient
@@ -441,13 +528,21 @@ export function HomePage() {
                 </linearGradient>
               </defs>
               <path
-                d="M62 323 C42 226 132 182 185 130 C235 81 229 30 229 0"
+                className="scroll-line__path"
+                d="M229 0 C229 30 235 81 185 130 C132 182 42 226 62 323"
                 fill="none"
+                pathLength="1"
                 stroke="url(#processCurveGradient)"
                 strokeLinecap="round"
                 strokeWidth="5"
               />
-              <circle cx="62" cy="323" fill="#96d8fd" r="9" />
+              <circle
+                className="scroll-line__endpoint"
+                cx="62"
+                cy="323"
+                fill="#96d8fd"
+                r="9"
+              />
             </svg>
             <span>
               USR
@@ -592,13 +687,44 @@ export function HomePage() {
             <span className="sociocracy-frame__cross" />
             <span className="sociocracy-frame__cap sociocracy-frame__cap--top" />
             <span className="sociocracy-frame__cap sociocracy-frame__cap--bottom" />
-            <div className="sociocracy-signal">
-              <Image
-                src={sitePath("/assets/sociocracy-signal.svg")}
-                alt=""
-                width={250}
-                height={245}
-              />
+            <div className="sociocracy-signal" data-scroll-line>
+              <svg
+                className="scroll-line__graphic"
+                viewBox="0 0 250 245"
+                role="presentation"
+              >
+                <defs>
+                  <linearGradient
+                    id="sociocracySignalGradient"
+                    x1="136.034"
+                    x2="225.027"
+                    y1="71.0843"
+                    y2="106.647"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0.0800246" stopColor="#bbd7e7" />
+                    <stop offset="0.398579" stopColor="#96d8fd" />
+                    <stop offset="0.717946" stopColor="#afd4e8" />
+                    <stop offset="1" stopColor="#45fa4f" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="scroll-line__path"
+                  d="M89 -2C75.5 63 96 205.5 240 238"
+                  fill="none"
+                  pathLength="1"
+                  stroke="url(#sociocracySignalGradient)"
+                  strokeLinecap="round"
+                  strokeWidth="4"
+                />
+                <circle
+                  className="scroll-line__endpoint"
+                  cx="238"
+                  cy="237"
+                  fill="#35ff38"
+                  r="6"
+                />
+              </svg>
               <span>
                 USR
                 <br />
@@ -699,13 +825,48 @@ export function HomePage() {
           id="philosophy"
           aria-labelledby="philosophy-heading"
         >
-          <div className="philosophy-signal" aria-hidden="true">
-            <Image
-              src={sitePath("/assets/philosophy-signal.svg")}
-              alt=""
-              width={364}
-              height={30}
-            />
+          <div
+            className="philosophy-signal scroll-line--horizontal"
+            aria-hidden="true"
+            data-scroll-line
+          >
+            <svg
+              className="scroll-line__graphic"
+              viewBox="-1 52 364 30"
+              role="presentation"
+            >
+              <defs>
+                <linearGradient
+                  id="philosophySignalGradient"
+                  x1="240.971"
+                  x2="27.9969"
+                  y1="282.402"
+                  y2="282.402"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.0800246" stopColor="#bbd7e7" />
+                  <stop offset="0.398579" stopColor="#96d8fd" />
+                  <stop offset="0.717946" stopColor="#afd4e8" />
+                  <stop offset="1" stopColor="#45fa4f" />
+                </linearGradient>
+              </defs>
+              <path
+                className="scroll-line__path"
+                d="M-0.999512 67.0015L361.5 67.0017"
+                fill="none"
+                pathLength="1"
+                stroke="url(#philosophySignalGradient)"
+                strokeLinecap="round"
+                strokeWidth="4"
+              />
+              <circle
+                className="scroll-line__endpoint"
+                cx="362"
+                cy="67"
+                fill="#94c9e7"
+                r="6"
+              />
+            </svg>
             <span>
               USR
               <br />
@@ -749,13 +910,48 @@ export function HomePage() {
           aria-labelledby="community-heading"
         >
           <div className="community-top-cap" aria-hidden="true" />
-          <div className="community-signal" aria-hidden="true">
-            <Image
-              src={sitePath("/assets/community-signal.svg")}
-              alt=""
-              width={64}
-              height={315}
-            />
+          <div
+            className="community-signal"
+            aria-hidden="true"
+            data-scroll-line
+          >
+            <svg
+              className="scroll-line__graphic"
+              viewBox="686 30 64 315"
+              role="presentation"
+            >
+              <defs>
+                <linearGradient
+                  id="communitySignalGradient"
+                  x1="787"
+                  x2="807"
+                  y1="98"
+                  y2="290.5"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0.0800246" stopColor="#bbd7e7" />
+                  <stop offset="0.398579" stopColor="#96d8fd" />
+                  <stop offset="0.717946" stopColor="#afd4e8" />
+                  <stop offset="1" stopColor="#45fa4f" />
+                </linearGradient>
+              </defs>
+              <path
+                className="scroll-line__path"
+                d="M723.999 30C658.5 174 806 181 724.002 338.5"
+                fill="none"
+                pathLength="1"
+                stroke="url(#communitySignalGradient)"
+                strokeLinecap="round"
+                strokeWidth="4"
+              />
+              <circle
+                className="scroll-line__endpoint"
+                cx="724"
+                cy="339"
+                fill="#35ff38"
+                r="6"
+              />
+            </svg>
             <span>
               USR
               <br />

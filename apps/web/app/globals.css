@@ -66,6 +66,52 @@ img {
   max-width: 100%;
 }
 
+.scroll-line__graphic {
+  display: block;
+  height: 100%;
+  overflow: visible;
+  width: 100%;
+}
+
+.motion-ready [data-scroll-line] .scroll-line__path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1600ms cubic-bezier(0.45, 0, 0.2, 1);
+  will-change: stroke-dashoffset;
+}
+
+.motion-ready [data-scroll-line] .scroll-line__endpoint {
+  opacity: 0;
+  transform: scale(0);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    opacity 260ms ease 1320ms,
+    transform 320ms cubic-bezier(0.34, 1.56, 0.64, 1) 1320ms;
+}
+
+.motion-ready [data-scroll-line] > span {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 320ms ease 1250ms,
+    transform 320ms ease 1250ms;
+}
+
+.motion-ready [data-scroll-line].is-line-visible .scroll-line__path {
+  stroke-dashoffset: 0;
+}
+
+.motion-ready [data-scroll-line].is-line-visible .scroll-line__endpoint {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.motion-ready [data-scroll-line].is-line-visible > span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 main {
   overflow: clip;
 }
@@ -2499,9 +2545,9 @@ main:focus {
 
 .community-signal {
   height: 315px;
-  left: 47.639%;
+  left: calc(50.069% - 34px);
   position: absolute;
-  top: 30px;
+  top: 32px;
   width: 64px;
   z-index: 3;
 }
@@ -4801,6 +4847,20 @@ button.footer-menu {
     animation-duration: 1ms !important;
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
+  }
+
+  .motion-ready [data-scroll-line] .scroll-line__path {
+    stroke-dashoffset: 0 !important;
+  }
+
+  .motion-ready [data-scroll-line] .scroll-line__endpoint {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .motion-ready [data-scroll-line] > span {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
