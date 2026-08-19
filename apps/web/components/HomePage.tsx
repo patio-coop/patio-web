@@ -794,7 +794,10 @@ export function HomePage() {
                 <span
                   className="community-cross"
                   key={`${x}-${top}`}
-                  style={{ left: `${(x / 1440) * 100}%`, top }}
+                  style={{
+                    left: `${(x / 1440) * 100}%`,
+                    top: `${(top / 1245) * 100}%`,
+                  }}
                 />
               ))}
             </span>
