@@ -1753,7 +1753,7 @@ function ContactModal({ title }: { title: string }) {
       message,
     ].join("\n");
 
-    window.location.href = `mailto:hello@patio.coop?subject=${encodeURIComponent(
+    window.location.href = `mailto:welcome@patio.coop?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(body)}`;
   };
