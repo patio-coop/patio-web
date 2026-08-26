@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import {
+  type CSSProperties,
   type FormEvent,
   type KeyboardEvent as ReactKeyboardEvent,
   useEffect,
@@ -36,6 +37,16 @@ type ModalState =
 
 const regions = ["All", "Middle East", "Europe", "South East Asia", "America"];
 const membersAreaEnabled = false;
+const featuredBentoSlots = [
+  { column: 1, row: 1, height: 210 },
+  { column: 2, row: 1, height: 120 },
+  { column: 3, row: 1, height: 289 },
+  { column: 4, row: 1, height: 210 },
+  { column: 1, row: 211, height: 212 },
+  { column: 2, row: 121, height: 302 },
+  { column: 3, row: 290, height: 133 },
+  { column: 4, row: 211, height: 212 },
+] as const;
 
 function getFocusableElements(container: HTMLElement) {
   return Array.from(
@@ -74,11 +85,6 @@ const communityCrosses = [
   [1006, 754],
   [90, 1076],
 ] as const;
-
-const whoCrosses = Array.from(
-  { length: 15 },
-  (_, index) => [index % 5, Math.floor(index / 5)] as const,
-);
 
 export function HomePage() {
   const [modal, setModal] = useState<ModalState>(null);
@@ -188,6 +194,36 @@ export function HomePage() {
           (coop) => coop.region === activeRegion && coop.logo,
         )
   ).slice(0, 8);
+  const activeBentoSlots = featuredBentoSlots.slice(0, featuredCoops.length);
+  const featuredGridHeight = activeBentoSlots.reduce(
+    (height, slot) => Math.max(height, slot.row - 1 + slot.height),
+    0,
+  );
+  const featuredCrosses = Array.from(
+    activeBentoSlots
+      .flatMap((slot) => {
+        const top = slot.row - 1;
+        const bottom = top + slot.height;
+        const left = slot.column - 1;
+        const right = slot.column;
+
+        return [
+          { column: left, top },
+          { column: right, top },
+          { column: left, top: bottom },
+          { column: right, top: bottom },
+        ];
+      })
+      .reduce((crosses, cross) => {
+        crosses.set(`${cross.column}-${cross.top}`, cross);
+        return crosses;
+      }, new Map<string, { column: number; top: number }>()),
+  )
+    .map(([, cross]) => cross)
+    .filter(
+      ({ column, top }) =>
+        !(column === 4 && top === featuredGridHeight),
+    );
 
   const handleWorkTabKeyDown = (
     event: ReactKeyboardEvent<HTMLButtonElement>,
@@ -341,7 +377,14 @@ export function HomePage() {
               </button>
             ))}
           </div>
-          <div className="coop-grid">
+          <div
+            className="coop-grid"
+            style={
+              {
+                "--coop-grid-height": `${featuredGridHeight}px`,
+              } as CSSProperties
+            }
+          >
             {featuredCoops.map((coop) => (
               <button
                 className="coop-card"
@@ -360,11 +403,14 @@ export function HomePage() {
               </button>
             ))}
             <div className="who-grid-crosses" aria-hidden="true">
-              {whoCrosses.map(([column, row]) => (
+              {featuredCrosses.map(({ column, top }) => (
                 <span
                   className="who-grid-cross"
-                  key={`${column}-${row}`}
-                  style={{ left: `${column * 25}%`, top: `${row * 50}%` }}
+                  key={`${column}-${top}`}
+                  style={{
+                    left: `${column * 25}%`,
+                    top: `${top}px`,
+                  }}
                 />
               ))}
             </div>

@@ -882,6 +882,7 @@ main:focus {
 }
 
 .who {
+  --who-frame-gutter: 88px;
   background: var(--color-off-white);
   min-height: 1107px;
   overflow: hidden;
@@ -903,6 +904,10 @@ main:focus {
   max-width: 455px;
   position: relative;
   z-index: 1;
+}
+
+.who .section-intro > span {
+  color: #94c9e7;
 }
 
 .who-graphic {
@@ -968,7 +973,7 @@ main:focus {
   display: flex;
   gap: 1px;
   margin: 140px 0 0;
-  width: 632px;
+  width: 50%;
 }
 
 .region-filter button {
@@ -992,17 +997,41 @@ main:focus {
   flex: 0 0 75px;
 }
 
-.region-filter button.is-active,
-.region-filter button:hover {
+.region-filter button.is-active {
+  background: #94c9e7;
+}
+
+.region-filter button:not(.is-active):hover {
   background: var(--gradient-action);
 }
 
 .coop-grid {
   display: grid;
+  grid-auto-rows: 1px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  height: var(--coop-grid-height);
   margin: 0;
   padding-top: 0;
   position: relative;
+}
+
+.coop-grid::before,
+.coop-grid::after {
+  border-top: 1px dashed var(--color-grid-light);
+  content: "";
+  left: calc(-1 * var(--who-frame-gutter));
+  pointer-events: none;
+  position: absolute;
+  right: calc(-1 * var(--who-frame-gutter));
+  z-index: 2;
+}
+
+.coop-grid::before {
+  top: 0;
+}
+
+.coop-grid::after {
+  bottom: 0;
 }
 
 .coop-card {
@@ -1010,15 +1039,15 @@ main:focus {
   aspect-ratio: auto;
   background: transparent;
   border: 0;
-  border-left: 1px dashed var(--color-grid-light);
-  border-top: 1px dashed var(--color-grid-light);
   color: var(--color-blue);
   cursor: pointer;
   display: flex;
   font-family: var(--font-display);
   font-size: 28px;
   justify-content: center;
-  min-height: 211px;
+  min-height: 0;
+  outline: 1px dashed var(--color-grid-light);
+  outline-offset: -1px;
   padding: 28px;
   text-transform: uppercase;
   transition:
@@ -1027,12 +1056,44 @@ main:focus {
     transform 180ms ease;
 }
 
-.coop-card:nth-child(4n) {
-  border-right: 1px dashed var(--color-grid-light);
+.coop-card:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1 / span 210;
 }
 
-.coop-card:nth-child(n + 5) {
-  border-bottom: 1px dashed var(--color-grid-light);
+.coop-card:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1 / span 120;
+}
+
+.coop-card:nth-child(3) {
+  grid-column: 3;
+  grid-row: 1 / span 289;
+}
+
+.coop-card:nth-child(4) {
+  grid-column: 4;
+  grid-row: 1 / span 210;
+}
+
+.coop-card:nth-child(5) {
+  grid-column: 1;
+  grid-row: 211 / span 212;
+}
+
+.coop-card:nth-child(6) {
+  grid-column: 2;
+  grid-row: 121 / span 302;
+}
+
+.coop-card:nth-child(7) {
+  grid-column: 3;
+  grid-row: 290 / span 133;
+}
+
+.coop-card:nth-child(8) {
+  grid-column: 4;
+  grid-row: 211 / span 212;
 }
 
 .coop-card img {
@@ -5112,6 +5173,10 @@ button.footer-menu {
     padding: 96px 16px;
   }
 
+  .who {
+    --who-frame-gutter: 16px;
+  }
+
   .section-intro h2 {
     font-size: 36px;
   }
@@ -5140,9 +5205,12 @@ button.footer-menu {
 
   .coop-grid {
     grid-template-columns: 1fr;
+    height: auto;
   }
 
   .coop-card {
+    grid-column: auto;
+    grid-row: auto;
     min-height: 112px;
   }
 
