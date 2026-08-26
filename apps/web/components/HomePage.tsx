@@ -249,7 +249,9 @@ export function HomePage() {
             >
               Get a quote{" "}
               <span className="button__arrow" aria-hidden="true">
-                ↘
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M6 6.4 7.4 5 17 14.6V6h2v12H7v-2h8.6L6 6.4Z" />
+                </svg>
               </span>
             </button>
           </div>
@@ -261,6 +263,7 @@ export function HomePage() {
           >
             {stats.map((stat) => (
               <div className="stat-card" key={stat.label} role="listitem">
+                <small className="stat-card__index">{stat.index}</small>
                 <strong>{stat.value}</strong>
                 <span>{stat.label}</span>
               </div>

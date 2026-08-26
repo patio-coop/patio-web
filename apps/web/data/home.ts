@@ -92,10 +92,10 @@ export const navItems = [
 ];
 
 export const stats = [
-  { value: "80+", label: "cooperatives" },
-  { value: "1.500", label: "members" },
-  { value: "24+", label: "countries" },
-  { value: "40+", label: "digital services" }
+  { index: "01921", value: "80+", label: "cooperatives" },
+  { index: "43119", value: "1.500", label: "members" },
+  { index: "90192", value: "24+", label: "countries" },
+  { index: "58119", value: "40+", label: "digital services" }
 ];
 
 export const industries = [

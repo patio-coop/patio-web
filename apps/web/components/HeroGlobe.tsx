@@ -79,10 +79,6 @@ export function HeroGlobe() {
     }
 
     const devicePixelRatio = Math.min(2, window.devicePixelRatio);
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
     const onResize = () => {
       width = canvas.offsetWidth;
     };
@@ -101,12 +97,12 @@ export function HeroGlobe() {
       diffuse: 1.3,
       mapSamples: 16000,
       mapBrightness: 4.4,
-      baseColor: [0.35, 0.53, 0.72],
+      baseColor: [0.06, 0.12, 0.28],
       markerColor: [0.58, 0.72, 0.9],
-      glowColor: [0.08, 0.15, 0.28],
+      glowColor: [0, 0.063, 0.231],
       markers,
       onRender: (state) => {
-        if (!prefersReducedMotion && pointerInteracting.current === null) {
+        if (pointerInteracting.current === null) {
           phi += 0.0025;
         }
         const renderedPhi = phi + pointerInteractionMovement.current;
