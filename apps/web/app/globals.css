@@ -3358,7 +3358,8 @@ main:focus {
 }
 
 .community > .button {
-  background: var(--color-green);
+  background-color: #35ff38;
+  background-image: none;
   font-size: 18px;
   line-height: 18px;
   height: 42px;
@@ -3375,7 +3376,8 @@ main:focus {
 
 .community > .button:hover,
 .community > .button:focus-visible {
-  background: var(--gradient-action);
+  background-color: #35ff38;
+  background-image: none;
 }
 
 .cta {
@@ -4207,6 +4209,49 @@ button.footer-menu {
   outline: 0;
   padding: 9px 16px;
   width: 100%;
+}
+
+@media (min-width: 769px) {
+  .contact-field input,
+  .contact-field select,
+  .contact-field textarea {
+    border-bottom: 0;
+  }
+
+  .contact-form::before {
+    background:
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.3) 0 3px, transparent 3px 6px)
+        0 114px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.3) 0 3px, transparent 3px 6px)
+        0 155px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.3) 0 3px, transparent 3px 6px)
+        0 206px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.3) 0 3px, transparent 3px 6px)
+        0 247px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.3) 0 3px, transparent 3px 6px)
+        0 298px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.3) 0 3px, transparent 3px 6px)
+        0 339px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.3) 0 3px, transparent 3px 6px)
+        0 390px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.3) 0 3px, transparent 3px 6px)
+        0 431px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.3) 0 3px, transparent 3px 6px)
+        0 482px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.3) 0 3px, transparent 3px 6px)
+        0 583px / 100% 1px no-repeat,
+      repeating-linear-gradient(180deg, rgba(0, 16, 59, 0.3) 0 3px, transparent 3px 6px)
+        calc(100% - 40px) 114px / 1px 628px no-repeat,
+      repeating-linear-gradient(180deg, rgba(0, 16, 59, 0.3) 0 3px, transparent 3px 6px)
+        272px 206px / 1px 41px no-repeat,
+      repeating-linear-gradient(180deg, rgba(0, 16, 59, 0.3) 0 3px, transparent 3px 6px)
+        299px 206px / 1px 41px no-repeat;
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+  }
 }
 
 .contact-field input:focus,
