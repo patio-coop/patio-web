@@ -695,6 +695,16 @@ main:focus {
       var(--color-off-white);
   }
 
+  .section-band--philosophy::before {
+    background:
+      linear-gradient(#35ff38, #35ff38) 0 65px / 100% 4px no-repeat,
+      repeating-linear-gradient(90deg, var(--color-grid-light) 0 3px, transparent 3px 6px)
+        0 159px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, var(--color-grid-light) 0 3px, transparent 3px 6px)
+        0 714px / 100% 1px no-repeat,
+      var(--color-off-white);
+  }
+
   .section-band--community::before {
     background:
       repeating-linear-gradient(90deg, rgba(247, 247, 247, 0.4) 0 3px, transparent 3px 6px)
@@ -1861,12 +1871,12 @@ main:focus {
         rgba(0, 16, 59, 0.2) 0 3px,
         transparent 3px 6px
       )
-      1352px 401px / 1px 536px no-repeat;
+      1352px 401px / 1px 1176px no-repeat;
   content: "";
   inset: 0;
   pointer-events: none;
   position: absolute;
-  z-index: 2;
+  z-index: 0;
 }
 
 .membership > .section-intro {
@@ -2044,7 +2054,7 @@ main:focus {
 }
 
 .qualification::after {
-  background: var(--color-soft);
+  background: transparent;
   bottom: 0;
   content: "";
   left: -88px;
@@ -2104,7 +2114,7 @@ main:focus {
 }
 
 .qualification-grid {
-  background: var(--color-soft);
+  background: transparent;
   display: grid;
   gap: 0;
   grid-template-columns: repeat(3, 1fr);
@@ -2207,21 +2217,94 @@ main:focus {
 
 .qualification article p {
   flex: 1;
-  font-size: 18px;
-  line-height: 1.36;
+  font-size: 16px;
+  line-height: 1.4;
   margin: 0;
-  max-width: 360px;
+  max-width: none;
 }
 
 .qualification article .button {
   background: #94c9e7;
-  bottom: -48px;
-  font-size: 16px;
-  min-height: 48px;
-  min-width: 180px;
-  padding: 0 30px;
+  bottom: -42px;
+  font-size: 18px;
+  height: 42px;
+  min-height: 42px;
+  min-width: 0;
+  padding: 12px 24px;
   position: absolute;
   right: 0;
+}
+
+@media (min-width: 769px) {
+  .qualification article {
+    display: block;
+    min-height: 347px;
+    padding: 0;
+  }
+
+  .qualification article::before {
+    height: 8px;
+    right: 0;
+    top: 71px;
+  }
+
+  .qualification article > span {
+    left: 0;
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    width: 217px;
+  }
+
+  .qualification article h3 {
+    left: 0;
+    margin: 0;
+    max-width: none;
+    position: absolute;
+    top: 111px;
+  }
+
+  .qualification article p {
+    left: 0;
+    position: absolute;
+    top: 175px;
+  }
+
+  .qualification article:nth-child(1) h3 {
+    width: 264px;
+  }
+
+  .qualification article:nth-child(1) p {
+    width: 333px;
+  }
+
+  .qualification article:nth-child(2) h3 {
+    width: 278px;
+  }
+
+  .qualification article:nth-child(2) p {
+    width: 329px;
+  }
+
+  .qualification article:nth-child(3) h3 {
+    width: 290px;
+  }
+
+  .qualification article:nth-child(3) p {
+    width: 360px;
+  }
+
+  .qualification article:nth-child(1) .button {
+    width: 111px;
+  }
+
+  .qualification article:nth-child(2) .button {
+    width: 165px;
+  }
+
+  .qualification article:nth-child(3) .button {
+    width: 210px;
+  }
 }
 
 .qualification article .button:hover,
@@ -2317,7 +2400,7 @@ main:focus {
 }
 
 .sociocracy-frame__guide--header {
-  height: 462px;
+  height: 417px;
   left: 23.611%;
   top: 0;
 }
@@ -2821,9 +2904,10 @@ main:focus {
   position: absolute;
   top: 52px;
   width: 412px;
+  z-index: 2;
 }
 
-.philosophy-signal img {
+.philosophy-signal .scroll-line__graphic {
   display: block;
   height: 30px;
   max-width: none;
@@ -2881,6 +2965,8 @@ main:focus {
 
 .philosophy-copy .button {
   background: var(--color-green);
+  font-size: 18px;
+  line-height: 18px;
   height: 42px;
   margin-top: 32px;
   min-height: 42px;
@@ -3273,6 +3359,8 @@ main:focus {
 
 .community > .button {
   background: var(--color-green);
+  font-size: 18px;
+  line-height: 18px;
   height: 42px;
   left: auto;
   margin: 0;
@@ -3582,6 +3670,15 @@ main:focus {
   top: 184px;
   width: 402px;
   z-index: 3;
+}
+
+.cta-globe::before {
+  border: 1px dashed rgba(247, 247, 247, 0.62);
+  content: "";
+  inset: 0 1px 1px 27px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
 }
 
 .cta-globe img {
