@@ -3009,7 +3009,7 @@ main:focus {
 
 .community {
   background: var(--color-blue);
-  height: max(1245px, 86.458vw);
+  height: 1245px;
   min-height: 1245px;
   overflow: hidden;
   padding: 0;
@@ -3313,9 +3313,9 @@ main:focus {
 }
 
 .gallery-item--4 img {
-  left: -19.274% !important;
-  top: -6.78% !important;
-  width: 139.002% !important;
+  left: -18.594% !important;
+  top: -1.977% !important;
+  width: 137.868% !important;
 }
 
 .gallery-item--5 {
@@ -3930,7 +3930,11 @@ button.footer-menu {
 .footer-menu--community {
   left: 52.986%;
   top: 378px;
-  width: 183px;
+  width: 220px;
+}
+
+.footer-menu--community h2 {
+  white-space: nowrap;
 }
 
 .footer-menu--members {
