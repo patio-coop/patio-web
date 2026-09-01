@@ -634,30 +634,36 @@ main:focus {
   .section-band--process::before {
     background:
       repeating-linear-gradient(90deg, var(--color-grid-light) 0 3px, transparent 3px 6px)
-        0 461.5px / 100% 1px no-repeat,
+        0 455px / 100% 1px no-repeat,
       repeating-linear-gradient(90deg, var(--color-grid-light) 0 3px, transparent 3px 6px)
-        0 806.953125px / 100% 1px no-repeat,
+        0 795px / 100% 1px no-repeat,
       var(--color-off-white);
   }
 
   .section-band--process::after {
     background:
       repeating-linear-gradient(90deg, var(--color-grid-light) 0 3px, transparent 3px 6px)
-        0 461.5px / 100% 1px no-repeat,
+        0 455px / 100% 1px no-repeat,
       repeating-linear-gradient(90deg, var(--color-grid-light) 0 3px, transparent 3px 6px)
-        0 806.953125px / 100% 1px no-repeat,
+        0 795px / 100% 1px no-repeat,
       linear-gradient(to bottom, var(--color-blue) 0 32px, var(--color-off-white) 32px 100%);
   }
 
   .section-band--membership::before,
   .section-band--membership::after {
     background:
-      repeating-linear-gradient(90deg, var(--color-grid-light) 0 3px, transparent 3px 6px)
-        0 936.09375px / 100% 1px no-repeat,
-      repeating-linear-gradient(90deg, var(--color-grid-light) 0 3px, transparent 3px 6px)
-        0 1229.09375px / 100% 1px no-repeat,
-      repeating-linear-gradient(90deg, var(--color-grid-light) 0 3px, transparent 3px 6px)
-        0 1675.4765625px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.2) 0 3px, transparent 3px 6px)
+        0 0 / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.2) 0 3px, transparent 3px 6px)
+        0 400px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.2) 0 3px, transparent 3px 6px)
+        0 790px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.2) 0 3px, transparent 3px 6px)
+        0 937px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.2) 0 3px, transparent 3px 6px)
+        0 1230px / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, rgba(0, 16, 59, 0.2) 0 3px, transparent 3px 6px)
+        0 1577px / 100% 1px no-repeat,
       var(--color-soft);
   }
 
@@ -1581,23 +1587,28 @@ main:focus {
       )
       0 0 / 100% 32px no-repeat,
     var(--color-off-white);
-  min-height: 910px;
+  height: 955px;
+  min-height: 955px;
   overflow: hidden;
-  padding: 136px 88px 120px;
+  padding: 0;
 }
 
 .process::before {
   border-left: 1px dashed var(--color-grid-light);
   content: "";
-  height: 600px;
-  left: calc(60% - 17.6px);
+  height: 795px;
+  left: 846px;
   pointer-events: none;
   position: absolute;
   top: 0;
 }
 
 .process .section-intro {
-  max-width: 560px;
+  left: 88px;
+  max-width: none;
+  position: absolute;
+  top: 140px;
+  width: 458px;
 }
 
 .process .section-intro span {
@@ -1605,22 +1616,25 @@ main:focus {
 }
 
 .process .section-intro h2 {
-  font-size: clamp(42px, 3.8vw, 56px);
-  margin: 17px 0 5px;
+  font-size: 48px;
+  line-height: 48px;
+  margin: 16px 0 8px;
 }
 
 .process .section-intro p {
-  font-size: 18px;
-  line-height: 1.25;
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+  width: 458px;
 }
 
 .process-curve {
-  height: 360px;
+  height: 266px;
+  left: 1100px;
   pointer-events: none;
   position: absolute;
-  right: 122px;
   top: 32px;
-  width: 260px;
+  width: 171px;
 }
 
 .process-curve svg {
@@ -1630,29 +1644,34 @@ main:focus {
 }
 
 .process-curve span {
-  bottom: 68px;
+  bottom: auto;
   color: var(--color-blue);
   font-family: var(--font-display);
-  font-size: 16px;
-  left: 90px;
-  line-height: 1.1;
+  font-size: 14px;
+  left: 16px;
+  line-height: 15px;
   position: absolute;
+  top: 244px;
 }
 
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  margin-top: 138px;
-  position: relative;
+  grid-template-columns: 254px repeat(4, 253px);
+  height: 340px;
+  left: 87px;
+  margin: 0;
+  position: absolute;
+  top: 455px;
+  width: 1266px;
 }
 
 .process-grid::before,
 .process-grid::after {
   border-top: 1px dashed var(--color-grid-light);
   content: "";
-  left: -88px;
+  left: -87px;
   position: absolute;
-  right: -88px;
+  right: -87px;
 }
 
 .process-grid::before {
@@ -1664,10 +1683,10 @@ main:focus {
 }
 
 .process-card {
-  --step-color: var(--color-sky);
+  --step-color: #94c9e7;
   border-left: 1px dashed var(--color-grid-light);
-  min-height: 296px;
-  padding: 0 28px 52px;
+  min-height: 340px;
+  padding: 0;
   position: relative;
 }
 
@@ -1676,72 +1695,103 @@ main:focus {
 }
 
 .process-card:nth-child(3) {
-  --step-color: #67dfa7;
+  --step-color: #77dab2;
 }
 
 .process-card:nth-child(4) {
-  --step-color: #64e795;
+  --step-color: #6ddf9f;
 }
 
 .process-card:nth-child(5) {
-  --step-color: var(--color-green);
+  --step-color: #68e767;
   border-right: 1px dashed var(--color-grid-light);
 }
 
 .process-card:first-child::after {
   background:
-    linear-gradient(var(--color-blue), var(--color-blue)) center / 1px 26px no-repeat,
-    linear-gradient(var(--color-blue), var(--color-blue)) center / 26px 1px no-repeat;
+    linear-gradient(var(--color-blue), var(--color-blue)) center / 1px 17px no-repeat,
+    linear-gradient(var(--color-blue), var(--color-blue)) center / 17px 1px no-repeat;
   bottom: 0;
   content: "";
-  height: 26px;
+  height: 17px;
   position: absolute;
   right: 0;
   transform: translate(50%, 50%);
-  width: 26px;
+  width: 17px;
 }
 
 .process-card::before {
   background:
-    linear-gradient(90deg, var(--step-color) 0 61%, transparent 61% 66%, var(--step-color) 66% 68%, transparent 68% 71%, var(--step-color) 71% 73%, transparent 73% 76%, var(--step-color) 76% 78%, transparent 78% 81%, var(--step-color) 81% 83%, transparent 83% 86%, var(--step-color) 86% 88%, transparent 88% 91%, var(--step-color) 91% 93%, transparent 93% 96%, var(--step-color) 96% 100%);
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 128px 0 / 1px 100% no-repeat,
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 150px 0 / 1px 100% no-repeat,
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 155px 0 / 5px 100% no-repeat,
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 168px 0 / 3px 100% no-repeat,
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 179px 0 / 1px 100% no-repeat,
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 181px 0 / 1px 100% no-repeat,
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 188px 0 / 2px 100% no-repeat,
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 194px 0 / 9px 100% no-repeat,
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 210px 0 / 5px 100% no-repeat,
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 216px 0 / 1px 100% no-repeat,
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 220px 0 / 2px 100% no-repeat,
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 227px 0 / 2px 100% no-repeat,
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 231px 0 / 5px 100% no-repeat,
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 240px 0 / 2px 100% no-repeat,
+    linear-gradient(var(--color-off-white), var(--color-off-white)) 244px 0 / 9px 100% no-repeat,
+    var(--step-color);
   content: "";
-  height: 6px;
+  height: 8px;
   left: 0;
   position: absolute;
-  right: 0;
-  top: 96px;
+  right: 1px;
+  top: 88px;
 }
 
 .process-card strong {
   color: var(--step-color);
   display: block;
   font-family: var(--font-display);
-  font-size: 72px;
+  font-size: 100px;
   font-weight: 400;
-  line-height: 1;
-  margin-bottom: 57px;
+  left: 0;
+  line-height: 100px;
+  margin: 0;
+  position: absolute;
+  top: -17px;
 }
 
 .process-card h3 {
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 400;
-  line-height: 1.12;
-  margin: 0 0 18px;
+  left: 0;
+  line-height: 1;
+  margin: 0;
+  position: absolute;
+  top: 128px;
   text-transform: uppercase;
+  width: 189px;
 }
 
 .process-card p {
-  font-size: 18px;
-  line-height: 1.35;
+  font-size: 16px;
+  left: 0;
+  line-height: 1.4;
   margin: 0;
+  position: absolute;
+  top: 192px;
+  width: 200px;
 }
 
 .process > .button {
   background: var(--color-green);
-  float: right;
-  margin-top: 0;
-  min-width: 244px;
+  font-size: 18px;
+  height: 42px;
+  left: 1100px;
+  margin: 0;
+  min-width: 253px;
+  position: absolute;
+  top: 794px;
+  width: 253px;
 }
 
 .process > .button:hover,
@@ -1759,22 +1809,64 @@ main:focus {
 .membership::before {
   background:
     repeating-linear-gradient(
-        to bottom,
-        var(--color-grid-light) 0 3px,
+        to right,
+        rgba(0, 16, 59, 0.2) 0 3px,
         transparent 3px 6px
       )
-      88px 0 / 1px 100% no-repeat,
+      0 0 / 100% 1px no-repeat,
+    repeating-linear-gradient(
+        to right,
+        rgba(0, 16, 59, 0.2) 0 3px,
+        transparent 3px 6px
+      )
+      0 400px / 100% 1px no-repeat,
+    repeating-linear-gradient(
+        to right,
+        rgba(0, 16, 59, 0.2) 0 3px,
+        transparent 3px 6px
+      )
+      0 790px / 100% 1px no-repeat,
+    repeating-linear-gradient(
+        to right,
+        rgba(0, 16, 59, 0.2) 0 3px,
+        transparent 3px 6px
+      )
+      0 937px / 100% 1px no-repeat,
+    repeating-linear-gradient(
+        to right,
+        rgba(0, 16, 59, 0.2) 0 3px,
+        transparent 3px 6px
+      )
+      0 1230px / 100% 1px no-repeat,
+    repeating-linear-gradient(
+        to right,
+        rgba(0, 16, 59, 0.2) 0 3px,
+        transparent 3px 6px
+      )
+      0 1577px / 100% 1px no-repeat,
     repeating-linear-gradient(
         to bottom,
-        var(--color-grid-light) 0 3px,
+        rgba(0, 16, 59, 0.2) 0 3px,
         transparent 3px 6px
       )
-      calc(57.2% - 12.7px) 0 / 1px 100% no-repeat;
+      87px 0 / 1px 1577px no-repeat,
+    repeating-linear-gradient(
+        to bottom,
+        rgba(0, 16, 59, 0.2) 0 3px,
+        transparent 3px 6px
+      )
+      811px 0 / 1px 937px no-repeat,
+    repeating-linear-gradient(
+        to bottom,
+        rgba(0, 16, 59, 0.2) 0 3px,
+        transparent 3px 6px
+      )
+      1352px 401px / 1px 536px no-repeat;
   content: "";
   inset: 0;
-  opacity: 0.45;
   pointer-events: none;
   position: absolute;
+  z-index: 2;
 }
 
 .membership > .section-intro {
@@ -1931,6 +2023,10 @@ main:focus {
   background: var(--color-green);
 }
 
+.membership-card:not(.membership-card--dark) .button {
+  background: #94c9e7;
+}
+
 .qualification {
   isolation: isolate;
   margin-top: 241px;
@@ -1939,7 +2035,7 @@ main:focus {
 }
 
 .qualification::before {
-  border-top: 1px dashed var(--color-grid-light);
+  border-top: 0;
   content: "";
   left: -88px;
   position: absolute;
@@ -1948,20 +2044,7 @@ main:focus {
 }
 
 .qualification::after {
-  background:
-    repeating-linear-gradient(
-        to bottom,
-        var(--color-grid-light) 0 3px,
-        transparent 3px 6px
-      )
-      88px top / 1px 100% no-repeat,
-    repeating-linear-gradient(
-        to bottom,
-        var(--color-grid-light) 0 3px,
-        transparent 3px 6px
-      )
-      calc(100% - 88px) top / 1px 100% no-repeat,
-    var(--color-soft);
+  background: var(--color-soft);
   bottom: 0;
   content: "";
   left: -88px;
@@ -2031,7 +2114,7 @@ main:focus {
 
 .qualification-grid::before,
 .qualification-grid::after {
-  border-top: 1px dashed var(--color-grid-light);
+  border-top: 0;
   content: "";
   left: -88px;
   position: absolute;
@@ -2048,7 +2131,7 @@ main:focus {
 
 .qualification article {
   --path-color: #61b4e3;
-  border-left: 1px dashed var(--color-grid-light);
+  border-left: 1px dashed rgba(0, 16, 59, 0.2);
   display: flex;
   flex-direction: column;
   min-height: 342px;
@@ -2058,17 +2141,17 @@ main:focus {
 
 .qualification article:nth-child(2) {
   --path-color: #8ed6e4;
-  border-left: 1px dashed var(--color-grid-light);
+  border-left: 1px dashed rgba(0, 16, 59, 0.2);
   padding-left: 0;
 }
 
 .qualification article:nth-child(3) {
   --path-color: #6bdba0;
-  border-left: 1px dashed var(--color-grid-light);
+  border-left: 1px dashed rgba(0, 16, 59, 0.2);
 }
 
 .qualification article:last-child {
-  border-right: 1px dashed var(--color-grid-light);
+  border-right: 1px dashed rgba(0, 16, 59, 0.2);
 }
 
 .qualification article::before {
@@ -5504,6 +5587,14 @@ button.footer-menu {
 
   .process {
     background: var(--color-off-white);
+    height: auto;
+  }
+
+  .process .section-intro {
+    left: auto;
+    position: relative;
+    top: auto;
+    width: auto;
   }
 
   .process .section-intro h2 {
@@ -5512,10 +5603,16 @@ button.footer-menu {
 
   .process .section-intro p {
     line-height: 1.45;
+    width: auto;
   }
 
   .process-grid {
+    height: auto;
+    left: auto;
     margin-top: 72px;
+    position: relative;
+    top: auto;
+    width: auto;
   }
 
   .process-grid::before,
@@ -5526,13 +5623,43 @@ button.footer-menu {
     right: -16px;
   }
 
+  .membership::before {
+    display: none;
+  }
+
+  .qualification::before,
+  .qualification-grid::before,
+  .qualification-grid::after {
+    border-top: 1px dashed rgba(0, 16, 59, 0.2);
+  }
+
   .process-card {
     border-right: 1px dashed var(--color-grid-light);
     min-height: 260px;
+    padding: 0 20px 40px;
   }
 
   .process-card strong {
-    margin-bottom: 92px;
+    left: auto;
+    margin: 0 0 44px;
+    position: relative;
+    top: auto;
+  }
+
+  .process-card::before {
+    top: 96px;
+  }
+
+  .process-card h3,
+  .process-card p {
+    left: auto;
+    position: relative;
+    top: auto;
+    width: auto;
+  }
+
+  .process-card h3 {
+    margin-bottom: 18px;
   }
 
   .process-card:not(:first-child)::after {
@@ -5540,6 +5667,12 @@ button.footer-menu {
   }
 
   .process > .button {
+    height: auto;
+    left: auto;
+    margin-top: 0;
+    min-width: 0;
+    position: relative;
+    top: auto;
     width: 100%;
   }
 

@@ -120,6 +120,7 @@ export function HomePage() {
     const lines = Array.from(
       document.querySelectorAll<HTMLElement>("[data-scroll-line]"),
     );
+    const animationFrames: number[] = [];
 
     root.classList.add("motion-ready");
 
@@ -135,7 +136,13 @@ export function HomePage() {
             return;
           }
 
-          entry.target.classList.add("is-line-visible");
+          const firstFrame = window.requestAnimationFrame(() => {
+            const secondFrame = window.requestAnimationFrame(() => {
+              entry.target.classList.add("is-line-visible");
+            });
+            animationFrames.push(secondFrame);
+          });
+          animationFrames.push(firstFrame);
           observer.unobserve(entry.target);
         });
       },
@@ -146,6 +153,7 @@ export function HomePage() {
 
     return () => {
       observer.disconnect();
+      animationFrames.forEach((frame) => window.cancelAnimationFrame(frame));
       root.classList.remove("motion-ready");
     };
   }, []);
@@ -569,35 +577,40 @@ export function HomePage() {
             aria-hidden="true"
             data-scroll-line
           >
-            <svg viewBox="0 0 260 360" role="presentation">
+            <svg
+              className="scroll-line__graphic"
+              viewBox="0 0 171 266"
+              role="presentation"
+            >
               <defs>
                 <linearGradient
                   id="processCurveGradient"
-                  x1="59"
-                  y1="323"
-                  x2="227"
-                  y2="0"
+                  x1="5.32"
+                  y1="234"
+                  x2="5.32"
+                  y2="21"
+                  gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0" stopColor="#96d8fd" />
-                  <stop offset="0.62" stopColor="#96d8fd" />
-                  <stop offset="1" stopColor="#35ff38" />
+                  <stop offset="0.0800246" stopColor="#bbd7e7" />
+                  <stop offset="0.398579" stopColor="#96d8fd" />
+                  <stop offset="0.717946" stopColor="#afd4e8" />
+                  <stop offset="1" stopColor="#45fa4f" />
                 </linearGradient>
               </defs>
               <path
                 className="scroll-line__path"
-                d="M229 0 C229 30 235 81 185 130 C132 182 42 226 62 323"
+                d="M171 0 C171 155 0 144.5 0 265.5"
                 fill="none"
                 pathLength="1"
                 stroke="url(#processCurveGradient)"
-                strokeLinecap="round"
-                strokeWidth="5"
+                strokeWidth="4"
               />
               <circle
                 className="scroll-line__endpoint"
-                cx="62"
-                cy="323"
-                fill="#96d8fd"
-                r="9"
+                cx="0"
+                cy="266"
+                fill="#94c9e7"
+                r="6"
               />
             </svg>
             <span>
