@@ -267,6 +267,7 @@ export function HomePage() {
         setModal={setModal}
       />
       <main id="top" tabIndex={-1}>
+        <div className="section-band section-band--dark section-band--hero">
         <section className="section hero" aria-labelledby="hero-heading">
           <div className="hero__content">
             <h1 id="hero-heading">
@@ -306,7 +307,9 @@ export function HomePage() {
             ))}
           </div>
         </section>
+        </div>
 
+        <div className="section-band section-band--light section-band--who">
         <section
           className="section section--light who"
           id="who-we-are"
@@ -423,7 +426,9 @@ export function HomePage() {
             View full network
           </button>
         </section>
+        </div>
 
+        <div className="section-band section-band--dark section-band--work">
         <section
           className="section section--dark"
           id="what-we-do"
@@ -546,7 +551,9 @@ export function HomePage() {
             ) : null}
           </div>
         </section>
+        </div>
 
+        <div className="section-band section-band--light section-band--process">
         <section
           className="section section--light process"
           id="how-we-work"
@@ -617,7 +624,9 @@ export function HomePage() {
             Let&apos;s start a project
           </button>
         </section>
+        </div>
 
+        <div className="section-band section-band--soft section-band--membership">
         <section className="section membership" id="membership">
           <SectionIntro
             eyebrow="ID: 91201"
@@ -717,7 +726,9 @@ export function HomePage() {
             </div>
           </div>
         </section>
+        </div>
 
+        <div className="section-band section-band--dark section-band--sociocracy">
         <section
           className="section section--dark sociocracy"
           id="sociocracy"
@@ -868,7 +879,9 @@ export function HomePage() {
             </div>
           </div>
         </section>
+        </div>
 
+        <div className="section-band section-band--light section-band--philosophy">
         <section
           className="section section--light philosophy"
           id="philosophy"
@@ -952,7 +965,9 @@ export function HomePage() {
             ))}
           </div>
         </section>
+        </div>
 
+        <div className="section-band section-band--dark section-band--community">
         <section
           className="section section--dark community"
           id="community"
@@ -1074,7 +1089,9 @@ export function HomePage() {
             Let&apos;s talk
           </button>
         </section>
+        </div>
 
+        <div className="section-band section-band--light section-band--cta">
         <section className="section cta" aria-labelledby="cta-heading">
           <div className="cta-panel" aria-hidden="true">
             <span className="cta-panel__line cta-panel__line--v-1" />
@@ -1128,6 +1145,7 @@ export function HomePage() {
             />
           </div>
         </section>
+        </div>
       </main>
       <Footer setModal={setModal} />
       <Modal modal={modal} setModal={setModal} />
@@ -1147,7 +1165,8 @@ function Header({
   setModal: (modal: ModalState) => void;
 }) {
   return (
-    <header className={`site-header ${hidden ? "site-header--hidden" : ""}`}>
+    <div className={`site-header-shell ${hidden ? "site-header-shell--hidden" : ""}`}>
+    <header className="site-header">
       <a className="brand" href="#top" aria-label="Patio home">
         <Image
           className="brand-logo"
@@ -1229,6 +1248,7 @@ function Header({
         <span />
       </button>
     </header>
+    </div>
   );
 }
 
@@ -1458,6 +1478,7 @@ function Footer({ setModal }: { setModal: (modal: ModalState) => void }) {
   ];
 
   return (
+    <div className="section-band section-band--dark section-band--footer">
     <footer className="site-footer">
       <div className="footer-guides" aria-hidden="true">
         <span className="footer-guide footer-guide--top" />
@@ -1625,6 +1646,7 @@ function Footer({ setModal }: { setModal: (modal: ModalState) => void }) {
         </div>
       </div>
     </footer>
+    </div>
   );
 }
 
