@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { LanguageSwitcher } from "@/components/LocaleProvider";
 import { services } from "@/data/home";
 import { sitePath } from "@/lib/sitePath";
 
@@ -27,6 +28,7 @@ export default function AiProductDevelopmentPage() {
         <Link className="button button--pale" href="/#what-we-do">
           Back
         </Link>
+        <LanguageSwitcher id="internal-language" />
       </header>
       <section className="internal-hero">
         <p className="section-kicker">Home / What we do / Industries</p>

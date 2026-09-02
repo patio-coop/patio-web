@@ -16,7 +16,7 @@ export default function CookiesPage() {
 
       <section>
         <h2>2. Cookies used by this website</h2>
-        <p>As currently configured, Patio does not intentionally set analytics, advertising, social-media tracking or personalisation cookies on this public website. The application does not use browser local storage or session storage.</p>
+        <p>As currently configured, Patio does not intentionally set analytics, advertising, social-media tracking or personalisation cookies on this public website. Browser local storage is used only to remember your language preference; session storage is not used.</p>
         <p>Our hosting or security infrastructure may use short-lived, strictly necessary technologies to deliver requests, balance traffic or protect the service. These technologies are used only where required for the service you request and are not used by Patio for advertising or behavioural profiling.</p>
       </section>
 
