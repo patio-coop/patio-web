@@ -11,6 +11,7 @@ import {
 } from "react";
 
 import { HeroGlobe } from "@/components/HeroGlobe";
+import { LanguageSwitcher } from "@/components/LocaleProvider";
 import { ScholarshipApplication } from "@/components/ScholarshipApplication";
 import {
   communityImages,
@@ -1248,6 +1249,7 @@ function Header({
           Get in touch
         </button>
       </div>
+      <LanguageSwitcher id="header-language" />
       <button
         className="menu-button"
         aria-label={menuOpen ? "Close menu" : "Open menu"}

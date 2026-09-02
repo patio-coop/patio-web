@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
+import { LocaleProvider } from "@/components/LocaleProvider";
+
 import "./globals.css";
 
 const inter = localFont({
@@ -42,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${proFont.variable}`}>
-      <body>{children}</body>
+      <body><LocaleProvider>{children}</LocaleProvider></body>
     </html>
   );
 }
