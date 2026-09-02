@@ -35,7 +35,7 @@ type ModalState =
   | { type: "scholarship" }
   | null;
 
-const regions = ["All", "Middle East", "Europe", "South East Asia", "America"];
+const regions = ["All", "America", "Europe", "Middle East", "South East Asia"];
 const membersAreaEnabled = false;
 const featuredBentoSlots = [
   { column: 1, row: 1, height: 210 },
@@ -47,6 +47,10 @@ const featuredBentoSlots = [
   { column: 3, row: 290, height: 133 },
   { column: 4, row: 211, height: 212 },
 ] as const;
+const featuredGridHeight = featuredBentoSlots.reduce(
+  (height, slot) => Math.max(height, slot.row - 1 + slot.height),
+  0,
+);
 
 function getFocusableElements(container: HTMLElement) {
   return Array.from(
@@ -203,10 +207,6 @@ export function HomePage() {
         )
   ).slice(0, 8);
   const activeBentoSlots = featuredBentoSlots.slice(0, featuredCoops.length);
-  const featuredGridHeight = activeBentoSlots.reduce(
-    (height, slot) => Math.max(height, slot.row - 1 + slot.height),
-    0,
-  );
   const featuredCrosses = Array.from(
     activeBentoSlots
       .flatMap((slot) => {
