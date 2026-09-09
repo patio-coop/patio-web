@@ -96,10 +96,12 @@ export function HeroGlobe() {
       dark: 1,
       diffuse: 1.3,
       mapSamples: 16000,
-      mapBrightness: 4.4,
-      baseColor: [0.06, 0.12, 0.28],
-      markerColor: [0.58, 0.72, 0.9],
+      mapBrightness: 12,
+      mapBaseBrightness: 0,
+      baseColor: [0.969, 0.969, 0.969],
+      markerColor: [0.969, 0.969, 0.969],
       glowColor: [0, 0.063, 0.231],
+      opacity: 0,
       markers,
       onRender: (state) => {
         if (pointerInteracting.current === null) {
