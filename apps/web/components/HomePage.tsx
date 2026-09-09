@@ -745,7 +745,17 @@ export function HomePage() {
               {qualificationPaths.map((path, index) => (
                 <article key={path.title}>
                   <span>Path 0{index + 1}</span>
-                  <h3>{path.title}</h3>
+                  <h3>
+                    {index === 0 ? (
+                      <>
+                        Annual
+                        <br />
+                        membership fee
+                      </>
+                    ) : (
+                      path.title
+                    )}
+                  </h3>
                   <p>{path.text}</p>
                   <button
                     className="button button--small button--pale"

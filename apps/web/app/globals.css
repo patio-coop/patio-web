@@ -2036,6 +2036,11 @@ main:focus {
   background: #94c9e7;
 }
 
+.membership-card .button:hover,
+.membership-card .button:focus-visible {
+  background: var(--gradient-action);
+}
+
 .qualification {
   isolation: isolate;
   margin-top: 241px;
@@ -2148,6 +2153,10 @@ main:focus {
   position: relative;
 }
 
+.qualification article:first-child {
+  border-left: 0;
+}
+
 .qualification article:nth-child(2) {
   --path-color: #8ed6e4;
   border-left: 1px dashed rgba(0, 16, 59, 0.2);
@@ -2160,7 +2169,7 @@ main:focus {
 }
 
 .qualification article:last-child {
-  border-right: 1px dashed rgba(0, 16, 59, 0.2);
+  border-right: 0;
 }
 
 .qualification article::before {
@@ -2972,6 +2981,11 @@ main:focus {
   min-width: 111px;
 }
 
+.philosophy-copy .button:hover,
+.philosophy-copy .button:focus-visible {
+  background: var(--gradient-action);
+}
+
 .philosophy-list {
   display: grid;
   grid-template-rows: repeat(5, 111px);
@@ -3375,8 +3389,7 @@ main:focus {
 
 .community > .button:hover,
 .community > .button:focus-visible {
-  background-color: #35ff38;
-  background-image: none;
+  background: var(--gradient-action);
 }
 
 .cta {
