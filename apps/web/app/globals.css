@@ -1173,10 +1173,11 @@ main:focus {
 .who-graphic span {
   color: var(--color-blue);
   font-family: var(--font-display);
-  font-size: 12px;
+  font-size: 14px;
   left: 12px;
-  line-height: 1.15;
+  line-height: 15px;
   position: absolute;
+  text-transform: uppercase;
   top: 248px;
 }
 
@@ -5644,8 +5645,8 @@ button.footer-menu {
   }
 
   .coop-card {
-    grid-column: auto;
-    grid-row: auto;
+    grid-column: auto !important;
+    grid-row: auto !important;
     min-height: 112px;
   }
 

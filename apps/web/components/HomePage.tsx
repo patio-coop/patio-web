@@ -47,7 +47,27 @@ const featuredBentoSlots = [
   { column: 3, row: 290, height: 133 },
   { column: 4, row: 211, height: 212 },
 ] as const;
-const featuredGridHeight = featuredBentoSlots.reduce(
+
+type FeaturedBentoSlot = {
+  column: number;
+  row: number;
+  height: number;
+};
+
+const compactBentoSlots: Record<number, FeaturedBentoSlot[]> = {
+  1: [{ column: 1, row: 1, height: 422 }],
+  2: [
+    { column: 1, row: 1, height: 422 },
+    { column: 2, row: 1, height: 422 },
+  ],
+  3: [
+    { column: 1, row: 1, height: 422 },
+    { column: 2, row: 1, height: 210 },
+    { column: 2, row: 211, height: 212 },
+  ],
+};
+
+const defaultFeaturedGridHeight = featuredBentoSlots.reduce(
   (height, slot) => Math.max(height, slot.row - 1 + slot.height),
   0,
 );
@@ -206,7 +226,13 @@ export function HomePage() {
           (coop) => coop.region === activeRegion && coop.logo,
         )
   ).slice(0, 8);
-  const activeBentoSlots = featuredBentoSlots.slice(0, featuredCoops.length);
+  const activeBentoSlots =
+    compactBentoSlots[featuredCoops.length] ??
+    featuredBentoSlots.slice(0, featuredCoops.length);
+  const featuredGridHeight = activeBentoSlots.reduce(
+    (height, slot) => Math.max(height, slot.row - 1 + slot.height),
+    defaultFeaturedGridHeight,
+  );
   const featuredCrosses = Array.from(
     activeBentoSlots
       .flatMap((slot) => {
@@ -230,7 +256,8 @@ export function HomePage() {
     .map(([, cross]) => cross)
     .filter(
       ({ column, top }) =>
-        !(column === 4 && top === featuredGridHeight),
+        !(column === 4 && top === featuredGridHeight) &&
+        !(top === 0 && column <= 2),
     );
 
   const handleWorkTabKeyDown = (
@@ -396,11 +423,17 @@ export function HomePage() {
               } as CSSProperties
             }
           >
-            {featuredCoops.map((coop) => (
+            {featuredCoops.map((coop, index) => (
               <button
                 className="coop-card"
                 key={coop.name}
                 onClick={() => setModal({ type: "coop", cooperative: coop })}
+                style={
+                  {
+                    gridColumn: activeBentoSlots[index].column,
+                    gridRow: `${activeBentoSlots[index].row} / span ${activeBentoSlots[index].height}`,
+                  }
+                }
                 type="button"
               >
                 {coop.logo ? (
