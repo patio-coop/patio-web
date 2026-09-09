@@ -419,6 +419,20 @@ export function HomePage() {
               </button>
             ))}
           </div>
+          <label className="region-select">
+            <span className="sr-only">Filter cooperatives</span>
+            <select
+              aria-label="Filter cooperatives"
+              onChange={(event) => setActiveRegion(event.target.value)}
+              value={activeRegion}
+            >
+              {regions.map((region) => (
+                <option key={region} value={region}>
+                  {region}
+                </option>
+              ))}
+            </select>
+          </label>
           <div
             className="coop-grid"
             style={
@@ -671,7 +685,7 @@ export function HomePage() {
               setModal({ type: "contact", title: "Let's start a project" })
             }
           >
-            Let&apos;s start a project
+            Let’s start a project
           </button>
         </section>
         </div>
