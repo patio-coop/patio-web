@@ -118,6 +118,7 @@ export function HomePage() {
   );
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobilePanel, setMobilePanel] = useState<number | null>(null);
+  const [mobileGroup, setMobileGroup] = useState<number | null>(null);
   const [headerHidden, setHeaderHidden] = useState(false);
   const sociocracyRef = useRef<HTMLElement | null>(null);
 
@@ -295,9 +296,12 @@ export function HomePage() {
         open={menuOpen}
         panel={mobilePanel}
         setPanel={setMobilePanel}
+        group={mobileGroup}
+        setGroup={setMobileGroup}
         close={() => {
           setMenuOpen(false);
           setMobilePanel(null);
+          setMobileGroup(null);
         }}
         setModal={setModal}
       />
@@ -1312,12 +1316,16 @@ function MobileMenu({
   open,
   panel,
   setPanel,
+  group,
+  setGroup,
   close,
   setModal,
 }: {
   open: boolean;
   panel: number | null;
   setPanel: (panel: number | null) => void;
+  group: number | null;
+  setGroup: (group: number | null) => void;
   close: () => void;
   setModal: (modal: ModalState) => void;
 }) {
@@ -1387,12 +1395,14 @@ function MobileMenu({
   }
 
   const item = panel !== null ? navItems[panel] : null;
+  const activeGroup =
+    item?.groups && group !== null ? item.groups[group] : null;
 
   return (
     <div
       aria-label="Navigation menu"
       aria-modal="true"
-      className="mobile-menu"
+      className={`mobile-menu ${activeGroup ? "mobile-menu--group" : ""}`}
       id="mobile-navigation"
       ref={menuRef}
       role="dialog"
@@ -1400,7 +1410,14 @@ function MobileMenu({
       <div className="mobile-menu__bar">
         {item ? (
           <button
-            onClick={() => setPanel(null)}
+            className="mobile-menu__back"
+            onClick={() => {
+              if (activeGroup) {
+                setGroup(null);
+                return;
+              }
+              setPanel(null);
+            }}
             aria-label="Back"
             type="button"
           >
@@ -1409,7 +1426,11 @@ function MobileMenu({
         ) : (
           <span />
         )}
+        {activeGroup || item ? (
+          <strong>{activeGroup?.label ?? item?.label}</strong>
+        ) : null}
         <button
+          className="mobile-menu__close"
           onClick={close}
           aria-label="Close menu"
           ref={closeButtonRef}
@@ -1418,44 +1439,49 @@ function MobileMenu({
           ×
         </button>
       </div>
-      {item?.groups ? (
-        <div className="mobile-menu__panel">
-          <h2>
-            <a href={item.href} onClick={close}>
-              {item.label}
+      {activeGroup ? (
+        <div className="mobile-menu__entries">
+          {activeGroup.items.map((entry) => (
+            <a
+              href={sitePath(entry.href)}
+              key={entry.label}
+              onClick={close}
+            >
+              {entry.label}
             </a>
-          </h2>
-          {item.groups.map((group) => (
-            <div key={group.label}>
-              <h3>
-                <a href={group.href} onClick={close}>
-                  {group.label}
-                </a>
-              </h3>
-              {group.items.map((entry) => (
-                <a
-                  href={sitePath(entry.href)}
-                  key={entry.label}
-                  onClick={close}
-                >
-                  {entry.label}
-                </a>
-              ))}
-            </div>
+          ))}
+        </div>
+      ) : item?.groups ? (
+        <div className="mobile-menu__categories">
+          <a href={item.href} onClick={close}>
+            {item.label}
+          </a>
+          {item.groups.map((itemGroup, index) => (
+            <button
+              key={itemGroup.label}
+              onClick={() => setGroup(index)}
+              type="button"
+            >
+              {itemGroup.label}
+              <b aria-hidden="true">›</b>
+            </button>
           ))}
         </div>
       ) : (
-        <div className="mobile-menu__panel">
+        <div className="mobile-menu__main">
           {navItems.map((navItem, index) =>
             navItem.groups ? (
               <button
                 key={navItem.label}
-                onClick={() => setPanel(index)}
+                onClick={() => {
+                  setPanel(index);
+                  setGroup(null);
+                }}
                 type="button"
               >
                 <span>{navItem.index}</span>
                 {navItem.label}
-                <b>→</b>
+                <b aria-hidden="true">›</b>
               </button>
             ) : (
               <a href={navItem.href} key={navItem.label} onClick={close}>
@@ -1464,7 +1490,7 @@ function MobileMenu({
               </a>
             ),
           )}
-          {membersAreaEnabled ? (
+          <div className="mobile-menu__actions">
             <button
               onClick={() => {
                 close();
@@ -1474,16 +1500,16 @@ function MobileMenu({
             >
               Members
             </button>
-          ) : null}
-          <button
-            onClick={() => {
-              close();
-              setModal({ type: "contact", title: "Get in touch" });
-            }}
-            type="button"
-          >
-            Get in touch
-          </button>
+            <button
+              onClick={() => {
+                close();
+                setModal({ type: "contact", title: "Get in touch" });
+              }}
+              type="button"
+            >
+              Get in touch
+            </button>
+          </div>
         </div>
       )}
     </div>
