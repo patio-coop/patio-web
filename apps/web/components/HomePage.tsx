@@ -36,7 +36,7 @@ type ModalState =
   | null;
 
 const regions = ["All", "America", "Europe", "Middle East", "South East Asia"];
-const membersAreaEnabled = false;
+const membersAreaEnabled = true;
 const featuredBentoSlots = [
   { column: 1, row: 1, height: 210 },
   { column: 2, row: 1, height: 120 },
@@ -1215,7 +1215,13 @@ export function HomePage() {
           <div className="cta-copy">
             <p className="cta-copy__index">ID:12024</p>
             <h2 id="cta-heading">
-              Make us your organization&rsquo;s technology partner
+              <span>Make us your</span>
+              {" "}
+              <span>organization&rsquo;s</span>
+              {" "}
+              <span>technology</span>
+              {" "}
+              <span>partner</span>
             </h2>
             <p>
               Tell us briefly how you&rsquo;d like to collaborate. A community
