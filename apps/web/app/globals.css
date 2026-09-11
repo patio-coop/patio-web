@@ -3187,6 +3187,16 @@ main:focus {
   z-index: 4;
 }
 
+.community-bottom-cap {
+  background: var(--color-blue);
+  bottom: 0;
+  height: 32px;
+  left: 0;
+  position: absolute;
+  width: 20.625%;
+  z-index: 4;
+}
+
 .community-signal {
   height: 315px;
   left: calc(50.069% - 34px);
@@ -3405,6 +3415,10 @@ main:focus {
   inset: 0;
   position: absolute;
   z-index: 1;
+}
+
+.community-scroll-indicator {
+  display: none;
 }
 
 .gallery-item {
@@ -5295,6 +5309,7 @@ button.footer-menu {
   }
 
   .community-top-cap,
+  .community-bottom-cap,
   .community-signal,
   .community-guides {
     display: none;
@@ -6435,6 +6450,30 @@ button.footer-menu {
     min-height: 38px;
   }
 
+  .qualification article:not(:last-child)::after {
+    border-top: 1px dashed rgba(0, 16, 59, 0.25);
+    bottom: -76px;
+    content: "";
+    display: block;
+    left: -16px;
+    position: absolute;
+    right: -16px;
+  }
+
+  .qualification article:last-child::after {
+    border-top: 1px dashed rgba(0, 16, 59, 0.25);
+    bottom: -64px;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+
+  .membership {
+    padding-bottom: 160px;
+  }
+
   .qualification {
     margin-top: 160px;
   }
@@ -6458,6 +6497,7 @@ button.footer-menu {
   }
 
   .qualification-grid::after {
+    border-top: 0;
     bottom: -64px;
   }
 
@@ -6585,6 +6625,462 @@ button.footer-menu {
     font-size: 13px;
   }
 
+  .sociocracy {
+    height: 1494px;
+    min-height: 1494px;
+    padding: 0;
+  }
+
+  .sociocracy-frame {
+    display: block;
+  }
+
+  .sociocracy-frame__cap--top {
+    height: 25px;
+    top: -1px;
+    width: 176px;
+  }
+
+  .section-band--sociocracy::before {
+    background: var(--color-soft);
+    content: "";
+    height: 2px;
+    left: auto;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: -1px;
+    width: 176px;
+    z-index: 10;
+  }
+
+  .sociocracy-frame__cap--bottom {
+    height: 24px;
+    width: 50%;
+  }
+
+  .sociocracy-frame__guide--header {
+    display: none;
+  }
+
+  .sociocracy-frame__guide--top {
+    top: 410px;
+  }
+
+  .sociocracy-frame__guide--bottom {
+    top: 1425px;
+  }
+
+  .sociocracy-frame__guide--left,
+  .sociocracy-frame__guide--right {
+    display: none;
+  }
+
+  .sociocracy-frame__guide--center-v {
+    height: 1084px;
+    left: 50%;
+    top: 410px;
+  }
+
+  .sociocracy-frame__guide--center-h {
+    left: 0;
+    right: 0;
+    top: 917px;
+  }
+
+  .sociocracy-frame__guide--tail {
+    display: none;
+  }
+
+  .sociocracy-frame__cross {
+    left: calc(50% - 8.5px);
+    top: 908.5px;
+  }
+
+  .sociocracy-signal {
+    height: 121px;
+    left: 20px;
+    top: 0;
+    width: 151.5px;
+  }
+
+  .sociocracy-signal svg {
+    height: 121px;
+    width: 151.5px;
+  }
+
+  .sociocracy-signal span {
+    font-size: 12px;
+    left: 129px;
+    line-height: 13px;
+    top: 77px;
+    width: 30px;
+  }
+
+  .sociocracy-intro {
+    height: 197px;
+    left: 20px;
+    max-width: none;
+    position: absolute;
+    right: 16px;
+    text-align: right;
+    top: 153px;
+  }
+
+  .sociocracy-intro > span {
+    font-size: 12px;
+    line-height: 13px;
+  }
+
+  .sociocracy-intro h2 {
+    font-size: 36px;
+    line-height: 36px;
+    margin-top: 16px;
+  }
+
+  .sociocracy-intro p {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 16px 0 0 auto;
+    max-width: none;
+    width: 324px;
+  }
+
+  .sociocracy-graphic {
+    display: block;
+    height: 1015px;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    top: 410px;
+    width: 100%;
+  }
+
+  .sociocracy-connector {
+    display: block;
+  }
+
+  .sociocracy-principle,
+  .sociocracy-principle--feedback,
+  .sociocracy-principle--circles,
+  .sociocracy-principle--decisions,
+  .sociocracy-principle--linking {
+    border: 0;
+    padding: 0;
+    position: absolute;
+  }
+
+  .sociocracy-principle h3 {
+    font-size: 21px;
+    line-height: 21px;
+  }
+
+  .sociocracy-principle p {
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 19px;
+  }
+
+  .sociocracy-principle--feedback p {
+    padding-left: 24px;
+  }
+
+  .sociocracy-principle--circles p,
+  .sociocracy-principle--linking p {
+    padding-right: 18px;
+  }
+
+  .sociocracy-principle--linking h3 {
+    padding-right: 18px;
+  }
+
+  .sociocracy-principle--feedback {
+    left: calc(50% - 155px);
+    top: 60px;
+    width: 260px;
+  }
+
+  .sociocracy-principle--circles {
+    left: calc(50% - 121px);
+    text-align: right;
+    top: 203px;
+    width: 275px;
+  }
+
+  .sociocracy-principle--circles h3,
+  .sociocracy-principle--circles p {
+    margin-left: auto;
+    width: 260px;
+  }
+
+  .sociocracy-principle--circles h3 br,
+  .sociocracy-principle--decisions h3 br,
+  .sociocracy-principle--linking h3 br {
+    display: none;
+  }
+
+  .sociocracy-principle--decisions {
+    left: calc(50% - 137px);
+    top: 708px;
+    width: 266px;
+  }
+
+  .sociocracy-principle--linking {
+    left: calc(50% - 106px);
+    text-align: right;
+    top: 852px;
+    width: 260px;
+  }
+
+  .sociocracy-globe {
+    height: 306px;
+    left: 50%;
+    margin: 0;
+    position: absolute;
+    top: 354px;
+    transform: translateX(-50%);
+    width: 306px;
+  }
+
+  .sociocracy-globe__node {
+    height: 22px;
+    width: 22px;
+  }
+
+  .sociocracy-globe__node--top,
+  .sociocracy-globe__node--bottom {
+    left: calc(50% - 11px);
+  }
+
+  .sociocracy-globe__node--top { top: -11px; }
+  .sociocracy-globe__node--bottom { bottom: -11px; }
+  .sociocracy-globe__node--left { left: -11px; top: calc(50% - 11px); }
+  .sociocracy-globe__node--right { right: -11px; top: calc(50% - 11px); }
+
+  .sociocracy-globe__label {
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  .sociocracy-connector--feedback-h {
+    height: 3px;
+    left: calc(50% - 155px);
+    top: 89px;
+    width: 261px;
+  }
+
+  .sociocracy-connector--feedback-v {
+    height: 417px;
+    left: calc(50% - 155px);
+    top: 89px;
+    width: 3px;
+  }
+
+  .sociocracy-connector--feedback-tail {
+    display: none;
+  }
+
+  .sociocracy-connector--circles {
+    background: #61b4e3;
+    height: 3px;
+    left: calc(50% - 107px);
+    top: 232px;
+    width: 261px;
+  }
+
+  .sociocracy-connector--circles::before,
+  .sociocracy-connector--circles::after,
+  .sociocracy-connector--decisions::before,
+  .sociocracy-connector--decisions::after {
+    background: inherit;
+    content: "";
+    position: absolute;
+  }
+
+  .sociocracy-connector--circles::before {
+    height: 123px;
+    right: 0;
+    top: 0;
+    width: 3px;
+  }
+
+  .sociocracy-connector--circles::after {
+    bottom: -123px;
+    height: 3px;
+    right: 0;
+    width: 153px;
+  }
+
+  .sociocracy-connector--decisions {
+    background: #77dab2;
+    height: 3px;
+    left: calc(50% - 155px);
+    top: 659px;
+    width: 153px;
+  }
+
+  .sociocracy-connector--decisions::before {
+    height: 83px;
+    left: 0;
+    top: 0;
+    width: 3px;
+  }
+
+  .sociocracy-connector--decisions::after {
+    height: 3px;
+    left: 0;
+    top: 80px;
+    width: 261px;
+  }
+
+  .sociocracy-connector--linking-h {
+    height: 3px;
+    left: calc(50% - 107px);
+    top: 883px;
+    width: 261px;
+  }
+
+  .sociocracy-connector--linking-v {
+    height: 377px;
+    left: calc(50% + 153px);
+    right: auto;
+    top: 506px;
+    width: 3px;
+  }
+
+  .sociocracy-connector--linking-tail {
+    display: none;
+  }
+
+  .community {
+    height: 825px;
+    min-height: 825px;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+  }
+
+  .community-top-cap {
+    display: block;
+    height: 24px;
+    left: auto;
+    right: 0;
+    top: -1px;
+    width: 188px;
+  }
+
+  .community-bottom-cap {
+    bottom: -24px;
+    display: block;
+    height: 24px;
+    left: 0;
+    width: 17px;
+  }
+
+  .community-scroll-indicator {
+    display: flex;
+    gap: 7px;
+    left: 50%;
+    position: absolute;
+    top: 735px;
+    transform: translateX(-50%);
+    z-index: 5;
+  }
+
+  .community-scroll-indicator span {
+    background: rgba(247, 247, 247, 0.35);
+    display: block;
+    height: 9px;
+    transition: background-color 180ms ease, width 180ms ease;
+    width: 9px;
+  }
+
+  .community-scroll-indicator span.is-active {
+    background: var(--color-off-white);
+    width: 18px;
+  }
+
+  .community-signal {
+    display: block;
+    height: 139px;
+    left: 122px;
+    top: 0;
+    width: 53px;
+  }
+
+  .community-signal svg {
+    height: 139px;
+    width: 53px;
+  }
+
+  .community-signal span {
+    bottom: 2px;
+    font-size: 12px;
+    left: -17px;
+    line-height: 13px;
+    width: 30px;
+  }
+
+  .community-copy {
+    height: 237px;
+    left: 20px;
+    position: absolute;
+    right: 16px;
+    text-align: right;
+    top: 153px;
+    width: auto;
+  }
+
+  .community-copy__index {
+    font-size: 12px;
+    line-height: 13px;
+  }
+
+  .community-copy h2 {
+    font-size: 36px;
+    line-height: 36px;
+    margin: 16px 0 0 auto;
+    width: 268px;
+  }
+
+  .community-copy p {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 16px 0 0 auto;
+    width: 324px;
+  }
+
+  .community > .button {
+    font-size: 16px;
+    height: 38px;
+    left: auto;
+    margin: 0;
+    min-height: 38px;
+    position: absolute;
+    right: 16px;
+    top: 414px;
+    width: 112px;
+    z-index: 5;
+  }
+
+  .community-gallery {
+    gap: 0;
+    height: 190px;
+    left: 0;
+    margin: 0;
+    overflow-x: auto;
+    padding: 7px 0;
+    position: absolute;
+    right: 0;
+    top: 512px;
+  }
+
+  .community .gallery-item {
+    aspect-ratio: auto;
+    flex: 0 0 202px;
+    height: 176px;
+  }
+
   .community-gallery {
     display: flex;
     gap: 12px;
@@ -6600,6 +7096,23 @@ button.footer-menu {
     aspect-ratio: 1.2;
     flex: 0 0 280px;
     scroll-snap-align: start;
+  }
+
+  .community-gallery {
+    gap: 0;
+    height: 190px;
+    left: 0;
+    margin: 0;
+    padding: 7px 0;
+    position: absolute;
+    right: 0;
+    top: 512px;
+  }
+
+  .community .gallery-item {
+    aspect-ratio: auto;
+    flex: 0 0 202px;
+    height: 176px;
   }
 
   .cta {

@@ -120,6 +120,7 @@ export function HomePage() {
   const [mobilePanel, setMobilePanel] = useState<number | null>(null);
   const [mobileGroup, setMobileGroup] = useState<number | null>(null);
   const [headerHidden, setHeaderHidden] = useState(false);
+  const [communitySlide, setCommunitySlide] = useState(0);
   const sociocracyRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -1048,6 +1049,7 @@ export function HomePage() {
           aria-labelledby="community-heading"
         >
           <div className="community-top-cap" aria-hidden="true" />
+          <div className="community-bottom-cap" aria-hidden="true" />
           <div
             className="community-signal"
             aria-hidden="true"
@@ -1136,7 +1138,17 @@ export function HomePage() {
               ))}
             </span>
           </div>
-          <div className="community-gallery">
+          <div
+            className="community-gallery"
+            onScroll={(event) => {
+              const gallery = event.currentTarget;
+              const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+              const progress = maxScroll > 0 ? gallery.scrollLeft / maxScroll : 0;
+              setCommunitySlide(
+                Math.round(progress * (communityImages.length - 1)),
+              );
+            }}
+          >
             {communityImages.map((image, index) => (
               <button
                 aria-label={`Open image: ${image.alt}`}
@@ -1152,6 +1164,14 @@ export function HomePage() {
                   sizes="(max-width: 1100px) 320px, 620px"
                 />
               </button>
+            ))}
+          </div>
+          <div className="community-scroll-indicator" aria-hidden="true">
+            {communityImages.map((image, index) => (
+              <span
+                className={index === communitySlide ? "is-active" : ""}
+                key={image.src}
+              />
             ))}
           </div>
           <button
