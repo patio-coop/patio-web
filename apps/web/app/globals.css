@@ -6149,6 +6149,12 @@ button.footer-menu {
 
   .membership::before {
     background:
+      repeating-linear-gradient(to right, rgba(0, 16, 59, 0.25) 0 3px, transparent 3px 6px) 0 423px / 100% 1px no-repeat,
+      repeating-linear-gradient(to right, rgba(0, 16, 59, 0.25) 0 3px, transparent 3px 6px) 0 768px / 100% 1px no-repeat,
+      repeating-linear-gradient(to right, rgba(0, 16, 59, 0.25) 0 3px, transparent 3px 6px) 0 867px / 100% 1px no-repeat,
+      repeating-linear-gradient(to right, rgba(0, 16, 59, 0.25) 0 3px, transparent 3px 6px) 0 975px / 100% 1px no-repeat,
+      repeating-linear-gradient(to right, rgba(0, 16, 59, 0.25) 0 3px, transparent 3px 6px) 0 1309px / 100% 1px no-repeat,
+      repeating-linear-gradient(to right, rgba(0, 16, 59, 0.25) 0 3px, transparent 3px 6px) 0 1407px / 100% 1px no-repeat,
       repeating-linear-gradient(
           to bottom,
           rgba(0, 16, 59, 0.25) 0 3px,
@@ -6280,6 +6286,11 @@ button.footer-menu {
   }
 
   .qualification-crosses {
+    display: block;
+    top: -62px;
+  }
+
+  .qualification-crosses span:nth-child(2) {
     display: none;
   }
 
@@ -6321,16 +6332,176 @@ button.footer-menu {
 
   .membership-model {
     grid-template-columns: 1fr;
-    gap: 88px;
-    margin-top: 88px;
+    gap: 206px;
+    margin-top: 134px;
+  }
+
+  .membership-model::before,
+  .membership-model::after {
+    background:
+      linear-gradient(var(--color-blue), var(--color-blue)) center / 1px 13px no-repeat,
+      linear-gradient(var(--color-blue), var(--color-blue)) center / 13px 1px no-repeat;
+    content: "";
+    height: 13px;
+    pointer-events: none;
+    position: absolute;
+    top: 444px;
+    transform: translate(-50%, -50%);
+    width: 13px;
+    z-index: 3;
+  }
+
+  .membership-model::before {
+    left: 0;
+  }
+
+  .membership-model::after {
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+
+  .membership {
+    padding-top: 122px;
+  }
+
+  .membership > .section-intro span {
+    font-size: 12px;
+    line-height: 13px;
+  }
+
+  .membership > .section-intro h2 {
+    font-size: 36px;
+    line-height: 36px;
+    margin: 16px 0;
+  }
+
+  .membership > .section-intro p {
+    font-size: 14px;
+    line-height: 20px;
   }
 
   .membership-card {
-    min-height: 430px;
+    min-height: 334px;
+    padding: 36px 21px 32px;
   }
 
   .membership-card > span {
-    min-width: min(280px, 100%);
+    font-size: 21px;
+    height: 48px;
+    min-width: min(189px, 100%);
+    top: -48px;
+  }
+
+  .membership-card--dark {
+    min-height: 346px;
+  }
+
+  .membership-card strong {
+    font-size: 62px;
+    height: 62px;
+    line-height: 62px;
+  }
+
+  .membership-card strong span {
+    font-size: 20px;
+  }
+
+  .membership-card em {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .membership-card ul {
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  .membership-card li {
+    font-size: 14px;
+    height: 18px;
+    line-height: 17px;
+  }
+
+  .membership-card li::before {
+    font-size: 18px;
+    margin-right: 4px;
+    width: 18px;
+  }
+
+  .membership-card .button {
+    bottom: -38px;
+    font-size: 16px;
+    height: 38px;
+    min-height: 38px;
+  }
+
+  .qualification {
+    margin-top: 160px;
+  }
+
+  .qualification::before {
+    top: -62px;
+  }
+
+  .qualification .section-intro h2 {
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  .qualification-grid {
+    gap: 151px;
+    margin-top: 47px;
+  }
+
+  .qualification-grid::before {
+    top: 10px;
+  }
+
+  .qualification-grid::after {
+    bottom: -64px;
+  }
+
+  .qualification article,
+  .qualification article:nth-child(2),
+  .qualification article:nth-child(3) {
+    border-left: 0;
+    border-right: 0;
+    min-height: 203px;
+    padding: 0 0 0;
+  }
+
+  .qualification article:nth-child(3) {
+    min-height: 223px;
+  }
+
+  .qualification article::before {
+    height: 6px;
+    right: 0;
+    top: 70px;
+  }
+
+  .qualification article > span {
+    font-size: 62px;
+    line-height: 62px;
+    margin: 0 0 33px;
+  }
+
+  .qualification h3 {
+    font-size: 21px;
+    line-height: 21px;
+    margin-bottom: 7px;
+  }
+
+  .qualification article p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .qualification article .button {
+    bottom: -64px;
+    font-size: 16px;
+    height: 38px;
+    min-height: 38px;
   }
 
   .philosophy {
