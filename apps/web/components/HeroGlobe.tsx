@@ -98,7 +98,7 @@ export function HeroGlobe() {
       mapSamples: 16000,
       mapBrightness: 12,
       mapBaseBrightness: 0,
-      baseColor: [0.969, 0.969, 0.969],
+      baseColor: [0, 0.063, 0.231],
       markerColor: [0.969, 0.969, 0.969],
       glowColor: [0, 0.063, 0.231],
       opacity: 0,

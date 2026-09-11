@@ -1057,10 +1057,10 @@ main:focus {
 .hero-globe {
   align-self: center;
   aspect-ratio: 1;
-  max-width: 620px;
+  max-width: 546px;
   position: relative;
   transform: translate(-28px, -108px);
-  width: min(48vw, 620px);
+  width: min(42.24vw, 546px);
 }
 
 .hero-globe::before {
@@ -1483,6 +1483,11 @@ main:focus {
   position: relative;
   width: 185px;
   z-index: 4;
+}
+
+.who > .button:hover,
+.who > .button:focus-visible {
+  background: var(--gradient-action);
 }
 
 .segmented-control {
@@ -5784,7 +5789,7 @@ button.footer-menu {
     position: absolute;
     top: 444px;
     transform: translateX(-50%);
-    width: min(328px, 100%);
+    width: min(289px, 88%);
   }
 
   .globe-label {
@@ -7274,6 +7279,7 @@ button.footer-menu {
   .cta-copy .button {
     font-size: 16px;
     height: 46px;
+    margin-left: calc(50% - 76px);
     margin-top: 28px;
     min-height: 46px;
     width: 152px;
