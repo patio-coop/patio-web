@@ -6245,6 +6245,14 @@ button.footer-menu {
     width: 96px;
   }
 
+  .process-curve .scroll-line__path {
+    vector-effect: non-scaling-stroke;
+  }
+
+  .process-curve .scroll-line__endpoint {
+    r: 11px;
+  }
+
   .process-curve span {
     font-size: 12px;
     left: 19px;
@@ -6275,15 +6283,7 @@ button.footer-menu {
   }
 
   .process::after {
-    border-left: 1px dashed var(--color-grid-light);
-    border-right: 1px dashed var(--color-grid-light);
-    bottom: 0;
-    content: "";
-    left: 17px;
-    pointer-events: none;
-    position: absolute;
-    right: 17px;
-    top: 376px;
+    display: none;
   }
 
   .membership::before {
@@ -6338,7 +6338,7 @@ button.footer-menu {
     border-right: 0;
     height: 209px;
     min-height: 209px;
-    overflow: hidden;
+    overflow: visible;
     padding: 0;
   }
 
@@ -6353,14 +6353,41 @@ button.footer-menu {
 
   .process-card::before {
     background:
-      repeating-linear-gradient(
-        to right,
-        transparent 0 7px,
-        var(--color-off-white) 7px 10px
-      ) right / 125px 6px no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 0 top 0 / 9px 100% no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 17px top 0 / 5px 100% no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 38px top 0 / 5px 100% no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 93px top 0 / 5px 100% no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 50px top 0 / 9px 100% no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 11px top 0 / 2px 100% no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 31px top 0 / 2px 100% no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 82px top 0 / 3px 100% no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 63px top 0 / 2px 100% no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 24px top 0 / 2px 100% no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 36px top 0 / 1px 100% no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 124px top 0 / 1px 100% no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 71px top 0 / 1px 100% no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 73px top 0 / 1px 100% no-repeat,
+      linear-gradient(var(--color-off-white), var(--color-off-white)) right 102px top 0 / 1px 100% no-repeat,
       var(--step-color);
     height: 6px;
     top: 59px;
+  }
+
+  .process-card:first-child::after {
+    background:
+      linear-gradient(var(--color-blue), var(--color-blue)) center / 1px 13px no-repeat,
+      linear-gradient(var(--color-blue), var(--color-blue)) center / 13px 1px no-repeat;
+    bottom: auto;
+    height: 13px;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+    width: 13px;
+    z-index: 4;
+  }
+
+  .process-card:last-child {
+    border-bottom: 0;
   }
 
   .process-card h3,
