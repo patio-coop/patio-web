@@ -1306,6 +1306,10 @@ main:focus {
   z-index: 3;
 }
 
+.mobile-grid-crosses {
+  display: none;
+}
+
 .who-grid-cross {
   height: 17px;
   position: absolute;
@@ -5888,6 +5892,24 @@ button.footer-menu {
     width: 152px;
   }
 
+  .who-graphic svg {
+    transform: scaleX(1.245);
+    transform-origin: 4.76% 50%;
+  }
+
+  .who-graphic .scroll-line__path,
+  #what-we-do .work-graphic .scroll-line__path {
+    vector-effect: non-scaling-stroke;
+  }
+
+  .who-graphic .scroll-line__endpoint {
+    r: 15px;
+  }
+
+  #what-we-do .work-graphic .scroll-line__endpoint {
+    r: 12px;
+  }
+
   .who-graphic span {
     font-size: 12px;
     left: 0;
@@ -5937,29 +5959,81 @@ button.footer-menu {
   }
 
   .coop-grid {
+    --mobile-grid-line: rgba(0, 16, 59, 0.25);
+    background:
+      repeating-linear-gradient(to bottom, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 16px 0 / 1px 100% no-repeat,
+      repeating-linear-gradient(to bottom, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 176px 0 / 1px 100% no-repeat,
+      repeating-linear-gradient(to bottom, var(--mobile-grid-line) 0 3px, transparent 3px 6px) right 16px top 0 / 1px 100% no-repeat,
+      repeating-linear-gradient(to right, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 0 0 / 100% 1px no-repeat,
+      repeating-linear-gradient(to right, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 176px 76px / calc(100% - 192px) 1px no-repeat,
+      repeating-linear-gradient(to right, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 16px 118px / 160px 1px no-repeat,
+      repeating-linear-gradient(to right, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 0 247px / 100% 1px no-repeat,
+      repeating-linear-gradient(to right, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 176px 342px / calc(100% - 192px) 1px no-repeat,
+      repeating-linear-gradient(to right, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 16px 383px / 160px 1px no-repeat,
+      repeating-linear-gradient(to right, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 0 465px / 100% 1px no-repeat;
     box-sizing: border-box;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 16px minmax(0, 160fr) minmax(0, 167fr) 16px;
     grid-template-rows: 76px 42px 129px 95px 41px 83px;
     height: 466px !important;
     margin-left: -16px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 0;
     width: calc(100% + 32px);
   }
 
   .coop-card {
     min-height: 0;
+    outline: 0;
     padding: 20px;
   }
 
-  .coop-card:nth-child(1) { grid-column: 1 !important; grid-row: 1 / span 2 !important; }
-  .coop-card:nth-child(2) { grid-column: 2 !important; grid-row: 1 !important; }
-  .coop-card:nth-child(3) { grid-column: 1 !important; grid-row: 3 !important; }
-  .coop-card:nth-child(4) { grid-column: 2 !important; grid-row: 2 / span 2 !important; }
-  .coop-card:nth-child(5) { grid-column: 1 !important; grid-row: 4 / span 2 !important; }
-  .coop-card:nth-child(6) { grid-column: 2 !important; grid-row: 4 !important; }
-  .coop-card:nth-child(7) { grid-column: 1 !important; grid-row: 6 !important; }
-  .coop-card:nth-child(8) { grid-column: 2 !important; grid-row: 5 / span 2 !important; }
+  .coop-grid::before,
+  .coop-grid::after {
+    display: none;
+  }
+
+  .mobile-grid-crosses {
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    display: block;
+    z-index: 3;
+  }
+
+  .mobile-grid-crosses span {
+    height: 13px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 13px;
+  }
+
+  .mobile-grid-crosses span::before,
+  .mobile-grid-crosses span::after {
+    background: var(--mobile-cross-color, var(--color-blue));
+    content: "";
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .mobile-grid-crosses span::before {
+    height: 1px;
+    width: 13px;
+  }
+
+  .mobile-grid-crosses span::after {
+    height: 13px;
+    width: 1px;
+  }
+
+  .coop-card:nth-child(1) { grid-column: 2 !important; grid-row: 1 / span 2 !important; }
+  .coop-card:nth-child(2) { grid-column: 3 !important; grid-row: 1 !important; }
+  .coop-card:nth-child(3) { grid-column: 2 !important; grid-row: 3 !important; }
+  .coop-card:nth-child(4) { grid-column: 3 !important; grid-row: 2 / span 2 !important; }
+  .coop-card:nth-child(5) { grid-column: 2 !important; grid-row: 4 / span 2 !important; }
+  .coop-card:nth-child(6) { grid-column: 3 !important; grid-row: 4 !important; }
+  .coop-card:nth-child(7) { grid-column: 2 !important; grid-row: 6 !important; }
+  .coop-card:nth-child(8) { grid-column: 3 !important; grid-row: 5 / span 2 !important; }
 
   .coop-card img {
     max-height: 60px;
@@ -6041,6 +6115,11 @@ button.footer-menu {
     width: 152px;
   }
 
+  #what-we-do .work-graphic svg {
+    transform: scaleX(1.12);
+    transform-origin: left center;
+  }
+
   #what-we-do .work-graphic > span {
     bottom: 12px;
     font-size: 12px;
@@ -6093,6 +6172,17 @@ button.footer-menu {
   }
 
   #what-we-do .work-grid {
+    --mobile-cross-color: var(--color-off-white);
+    --mobile-grid-line: rgba(247, 247, 247, 0.4);
+    background:
+      repeating-linear-gradient(to bottom, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 0 0 / 1px 624px no-repeat,
+      repeating-linear-gradient(to bottom, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 164px 0 / 1px 730px no-repeat,
+      repeating-linear-gradient(to bottom, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 100% 0 / 1px 624px no-repeat,
+      repeating-linear-gradient(to right, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 0 0 / 100% 1px no-repeat,
+      repeating-linear-gradient(to right, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 0 156px / 100% 1px no-repeat,
+      repeating-linear-gradient(to right, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 0 312px / 100% 1px no-repeat,
+      repeating-linear-gradient(to right, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 0 468px / 100% 1px no-repeat,
+      repeating-linear-gradient(to right, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 0 624px / 100% 1px no-repeat;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: repeat(4, 156px);
     height: 730px;
@@ -6369,8 +6459,7 @@ button.footer-menu {
     border: 0;
     font-size: 16px;
     min-height: 156px;
-    outline: 1px dashed var(--color-grid-dark);
-    outline-offset: -1px;
+    outline: 0;
     padding: 28px;
   }
 

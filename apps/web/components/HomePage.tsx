@@ -110,6 +110,26 @@ const communityCrosses = [
   [90, 1076],
 ] as const;
 
+const mobileCoopCrosses = [
+  [176.5, 76],
+  [176.5, 118],
+  [16.5, 118],
+  [343.5, 76],
+  [16.5, 247],
+  [176.5, 247],
+  [343.5, 247],
+  [176.5, 342],
+  [176.5, 383],
+  [16.5, 383],
+  [343.5, 342],
+  [16.5, 466],
+  [176.5, 466],
+] as const;
+
+const mobileWorkCrosses = [156, 312, 468, 624].flatMap((top) =>
+  [0.5, 164.5, 327.5].map((left) => [left, top] as const),
+);
+
 export function HomePage() {
   const [modal, setModal] = useState<ModalState>(null);
   const [activeRegion, setActiveRegion] = useState("All");
@@ -477,6 +497,18 @@ export function HomePage() {
                 />
               ))}
             </div>
+            <div className="mobile-grid-crosses" aria-hidden="true">
+              {mobileCoopCrosses.map(([left, top]) => (
+                <span
+                  key={`${left}-${top}`}
+                  style={
+                    left === 343.5
+                      ? { left: "calc(100% - 16px)", top }
+                      : { left, top }
+                  }
+                />
+              ))}
+            </div>
           </div>
           <button
             className="button button--small"
@@ -609,6 +641,18 @@ export function HomePage() {
             {workItems.length % 4 !== 0 ? (
               <span className="work-card work-card--empty" aria-hidden="true" />
             ) : null}
+            <div className="mobile-grid-crosses" aria-hidden="true">
+              {mobileWorkCrosses.map(([left, top]) => (
+                <span
+                  key={`${left}-${top}`}
+                  style={
+                    left === 327.5
+                      ? { left: "100%", top }
+                      : { left, top }
+                  }
+                />
+              ))}
+            </div>
           </div>
         </section>
         </div>
