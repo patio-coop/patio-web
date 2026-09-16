@@ -77,6 +77,23 @@ In the repository settings, set **Pages → Build and deployment → Source** to
 The local and Docker workflows continue to use the standalone Next.js server.
 Only the GitHub Pages build uses the static export.
 
+## Netlify
+
+The repository includes `netlify.toml` and uses Node.js 20 for Netlify builds.
+When importing the repository in Netlify, use these settings:
+
+- Production branch: `main`
+- Base directory: leave unset (repository root)
+- Package directory: `apps/web`
+- Build command: `npm run build`
+- Publish directory: leave unset so the Next.js runtime configures it
+
+After the first deploy, open **Forms** in Netlify, enable form detection, and
+redeploy the site. Netlify should detect the `contact` and
+`financial-hardship-application` forms defined in
+`apps/web/public/__forms.html`. Both visible forms submit with AJAX and include
+a honeypot field for spam protection.
+
 ## Docker
 
 Build the production Docker image:

@@ -24,6 +24,10 @@ import {
   stats,
   type Cooperative,
 } from "@/data/home";
+import {
+  type FormSubmissionState,
+  submitNetlifyForm,
+} from "@/lib/netlifyForms";
 import { sitePath } from "@/lib/sitePath";
 
 type ModalState =
@@ -2018,28 +2022,22 @@ function Modal({
 
 function ContactModal({ title }: { title: string }) {
   const [messageLength, setMessageLength] = useState(0);
+  const [submissionState, setSubmissionState] =
+    useState<FormSubmissionState>("idle");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const name = String(data.get("name") ?? "").trim();
-    const surname = String(data.get("surname") ?? "").trim();
-    const email = String(data.get("email") ?? "").trim();
-    const enquiryType = String(data.get("enquiryType") ?? "").trim();
-    const messageSubject = String(data.get("subject") ?? "").trim();
-    const message = String(data.get("message") ?? "").trim();
-    const subject = messageSubject || `Patio enquiry: ${title}`;
-    const body = [
-      `Enquiry: ${enquiryType}`,
-      `Name: ${name} ${surname}`,
-      `Email: ${email}`,
-      "",
-      message,
-    ].join("\n");
+    const form = event.currentTarget;
+    setSubmissionState("submitting");
 
-    window.location.href = `mailto:welcome@patio.coop?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
+    try {
+      await submitNetlifyForm(form);
+      form.reset();
+      setMessageLength(0);
+      setSubmissionState("success");
+    } catch {
+      setSubmissionState("error");
+    }
   };
 
   return (
@@ -2051,7 +2049,21 @@ function ContactModal({ title }: { title: string }) {
           will reach out to explore the next steps with you.
         </p>
       </div>
-      <form className="contact-form" onSubmit={handleSubmit}>
+      <form
+        className="contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p className="sr-only" aria-hidden="true">
+          <label>
+            Don&apos;t fill this out if you&apos;re human:
+            <input name="bot-field" tabIndex={-1} autoComplete="off" />
+          </label>
+        </p>
         <label className="contact-field">
           <span>Subject</span>
           <select name="enquiryType" defaultValue="" required>
@@ -2111,8 +2123,31 @@ function ContactModal({ title }: { title: string }) {
             required
           />
         </label>
-        <button className="contact-form__submit" type="submit">
-          Send message
+        <p className="form-privacy-note">
+          By sending this form, you agree to the processing described in our{" "}
+          <a href={sitePath("/privacy")}>Privacy Policy</a>.
+        </p>
+        {submissionState !== "idle" ? (
+          <p
+            className={`form-submission-status form-submission-status--${submissionState}`}
+            role={submissionState === "error" ? "alert" : "status"}
+            aria-live="polite"
+          >
+            {submissionState === "submitting" ? "Sending your message…" : null}
+            {submissionState === "success"
+              ? "Thanks — your message has been sent."
+              : null}
+            {submissionState === "error"
+              ? "We couldn't send your message. Please try again or email welcome@patio.coop."
+              : null}
+          </p>
+        ) : null}
+        <button
+          className="contact-form__submit"
+          type="submit"
+          disabled={submissionState === "submitting"}
+        >
+          {submissionState === "submitting" ? "Sending…" : "Send message"}
         </button>
       </form>
     </div>

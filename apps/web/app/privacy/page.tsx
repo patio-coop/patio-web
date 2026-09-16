@@ -22,7 +22,7 @@ export default function PrivacyPage() {
           <li>Membership or application information that you voluntarily provide when asking to join Patio or applying for a membership path.</li>
           <li>Basic technical information that may be recorded by our hosting infrastructure, such as IP address, browser type, request time and requested page, for security and reliable delivery of the website.</li>
         </ul>
-        <p>The contact form opens your own email application. The information is not submitted to Patio through the website itself; it is sent only when you choose to send the resulting email.</p>
+        <p>When you submit a contact or membership application form, the information is transmitted through our website and stored by our hosting and form-processing provider, Netlify, so that Patio can receive and review it.</p>
       </section>
 
       <section>
@@ -33,7 +33,7 @@ export default function PrivacyPage() {
 
       <section>
         <h2>4. Sharing and international access</h2>
-        <p>We disclose personal data only when needed to Patio community members handling your request, service providers supporting email or website hosting, professional advisers, or public authorities where legally required. Because Patio is a global network, an enquiry may be handled by a cooperative outside your country. Where legally required, we use appropriate safeguards for international transfers.</p>
+        <p>We disclose personal data only when needed to Patio community members handling your request, service providers supporting email or website hosting and form processing (including Netlify), professional advisers, or public authorities where legally required. Because Patio is a global network, an enquiry may be handled by a cooperative outside your country. Where legally required, we use appropriate safeguards for international transfers.</p>
         <p>We do not sell personal data.</p>
       </section>
 

@@ -1,8 +1,13 @@
 "use client";
 
-import { type FormEvent } from "react";
+import { type FormEvent, useState } from "react";
 
 import { cooperatives } from "@/data/home";
+import {
+  type FormSubmissionState,
+  submitNetlifyForm,
+} from "@/lib/netlifyForms";
+import { sitePath } from "@/lib/sitePath";
 
 const networkDurations = [
   "Less than 6 months",
@@ -26,32 +31,21 @@ const confirmations = [
 ];
 
 export function ScholarshipApplication() {
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const fieldLabels: Record<string, string> = {
-      cooperative: "Cooperative",
-      contactName: "Contact name",
-      contactEmail: "Contact email",
-      country: "Country",
-      website: "Website",
-      networkDuration: "Time in the Patio network",
-      reason: "Reason for applying",
-      feeConstraint: "Fee constraint",
-      labourConstraint: "Labour constraint",
-      expectedChange: "Expected change",
-      constraintDuration: "Expected duration",
-      informalContribution: "Possible informal contribution",
-    };
-    const body = Array.from(data.entries())
-      .filter(([name]) => !name.startsWith("confirmation"))
-      .map(([name, value]) => `${fieldLabels[name] ?? name}: ${String(value)}`)
-      .join("\n\n");
-    const cooperative = String(data.get("cooperative") ?? "Cooperative");
+  const [submissionState, setSubmissionState] =
+    useState<FormSubmissionState>("idle");
 
-    window.location.href = `mailto:hello@patio.coop?subject=${encodeURIComponent(
-      `Financial hardship application — ${cooperative}`,
-    )}&body=${encodeURIComponent(body)}`;
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    setSubmissionState("submitting");
+
+    try {
+      await submitNetlifyForm(form);
+      form.reset();
+      setSubmissionState("success");
+    } catch {
+      setSubmissionState("error");
+    }
   };
 
   return (
@@ -127,7 +121,25 @@ export function ScholarshipApplication() {
         </div>
       </aside>
 
-      <form className="scholarship-form" onSubmit={handleSubmit}>
+      <form
+        className="scholarship-form"
+        name="financial-hardship-application"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+      >
+        <input
+          type="hidden"
+          name="form-name"
+          value="financial-hardship-application"
+        />
+        <p className="sr-only" aria-hidden="true">
+          <label>
+            Don&apos;t fill this out if you&apos;re human:
+            <input name="bot-field" tabIndex={-1} autoComplete="off" />
+          </label>
+        </p>
         <div className="scholarship-field">
           <label htmlFor="scholarship-cooperative">Cooperative Name*</label>
           <input
@@ -299,13 +311,34 @@ export function ScholarshipApplication() {
           fair, human process.
         </p>
 
-        <p className="scholarship-form__status">
-          Submitting opens your default email application with the completed
-          application ready to send.
+        <p className="form-privacy-note">
+          By submitting this application, you agree to the processing described
+          in our <a href={sitePath("/privacy")}>Privacy Policy</a>.
         </p>
 
-        <button className="button button--dark scholarship-form__submit" type="submit">
-          Submit application
+        <p
+          className={`scholarship-form__status form-submission-status--${submissionState}`}
+          role={submissionState === "error" ? "alert" : "status"}
+          aria-live="polite"
+        >
+          {submissionState === "idle"
+            ? "Your application will be sent securely to Patio for review."
+            : null}
+          {submissionState === "submitting" ? "Submitting your application…" : null}
+          {submissionState === "success"
+            ? "Thanks — your application has been submitted successfully."
+            : null}
+          {submissionState === "error"
+            ? "We couldn't submit your application. Please try again or email hello@patio.coop."
+            : null}
+        </p>
+
+        <button
+          className="button button--dark scholarship-form__submit"
+          type="submit"
+          disabled={submissionState === "submitting"}
+        >
+          {submissionState === "submitting" ? "Submitting…" : "Submit application"}
         </button>
       </form>
     </div>

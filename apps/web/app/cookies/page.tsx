@@ -22,7 +22,7 @@ export default function CookiesPage() {
 
       <section>
         <h2>3. Contact forms and external links</h2>
-        <p>The contact form opens your own email application and does not store its contents in a browser cookie. Links to cooperative websites and social platforms take you to third-party services. Those services may set their own cookies after you leave Patio, under their own policies.</p>
+        <p>Submitting a contact or membership application form sends its contents to Patio through our hosting and form-processing provider. The form itself does not store its contents in a browser cookie. Links to cooperative websites and social platforms take you to third-party services. Those services may set their own cookies after you leave Patio, under their own policies.</p>
       </section>
 
       <section>

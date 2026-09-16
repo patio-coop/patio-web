@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Patio form definitions</title>
+  </head>
+  <body>
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <input name="bot-field" />
+      <select name="enquiryType"><option value="Other">Other</option></select>
+      <input name="name" />
+      <input name="surname" />
+      <input name="email" type="email" />
+      <input name="subject" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <form
+      name="financial-hardship-application"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <input name="bot-field" />
+      <input name="cooperative" />
+      <input name="contactName" />
+      <input name="contactEmail" type="email" />
+      <input name="country" />
+      <input name="website" type="url" />
+      <select name="networkDuration"><option value="">Select</option></select>
+      <textarea name="reason"></textarea>
+      <textarea name="feeConstraint"></textarea>
+      <textarea name="labourConstraint"></textarea>
+      <textarea name="expectedChange"></textarea>
+      <select name="constraintDuration"><option value="">Select</option></select>
+      <textarea name="informalContribution"></textarea>
+      <input name="confirmation1" type="checkbox" />
+      <input name="confirmation2" type="checkbox" />
+      <input name="confirmation3" type="checkbox" />
+      <input name="confirmation4" type="checkbox" />
+    </form>
+  </body>
+</html>
