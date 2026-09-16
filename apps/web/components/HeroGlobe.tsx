@@ -102,38 +102,30 @@ export function HeroGlobe() {
       markerColor: [0.969, 0.969, 0.969],
       glowColor: [0, 0.063, 0.231],
       opacity: 0,
-      markers
+      markers,
+      onRender: (state) => {
+        if (pointerInteracting.current === null) {
+          phi += 0.0025;
+        }
+        const renderedPhi = phi + pointerInteractionMovement.current;
+        state.phi = renderedPhi;
+        state.width = width * devicePixelRatio;
+        state.height = width * devicePixelRatio;
+        locations.forEach(({ location, offset = [0, 0] }, index) => {
+          const label = labelRefs.current[index];
+          if (!label) {
+            return;
+          }
+          const projected = projectLocation(location, renderedPhi, width);
+          label.style.left = `${projected.x + offset[0]}px`;
+          label.style.top = `${projected.y + offset[1]}px`;
+          label.style.opacity = projected.visible ? "1" : "0";
+          label.style.visibility = projected.visible ? "visible" : "hidden";
+        });
+      }
     });
 
-    let animationFrame = 0;
-    const render = () => {
-      if (pointerInteracting.current === null) {
-        phi += 0.0025;
-      }
-      const renderedPhi = phi + pointerInteractionMovement.current;
-      globe.update({
-        phi: renderedPhi,
-        width: width * devicePixelRatio,
-        height: width * devicePixelRatio
-      });
-      locations.forEach(({ location, offset = [0, 0] }, index) => {
-        const label = labelRefs.current[index];
-        if (!label) {
-          return;
-        }
-        const projected = projectLocation(location, renderedPhi, width);
-        label.style.left = `${projected.x + offset[0]}px`;
-        label.style.top = `${projected.y + offset[1]}px`;
-        label.style.opacity = projected.visible ? "1" : "0";
-        label.style.visibility = projected.visible ? "visible" : "hidden";
-      });
-      animationFrame = window.requestAnimationFrame(render);
-    };
-
-    animationFrame = window.requestAnimationFrame(render);
-
     return () => {
-      window.cancelAnimationFrame(animationFrame);
       globe?.destroy();
       window.removeEventListener("resize", onResize);
     };
