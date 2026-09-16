@@ -86,7 +86,7 @@ When importing the repository in Netlify, use these settings:
 - Base directory: leave unset (repository root)
 - Package directory: `apps/web`
 - Build command: `npm run build`
-- Publish directory: leave unset so the Next.js runtime configures it
+- Publish directory: `apps/web/.next`
 
 After the first deploy, open **Forms** in Netlify, enable form detection, and
 redeploy the site. Netlify should detect the `contact` and
