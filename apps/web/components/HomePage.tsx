@@ -35,7 +35,7 @@ type ModalState =
   | { type: "scholarship" }
   | null;
 
-const regions = ["All", "America", "Europe", "Middle East", "South East Asia"];
+const regions = ["All", "Americas", "Europe", "Middle East", "Asia-Pacific"];
 const membersAreaEnabled = true;
 const featuredBentoSlots = [
   { column: 1, row: 1, height: 210 },
@@ -67,10 +67,54 @@ const compactBentoSlots: Record<number, FeaturedBentoSlot[]> = {
   ],
 };
 
+const networkHeightPatterns = [
+  [210, 168, 244, 136],
+  [120, 302, 174, 162],
+  [289, 133, 196, 140],
+  [210, 212, 148, 188],
+] as const;
+
+function createNetworkSlots(count: number): FeaturedBentoSlot[] {
+  const columnOffsets = [1, 1, 1, 1];
+
+  return Array.from({ length: count }, (_, index) => {
+    const columnIndex = index % networkHeightPatterns.length;
+    const itemIndex = Math.floor(index / networkHeightPatterns.length);
+    const heightPattern = networkHeightPatterns[columnIndex];
+    const height = heightPattern[itemIndex % heightPattern.length];
+    const row = columnOffsets[columnIndex];
+
+    columnOffsets[columnIndex] += height;
+
+    return { column: columnIndex + 1, row, height };
+  });
+}
+
 const defaultFeaturedGridHeight = featuredBentoSlots.reduce(
   (height, slot) => Math.max(height, slot.row - 1 + slot.height),
   0,
 );
+
+function getCooperativesForRegion(region: string) {
+  return cooperatives.filter(
+    (cooperative) =>
+      cooperative.logo && (region === "All" || cooperative.region === region),
+  );
+}
+
+function shuffleCooperatives(items: Cooperative[]) {
+  const shuffled = [...items];
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[randomIndex]] = [
+      shuffled[randomIndex],
+      shuffled[index],
+    ];
+  }
+
+  return shuffled;
+}
 
 function getFocusableElements(container: HTMLElement) {
   return Array.from(
@@ -133,6 +177,9 @@ const mobileWorkCrosses = [156, 312, 468, 624].flatMap((top) =>
 export function HomePage() {
   const [modal, setModal] = useState<ModalState>(null);
   const [activeRegion, setActiveRegion] = useState("All");
+  const [featuredCoops, setFeaturedCoops] = useState(() =>
+    getCooperativesForRegion("All").slice(0, 8),
+  );
   const [workTab, setWorkTab] = useState<"industries" | "services">(
     "industries",
   );
@@ -142,6 +189,12 @@ export function HomePage() {
   const [headerHidden, setHeaderHidden] = useState(false);
   const [communitySlide, setCommunitySlide] = useState(0);
   const sociocracyRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    setFeaturedCoops(
+      shuffleCooperatives(getCooperativesForRegion(activeRegion)).slice(0, 8),
+    );
+  }, [activeRegion]);
 
   useEffect(() => {
     let previousY = window.scrollY;
@@ -242,12 +295,6 @@ export function HomePage() {
   }, []);
 
   const workItems = workTab === "industries" ? industries : services;
-  const featuredCoops = (activeRegion === "All"
-      ? cooperatives.filter((coop) => coop.logo)
-      : cooperatives.filter(
-          (coop) => coop.region === activeRegion && coop.logo,
-        )
-  ).slice(0, 8);
   const activeBentoSlots =
     compactBentoSlots[featuredCoops.length] ??
     featuredBentoSlots.slice(0, featuredCoops.length);
@@ -2098,19 +2145,43 @@ function MembersModal() {
 }
 
 function NetworkModal({ setModal }: { setModal: (modal: ModalState) => void }) {
+  const networkSlots = createNetworkSlots(cooperatives.length);
+  const networkCrosses = Array.from(
+    networkSlots
+      .flatMap((slot) => {
+        const top = slot.row - 1;
+        const bottom = top + slot.height;
+        const left = slot.column - 1;
+        const right = slot.column;
+
+        return [
+          { column: left, top },
+          { column: right, top },
+          { column: left, top: bottom },
+          { column: right, top: bottom },
+        ];
+      })
+      .reduce((crosses, cross) => {
+        crosses.set(`${cross.column}-${cross.top}`, cross);
+        return crosses;
+      }, new Map<string, { column: number; top: number }>()),
+  )
+    .map(([, cross]) => cross)
+    .filter(({ column }) => column > 0 && column < 4);
+
   return (
     <div className="network-modal">
       <h2 className="sr-only" id="modal-network-title">
         All cooperatives
       </h2>
       <div className="network-grid">
-        {cooperatives.map((coop) => (
+        {cooperatives.map((coop, index) => (
           <button
             key={coop.name}
             onClick={() => setModal({ type: "coop", cooperative: coop })}
             style={{
-              gridColumn: coop.networkLayout.column,
-              gridRow: `${coop.networkLayout.row} / span ${coop.networkLayout.height}`,
+              gridColumn: networkSlots[index].column,
+              gridRow: `${networkSlots[index].row} / span ${networkSlots[index].height}`,
             }}
             type="button"
           >
@@ -2126,6 +2197,15 @@ function NetworkModal({ setModal }: { setModal: (modal: ModalState) => void }) {
             )}
           </button>
         ))}
+        <div className="network-grid-crosses" aria-hidden="true">
+          {networkCrosses.map(({ column, top }) => (
+            <span
+              className="who-grid-cross"
+              key={`${column}-${top}`}
+              style={{ left: `${column * 25}%`, top }}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

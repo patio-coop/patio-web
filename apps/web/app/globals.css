@@ -5330,6 +5330,14 @@ button.footer-menu {
   grid-auto-rows: 1px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   min-height: 422px;
+  position: relative;
+}
+
+.network-grid-crosses {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
 }
 
 .network-grid button {
@@ -5359,8 +5367,8 @@ button.footer-menu {
 .network-grid button img {
   filter: grayscale(1);
   height: auto;
-  max-height: 147px;
-  max-width: min(72%, 222px);
+  max-height: 76px;
+  max-width: min(64%, 190px);
   object-fit: contain;
   transition: filter 220ms ease;
   width: auto;
@@ -8060,6 +8068,10 @@ button.footer-menu {
   .network-grid {
     display: flex;
     flex-direction: column;
+  }
+
+  .network-grid-crosses {
+    display: none;
   }
 
   .network-grid button {

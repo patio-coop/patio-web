@@ -2,12 +2,13 @@ import cooperativeData from "./cooperatives.json";
 
 export type Cooperative = {
   name: string;
+  enabled: boolean;
   region: string;
   country?: string;
   members?: number;
   services: string[];
   website: string;
-  email: string;
+  email?: string;
   description: string;
   headline: string;
   networkLayout: {
@@ -22,7 +23,10 @@ export type Cooperative = {
   };
 };
 
-export const cooperatives: Cooperative[] = cooperativeData;
+export const allCooperatives: Cooperative[] = cooperativeData;
+export const cooperatives = allCooperatives.filter(
+  (cooperative) => cooperative.enabled,
+);
 
 export const navItems = [
   {

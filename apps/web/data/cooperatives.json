@@ -1,157 +1,1054 @@
 [
   {
     "name": "ALT.coop",
-    "region": "Middle East",
-    "country": "Germany",
-    "services": ["Software Development", "Product Development"],
-    "website": "https://control.alt.coop",
-    "email": "hello@patio.coop",
-    "description": "A Patio member cooperative delivering collaborative digital products and technology services.",
-    "headline": "Collaborative technology solutions",
-    "networkLayout": { "column": 1, "row": 1, "height": 210 },
+    "enabled": true,
+    "region": "Americas",
+    "country": "Argentina",
+    "services": [
+      "Web Development",
+      "Data Analytics",
+      "UI/UX Design",
+      "Digital Marketing",
+      "Content Management Systems"
+    ],
+    "website": "https://altcooperativa.com/",
+    "description": "We are a cooperative entirely composed of transgender individuals, dedicated to generating high-quality job opportunities for the community through continuous training and workplace inclusion. Our mission is to not only provide dignified employment, but also to foster professional growth and equal opportunities within the transgender community.",
+    "headline": "GenderLens Web Solutions Cooperative: Designing and Developing with Gender Perspective",
+    "networkLayout": {
+      "column": 1,
+      "row": 1,
+      "height": 140
+    },
     "logo": {
-      "src": "/assets/cooperatives/alt-coop.png",
-      "width": 170,
-      "height": 33
+      "src": "/assets/cooperatives/alt.png",
+      "width": 831,
+      "height": 165
     }
   },
   {
     "name": "Animus",
-    "region": "America",
+    "enabled": true,
+    "region": "Americas",
     "country": "Argentina",
-    "members": 18,
-    "services": ["Branding", "Creative", "UI/UX", "Animation"],
-    "website": "https://animus.coop",
-    "email": "hello@patio.coop",
-    "description": "A cooperative studio focused on identity, product experience, and digital storytelling.",
+    "services": [
+      "Software Development",
+      "Content Management Systems",
+      "UI/UX Design",
+      "Web Applications",
+      "Accessibility Consulting"
+    ],
+    "website": "https://animus.coop/",
+    "description": "We are a cooperative company that designs and develops software. We bet on professional quality and solidarity ties.",
     "headline": "We create technological solutions",
-    "networkLayout": { "column": 2, "row": 1, "height": 120 },
+    "networkLayout": {
+      "column": 2,
+      "row": 1,
+      "height": 140
+    },
     "logo": {
       "src": "/assets/cooperatives/animus.png",
-      "width": 172,
-      "height": 30
+      "width": 280,
+      "height": 49
     }
   },
   {
     "name": "Boot Coop",
-    "region": "South East Asia",
-    "services": ["Software Development", "Product Strategy"],
-    "website": "https://bootcoop.com.ar",
-    "email": "hello@patio.coop",
-    "description": "A Patio member cooperative building resilient products and long-term software partnerships.",
-    "headline": "Resilient products and partnerships",
-    "networkLayout": { "column": 3, "row": 1, "height": 289 },
+    "enabled": true,
+    "region": "Americas",
+    "country": "Argentina",
+    "services": [
+      "Software Development",
+      "UI/UX Design",
+      "Quality Assurance & Testing",
+      "DevOps",
+      "Data Science"
+    ],
+    "website": "https://bootcoop.io/",
+    "description": "BootCoop is a dynamic cooperative, founded two years ago, bringing together individual members with a collective experience of over 7 years in software development and design. Our collaborative team of seasoned professionals is dedicated to continuous learning, ensuring the delivery of high-quality technical solutions.",
+    "headline": "BootCoop: Innovating Software Development and Design Expertise",
+    "networkLayout": {
+      "column": 3,
+      "row": 1,
+      "height": 140
+    },
     "logo": {
       "src": "/assets/cooperatives/boot-coop.png",
-      "width": 177,
-      "height": 70
+      "width": 1197,
+      "height": 473
     }
   },
   {
     "name": "Cambá",
-    "region": "South East Asia",
+    "enabled": true,
+    "region": "Americas",
     "country": "Argentina",
-    "members": 38,
-    "services": ["Government Tech", "Training", "Open Source"],
-    "website": "https://patio.coop",
-    "email": "hello@patio.coop",
-    "description": "A cooperative committed to open source, public-interest technology, and technical education.",
-    "headline": "Technology for the public interest",
-    "networkLayout": { "column": 4, "row": 1, "height": 210 },
+    "services": [
+      "Software Development",
+      "Mobile Development",
+      "Web Applications",
+      "Learning Management Systems (LMS)",
+      "AI"
+    ],
+    "website": "https://camba.coop/",
+    "description": "We develop custom-tailored software, such as web and mobile applications, following the latest standards in agile methodologies. We also build teams for staff augmentation, to make your project more productive and innovative. We are a tech-coop with a wide experience in the industry.",
+    "headline": "We have code",
+    "networkLayout": {
+      "column": 4,
+      "row": 1,
+      "height": 140
+    },
     "logo": {
       "src": "/assets/cooperatives/camba.png",
-      "width": 179,
-      "height": 60
+      "width": 1430,
+      "height": 480
     }
   },
   {
     "name": "Código Libre",
-    "region": "Middle East",
+    "enabled": true,
+    "region": "Americas",
     "country": "Argentina",
-    "services": ["Open Source", "Software Development", "Training"],
-    "website": "https://patio.coop",
-    "email": "hello@patio.coop",
-    "description": "A technology cooperative focused on free software, shared knowledge, and collaborative delivery.",
-    "headline": "Free software and shared knowledge",
-    "networkLayout": { "column": 1, "row": 211, "height": 212 },
+    "services": [
+      "Software Development",
+      "Team Augmentation",
+      "Social Impact Projects",
+      "Platform Cooperatives",
+      "Gender Equality Projects"
+    ],
+    "website": "https://codigolibre.coop.ar/",
+    "description": "We are cooperative because we believe that equitable, supportive and diverse participation promotes innovation and enhances both individual and collective capabilities. We are passionate about technology as a way to drive the growth of our customers and business partners, achieving the highest levels of efficiency and commitment. As part of the cooperative technology sector, we work as a network to empower free culture and technological sovereignty in our region.",
+    "headline": "Collective solutions to your technological challenges",
+    "networkLayout": {
+      "column": 1,
+      "row": 141,
+      "height": 140
+    },
     "logo": {
       "src": "/assets/cooperatives/codigo-libre.png",
-      "width": 143,
-      "height": 52
+      "width": 2578,
+      "height": 940
     }
   },
   {
     "name": "El Maizal",
-    "region": "Middle East",
+    "enabled": true,
+    "region": "Americas",
     "country": "Argentina",
-    "services": ["Software Development", "Community Technology"],
-    "website": "https://patio.coop",
-    "email": "hello@patio.coop",
-    "description": "A Patio member cooperative combining technology practice with democratic collaboration.",
-    "headline": "Technology through democratic collaboration",
-    "networkLayout": { "column": 2, "row": 121, "height": 302 },
+    "services": [
+      "Campaigns",
+      "Branding & Identity",
+      "UI/UX Design",
+      "Animation, VFX and CGI",
+      "Copywriting"
+    ],
+    "website": "https://elmaizal.coop.ar/",
+    "description": "We are a communication cooperative with more than 10 year of experience. Facing the current challenges of digital communication, we help to improve, enhance, and/or create communication projects with a strong creative approaching.",
+    "headline": "We stand out for the high quality standards we apply to every stage of the creative and production process.",
+    "networkLayout": {
+      "column": 2,
+      "row": 141,
+      "height": 140
+    },
     "logo": {
-      "src": "/assets/cooperatives/el-maizal.png",
-      "width": 98,
-      "height": 98
+      "src": "/assets/cooperatives/el-maizal.jpg",
+      "width": 1200,
+      "height": 1200
     }
   },
   {
     "name": "Eryx",
-    "region": "America",
+    "enabled": true,
+    "region": "Americas",
     "country": "Argentina",
-    "members": 27,
-    "services": ["Web 3", "FinTech", "CyberSecurity"],
-    "website": "https://patio.coop",
-    "email": "hello@patio.coop",
-    "description": "An engineering collective working across secure digital systems, fintech, and decentralized products.",
-    "headline": "Engineering secure digital systems",
-    "networkLayout": { "column": 3, "row": 290, "height": 133 },
+    "services": [
+      "Software Development",
+      "Data Science",
+      "AI",
+      "Blockchain",
+      "Cybersecurity"
+    ],
+    "website": "https://eryx.co/",
+    "description": "Eryx is a labor cooperative owned and self-managed by its 33 workers, headquartered in Buenos Aires, Argentina, and founded in 2012. We specialized in the development of highly complex software and we are passionate about challenging convention and opening the doors to innovative possibilities by offering cutting-edge technological solutions.",
+    "headline": "We develop software to solve the technological challenges of your business.",
+    "networkLayout": {
+      "column": 3,
+      "row": 141,
+      "height": 140
+    },
     "logo": {
       "src": "/assets/cooperatives/eryx.png",
-      "width": 120,
-      "height": 53
+      "width": 458,
+      "height": 203
     }
   },
   {
-    "name": "Farox",
-    "region": "America",
+    "name": "Fiqus",
+    "enabled": false,
+    "region": "Americas",
     "country": "Argentina",
-    "members": 9,
-    "services": ["AI", "Product Development", "Software Development"],
-    "website": "https://farox.coop/",
-    "email": "hola@farox.coop",
-    "description": "A cooperative team helping mission-driven organizations design and ship useful digital services.",
-    "headline": "Useful services for meaningful missions",
-    "networkLayout": { "column": 4, "row": 211, "height": 212 },
+    "services": [
+      "Software Development",
+      "Blockchain",
+      "Machine Learning",
+      "Technology Consulting",
+      "Data Management"
+    ],
+    "website": "https://www.fiqus.coop/",
+    "description": "Fiqus is not just another job, it is a life project, in which we have built a consolidated team of professionals who are in continuous training to provide high quality technical solutions.",
+    "headline": "We are a software cooperative. We are collective construction, culture and minds in constant movement.",
+    "networkLayout": {
+      "column": 4,
+      "row": 141,
+      "height": 140
+    },
     "logo": {
-      "src": "/assets/cooperatives/farox.png",
-      "width": 2014,
+      "src": "/assets/cooperatives/fiqus.png",
+      "width": 1263,
+      "height": 485
+    }
+  },
+  {
+    "name": "Gcoop",
+    "enabled": true,
+    "region": "Americas",
+    "country": "Argentina",
+    "services": [
+      "Software Development",
+      "Mobile Development",
+      "Cloud Computing",
+      "Web Applications",
+      "Customer Relationship Management (CRM)"
+    ],
+    "website": "https://www.gcoop.coop/",
+    "description": "We are a Free Software development company with more than 16 years of experience in the market, organized as a Worker Cooperative. Our form of organization promotes collaborative work and improves the development processes.",
+    "headline": "We transform systems",
+    "networkLayout": {
+      "column": 1,
+      "row": 281,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/gcoop.png",
+      "width": 320,
+      "height": 430
+    }
+  },
+  {
+    "name": "Indepi",
+    "enabled": true,
+    "region": "Americas",
+    "country": "Argentina",
+    "services": [
+      "Software Development",
+      "Mobile Development",
+      "Enterprise Applications",
+      "Technology Consulting",
+      "Mapping"
+    ],
+    "website": "https://www.indepi.coop.ar/",
+    "description": "Since 2005 we have provided customized solutions for companies, institutions and utility cooperatives. As technological partners of our clients, we promote their growthand efficiency.",
+    "headline": "Quality, Innovation and long-term alliances to improve organizations and communities",
+    "networkLayout": {
+      "column": 2,
+      "row": 281,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/indepi.png",
+      "width": 1080,
+      "height": 351
+    }
+  },
+  {
+    "name": "Pollux",
+    "enabled": true,
+    "region": "Americas",
+    "country": "Argentina",
+    "services": [
+      "Web Applications",
+      "Mobile Development",
+      "Cloud Infrastructure",
+      "E-commerce Development",
+      "UI/UX Design"
+    ],
+    "website": "https://polluxcoop.com/",
+    "description": "Pollux is more than just a workplace; it’s a collaborative project where we’ve built a strong team of professionals committed to continuous growth and learning. We provide high-quality IT services and custom software solutions, always adapting to the unique needs of our clients with flexibility and innovation.",
+    "headline": "We provide custom software solutions, working collaboratively within our team to deliver the best results for our clients.",
+    "networkLayout": {
+      "column": 3,
+      "row": 281,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/pollux.png",
+      "width": 1540,
       "height": 540
     }
   },
   {
+    "name": "Redjar",
+    "enabled": true,
+    "region": "Americas",
+    "country": "Argentina",
+    "services": [
+      "Software Development",
+      "Mobile Development",
+      "DevOps",
+      "IoT",
+      "Web Applications"
+    ],
+    "website": "https://redjar.com.ar/",
+    "description": "At Redjar we like what we do. Since we started your development, we understand that your growth is ours. Try our remote teams!",
+    "headline": "Software development professionals",
+    "networkLayout": {
+      "column": 4,
+      "row": 281,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/redjar.png",
+      "width": 487,
+      "height": 158
+    }
+  },
+  {
+    "name": "Sutty",
+    "enabled": true,
+    "region": "Americas",
+    "country": "Argentina",
+    "services": [
+      "Web Applications",
+      "UI/UX Design",
+      "Content Management Systems",
+      "System Administration"
+    ],
+    "website": "https://sutty.coop.ar/",
+    "description": "We are a technological work cooperative with more than ten years of experience in web development with static website technologies (resilient, secure, fast, ecological and transportable) as well as the accompaniment of/with organizations, collectives and human rights activists.",
+    "headline": "We creates safe, fast and visible websites, to empower online presence, security and freedom of activist organizations and collectives.",
+    "networkLayout": {
+      "column": 1,
+      "row": 421,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/sutty.png",
+      "width": 340,
+      "height": 180
+    }
+  },
+  {
+    "name": "Tecso",
+    "enabled": true,
+    "region": "Americas",
+    "country": "Argentina",
+    "services": [
+      "Software Development",
+      "Mobile Development",
+      "IoT",
+      "Machine Learning"
+    ],
+    "website": "https://tecso.coop/",
+    "description": "We are technological partners of our clients and we accompany them in the search for the best digital solution. We provide solutions in consulting, development, factory, quality and support.",
+    "headline": "Custom software development focused on Fintech, Banking and Insurance",
+    "networkLayout": {
+      "column": 2,
+      "row": 421,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/tecso.png",
+      "width": 722,
+      "height": 180
+    }
+  },
+  {
+    "name": "Tinta Sur",
+    "enabled": true,
+    "region": "Americas",
+    "country": "Argentina",
+    "services": [
+      "Video Production",
+      "Communication",
+      "Graphic Design",
+      "Social Media",
+      "Motion Graphics"
+    ],
+    "website": "https://www.tintasur.com/",
+    "description": "We are a multidisciplinary team of experts in communication, digital strategies, graphic design, video and journalistic production that believe that communication is a fundamental tool to generate social transformations. Tinta Sur translates theory into experience.",
+    "headline": "We are a production and communication cooperative that generates creative solutions.",
+    "networkLayout": {
+      "column": 3,
+      "row": 421,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/tinta-sur.png",
+      "width": 653,
+      "height": 214
+    }
+  },
+  {
+    "name": "Nayra",
+    "enabled": true,
+    "region": "Americas",
+    "country": "Argentina",
+    "services": [
+      "Software Development",
+      "Functional Programming",
+      "Data Analytics",
+      "Machine Learning"
+    ],
+    "website": "https://nayra.coop/",
+    "description": "We are a cooperative based in Buenos Aires, Argentina. Among our members are electronic artists, engineers, and scientists. We provide full-stack development services, and for the last few years, we have also focused on functional programming and Data Science.",
+    "headline": "Full-stack development, Data Science, and functional programming",
+    "networkLayout": {
+      "column": 4,
+      "row": 421,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/nayra.png",
+      "width": 1080,
+      "height": 1080
+    }
+  },
+  {
+    "name": "NewDev",
+    "enabled": true,
+    "region": "Americas",
+    "country": "Chile",
+    "services": [
+      "Software Development",
+      "Mobile Development",
+      "Web Development",
+      "Database Engineering",
+      "ERP"
+    ],
+    "website": "https://www.newdev.cl/",
+    "description": "We focus on customer satisfaction, implementing best practices in every part of the software development process. So that the investment in your IT project is a relief and not a headache",
+    "headline": "We focus on the quality of the software that we develop, so we work hard with tests in order to achieve 90% of code coverage at least",
+    "networkLayout": {
+      "column": 1,
+      "row": 561,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/newdev.png",
+      "width": 433,
+      "height": 397
+    }
+  },
+  {
+    "name": "Albatros",
+    "enabled": true,
+    "region": "Middle East",
+    "country": "Turkey",
+    "services": [
+      "Software Development",
+      "Mobile Development",
+      "Web Development",
+      "Data Management"
+    ],
+    "website": "https://albatros.coop/en/",
+    "description": "As Albatros Tech Cooperative, we are taking the first steps of a tech cooperative towards having a sustainable, democratic and fair working life.",
+    "headline": "Solidarity for Software & Technology",
+    "networkLayout": {
+      "column": 2,
+      "row": 561,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/albatros.png",
+      "width": 600,
+      "height": 172
+    }
+  },
+  {
     "name": "Camplight",
+    "enabled": true,
     "region": "Europe",
     "country": "Bulgaria",
     "services": [
-      "Accelerate Existing Product",
-      "Create New Product",
-      "Venture Building",
-      "Team Augmentation",
-      "AI Development",
-      "FinTech",
-      "EdTech"
+      "Software Development",
+      "Mobile Development",
+      "Web Applications",
+      "Technology Consulting",
+      "Training"
     ],
     "website": "https://camplight.net/",
-    "email": "hello@patio.coop",
-    "description": "Camplight is a worker-owned technology partner and venture agency that helps established B2B companies validate, build, accelerate, and scale enterprise-ready digital products.",
-    "headline": "Your unfair advantage in digital product innovation",
-    "networkLayout": { "column": 1, "row": 423, "height": 210 },
+    "description": "Camplight is a global network of digital artisans, united in the pursuit of the spark of progress. We approach every project with the ambition to ignite its flame, and help it grow into a digital entity that will bring light to humanity.",
+    "headline": "Evolving human collaboration through software",
+    "networkLayout": {
+      "column": 3,
+      "row": 561,
+      "height": 140
+    },
     "logo": {
-      "src": "/assets/cooperatives/camplight.svg",
-      "width": 880,
-      "height": 230
+      "src": "/assets/cooperatives/camplight.png",
+      "width": 1757,
+      "height": 1379
     }
+  },
+  {
+    "name": "Libre Code",
+    "enabled": true,
+    "region": "Americas",
+    "country": "Brazil",
+    "services": [
+      "Software Development",
+      "Web Applications",
+      "Technical Support",
+      "Server Infrastructure",
+      "Technology Consulting"
+    ],
+    "website": "https://librecode.coop/",
+    "description": "We are a digital cooperative of free software development specialists.",
+    "headline": "Technology with transparency and freedom",
+    "networkLayout": {
+      "column": 4,
+      "row": 561,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/libre-code.png",
+      "width": 539,
+      "height": 309
+    }
+  },
+  {
+    "name": "StartinBlox",
+    "enabled": true,
+    "region": "Europe",
+    "country": "France",
+    "services": [
+      "App builder for data spaces.",
+      "Software Development"
+    ],
+    "website": "https://startinblox.com/",
+    "description": "Build your Data Space from start to finish ",
+    "headline": "App builder for data spaces",
+    "networkLayout": {
+      "column": 1,
+      "row": 701,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/startinblox.png",
+      "width": 1024,
+      "height": 160
+    }
+  },
+  {
+    "name": "Sofi",
+    "enabled": true,
+    "region": "Middle East",
+    "country": "Israel",
+    "services": [
+      "Software Development",
+      "Mobile Development",
+      "Web Development",
+      "UI/UX Design",
+      "Branding & Identity"
+    ],
+    "website": "https://www.sofi.coop/",
+    "description": "We supply tailor-made software solutions for projects that positively impact our society and environment. We work with entrepreneurs, NGOs, start-ups and public entities. Our purpose is to create precise technological products that matter.",
+    "headline": "We are a social & environmental software cooperative specializing in apps, websites, and everything tech.",
+    "networkLayout": {
+      "column": 2,
+      "row": 701,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/sofi.png",
+      "width": 1442,
+      "height": 969
+    }
+  },
+  {
+    "name": "TNG",
+    "enabled": true,
+    "region": "Asia-Pacific",
+    "country": "Japan",
+    "services": [
+      "Software Development",
+      "Data Analytics",
+      "Database Engineering",
+      "Web Development",
+      "Learning Management Systems (LMS)"
+    ],
+    "website": "https://tng.coop/",
+    "description": "TNG is an AI services worker cooperative based in Yugawara, Japan. It provides software and system development, civic technology, digital transformation, and practical technology support.",
+    "headline": "Our worker cooperative offers IT systems development.",
+    "networkLayout": {
+      "column": 3,
+      "row": 701,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/tng.png",
+      "width": 679,
+      "height": 380
+    }
+  },
+  {
+    "name": "Autonomic",
+    "enabled": true,
+    "region": "Europe",
+    "country": "United Kingdom",
+    "services": [
+      "Applications",
+      "Web Development",
+      "Web Design",
+      "Open Source infrastructure",
+      "Hosting & Support"
+    ],
+    "website": "https://autonomic.zone/",
+    "description": "A global collective of developers, designers and multi-disciplinary professionals with a broad range of skills and backgrounds. We build technologies, apps and websites that help you make a positive impact on the world.",
+    "headline": "Websites, apps, design and infrastructure powered by free and open software",
+    "networkLayout": {
+      "column": 4,
+      "row": 701,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/autonomic.png",
+      "width": 498,
+      "height": 194
+    }
+  },
+  {
+    "name": "Web Architects",
+    "enabled": true,
+    "region": "Europe",
+    "country": "United Kingdom",
+    "services": [
+      "Server Infrastructure",
+      "System Administration",
+      "Hosting",
+      "Cloud Computing",
+      "Content Management Systems"
+    ],
+    "website": "https://www.webarchitects.coop/",
+    "description": "We are a multi-stakeholder Internet services co-operative that clients, partners and investors can join and participate in. We specialize in hosting open source applications and services.",
+    "headline": "We provide ethical, open source, hosting and system administration services.",
+    "networkLayout": {
+      "column": 1,
+      "row": 841,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/web-architects.png",
+      "width": 844,
+      "height": 750
+    }
+  },
+  {
+    "name": "Fnordkollektiv",
+    "enabled": true,
+    "region": "Europe",
+    "country": "Germany",
+    "services": [
+      "Software Development",
+      "DevOps",
+      "Hosting",
+      "Web Development",
+      "Sound Production"
+    ],
+    "website": "https://fnordkollektiv.de/",
+    "description": "Fnordkollektiv is a collectively owned IT company based in Germany. It develops and operates sustainable, privacy-conscious software with a focus on customized open-source solutions.",
+    "headline": "Develop, deploy and administer. Destroy capitalism one day",
+    "networkLayout": {
+      "column": 2,
+      "row": 841,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/fnordkollektiv.png",
+      "width": 150,
+      "height": 151
+    }
+  },
+  {
+    "name": "Sociality",
+    "enabled": true,
+    "region": "Europe",
+    "country": "Greece",
+    "services": [
+      "Software Development",
+      "Mobile Development",
+      "Web Applications",
+      "Software Installation and Configuration",
+      "User Research"
+    ],
+    "website": "https://sociality.coop/",
+    "description": "We are an Athens-based Cooperative working on digital technologies. We help organizations and companies get the best out of them by innovating their digital presence and business processes. We use open source software as much as possible because we believe technology should be open and shared.",
+    "headline": "Infrastructure that serves people",
+    "networkLayout": {
+      "column": 3,
+      "row": 841,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/sociality.png",
+      "width": 1200,
+      "height": 390
+    }
+  },
+  {
+    "name": "Slobodna Domena",
+    "enabled": true,
+    "region": "Europe",
+    "country": "Croatia",
+    "services": [
+      "Web Applications",
+      "Mobile Development",
+      "Branding & Identity",
+      "Illustration",
+      "Technology Consulting"
+    ],
+    "website": "https://slobodnadomena.hr/",
+    "description": "We are a transparent, democratic and socially responsible organization, founded to set up and support various initiatives with the common goal of defending and expanding the definition of common goods, the just distribution of surplus values, promoting equality, fighting discrimination and nurturing democratic decision-making.",
+    "headline": "We bring together designers, developers, artists, engineers and the like to offer a full professional service.",
+    "networkLayout": {
+      "column": 4,
+      "row": 841,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/slobodna-domena.png",
+      "width": 444,
+      "height": 571
+    }
+  },
+  {
+    "name": "Coopdevs",
+    "enabled": true,
+    "region": "Europe",
+    "country": "Spain",
+    "services": [
+      "Business Intelligence",
+      "ERP",
+      "Digital Transformation",
+      "Technology Consulting",
+      "System Administration"
+    ],
+    "website": "https://coopdevs.org/",
+    "description": "Coopdevs is an open cooperative that aims to improve society through technology, our values are framed within open cooperativism which means that we focus on bringing value not only to clients or projects in which we participate but to an ecosystem of much wider digital commons.",
+    "headline": "We promote Free Software and support social and solidarity economy projects to adopt the best technological solutions with a strategic vision.",
+    "networkLayout": {
+      "column": 1,
+      "row": 981,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/coopdevs.png",
+      "width": 1577,
+      "height": 454
+    }
+  },
+  {
+    "name": "Cooperos",
+    "enabled": true,
+    "region": "Americas",
+    "country": "Mexico",
+    "services": [
+      "Software Development",
+      "Web Development",
+      "ERP",
+      "Illustration",
+      "Copywriting"
+    ],
+    "website": "https://cooperos.com/",
+    "description": "Your trusted technological ally. Whether you need to improve your relationship with your customers, reach more people or even develop innovative technology, at Cooperos we can help you.",
+    "headline": "Technology for the social and solidarity economy",
+    "networkLayout": {
+      "column": 2,
+      "row": 981,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/cooperos.png",
+      "width": 2253,
+      "height": 438
+    }
+  },
+  {
+    "name": "Tierra Común",
+    "enabled": true,
+    "region": "Americas",
+    "country": "Mexico",
+    "services": [
+      "Technology Consulting",
+      "Web Development",
+      "Technical Support",
+      "Cybersecurity",
+      "Digital Transformation"
+    ],
+    "website": "https://tierracomun.org/",
+    "description": "We are a work cooperative made up of a group of professionals and experts in free technologies, information protection and training. We facilitate training processes for technological re-appropriation and the use of free software.",
+    "headline": "We provide consulting, web services and support with free and open-source software.",
+    "networkLayout": {
+      "column": 3,
+      "row": 981,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/tierra-comun.png",
+      "width": 752,
+      "height": 1133
+    }
+  },
+  {
+    "name": "Rad Cop",
+    "enabled": true,
+    "region": "Europe",
+    "country": "Russia",
+    "services": [
+      "Cybersecurity",
+      "Technology Project Management",
+      "Technology Consulting"
+    ],
+    "website": "https://radcop.online/",
+    "description": "Comprehensive information security services. We solve the most unusual and resource-demanding tasks thanks to the expertise of specialists from different areas of IT and information security. We have experience in complex projects where technical, organizational and legal components are equally important.",
+    "headline": "IT security services",
+    "networkLayout": {
+      "column": 4,
+      "row": 981,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/rad-cop.png",
+      "width": 582,
+      "height": 133
+    }
+  },
+  {
+    "name": "Agaric",
+    "enabled": true,
+    "region": "Americas",
+    "country": "United States",
+    "services": [
+      "Content Management Systems",
+      "Software Development",
+      "Database Engineering"
+    ],
+    "website": "https://agaric.coop/",
+    "description": "Agaric makes websites and applications that matter. We provide development services, training, and consulting to help define and meet your needs.",
+    "headline": "Building the open web",
+    "networkLayout": {
+      "column": 1,
+      "row": 1121,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/agaric.png",
+      "width": 504,
+      "height": 368
+    }
+  },
+  {
+    "name": "ChiCommons",
+    "enabled": true,
+    "region": "Americas",
+    "country": "United States",
+    "services": [
+      "Technology Consulting",
+      "Network Infrastructure",
+      "Web Development",
+      "Software Development",
+      "Technology Project Management"
+    ],
+    "website": "https://www.chicommons.coop/",
+    "description": "ChiCommons is a multi-stakeholder organization that grew out of local Civic Tech and Sustainability volunteer movements for common good and evolved into a Limited Worker Cooperative Association (LWCA).",
+    "headline": "Business-technical services for small businesses, nonprofits and cooperatives",
+    "networkLayout": {
+      "column": 2,
+      "row": 1121,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/chicommons.png",
+      "width": 797,
+      "height": 277
+    }
+  },
+  {
+    "name": "Colab",
+    "enabled": true,
+    "region": "Americas",
+    "country": "United States",
+    "services": [
+      "Web Applications",
+      "Web Development",
+      "User Research",
+      "UI/UX Design",
+      "Technology Consulting"
+    ],
+    "website": "https://colab.coop/",
+    "description": "We are a self-governing, diverse, and international cooperative workplace. We create technical solutions using participatory approaches with partners who nurture a more just and sustainable world.",
+    "headline": "Co-creates simple, purpose-driven web technology for a better world",
+    "networkLayout": {
+      "column": 3,
+      "row": 1121,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/colab.png",
+      "width": 375,
+      "height": 97
+    }
+  },
+  {
+    "name": "Limeleaf",
+    "enabled": true,
+    "region": "Americas",
+    "country": "United States",
+    "services": [
+      "Web Applications",
+      "Software Development",
+      "Go and Rust Programming",
+      "Broadcast and Streaming"
+    ],
+    "website": "https://limeleaf.io/",
+    "description": "Whether you want to develop a new application or service, optimize your infrastructure, or simply need technical guidance, Limeleaf has the expertise, experience, and innovative spirit to help you succeed.",
+    "headline": "We provide software engineering and product development services for businesses, brands, and startups.",
+    "networkLayout": {
+      "column": 4,
+      "row": 1121,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/limeleaf.png",
+      "width": 720,
+      "height": 159
+    }
+  },
+  {
+    "name": "Polycot Associates",
+    "enabled": true,
+    "region": "Americas",
+    "country": "United States",
+    "services": [
+      "Web Applications",
+      "Technology Consulting",
+      "Solution Architecture",
+      "Strategic Planning"
+    ],
+    "website": "https://polycotassociates.com/",
+    "description": "We specialize in custom technology solutions for mission-driven businesses and nonprofits, from small-scale projects to enterprise-level solutions. Our team is deeply invested in your success, bringing wisdom and experience to every collaboration. We believe in building strong, relational partnerships and empowering your organization with the tools and technology needed to thrive.",
+    "headline": "Custom Technology Solutions for Mission-Driven Businesses and Nonprofits.",
+    "networkLayout": {
+      "column": 1,
+      "row": 1261,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/polycot-associates.png",
+      "width": 677,
+      "height": 600
+    }
+  },
+  {
+    "name": "Position development",
+    "enabled": true,
+    "region": "Americas",
+    "country": "United States",
+    "services": [
+      "Software Development",
+      "Web Development",
+      "Application Development",
+      "DevOps"
+    ],
+    "website": "https://positiondev.com/",
+    "description": "Position Development is a worker-run software development company with a focus on independent media, cultural institutions and socially minded organizations.",
+    "headline": "Custom web app development, legacy software maintenance, devops",
+    "networkLayout": {
+      "column": 2,
+      "row": 1261,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/position-development.png",
+      "width": 1125,
+      "height": 367
+    }
+  },
+  {
+    "name": "Coodi",
+    "enabled": true,
+    "region": "Americas",
+    "country": "Uruguay",
+    "services": [
+      "Web Development",
+      "Software Development",
+      "Network Infrastructure",
+      "Hosting",
+      "Server Infrastructure"
+    ],
+    "website": "https://coodi.com.uy/",
+    "description": "We are a cooperative where its members, through constant technical training and an appropriate human and ethical approach, make the prosperity and sustainability of the enterprise possible, maintaining the social commitment to support the national and regional cooperative movement, as well as any initiative that fulfill a social role.",
+    "headline": "Integral ICT Cooperative",
+    "networkLayout": {
+      "column": 3,
+      "row": 1261,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/coodi.png",
+      "width": 792,
+      "height": 227
+    }
+  },
+  {
+    "name": "Optimi",
+    "enabled": true,
+    "region": "Asia-Pacific",
+    "country": "New Zealand",
+    "services": [
+      "Technology Consulting",
+      "Community Building and Management",
+      "Enterprise Applications",
+      "Software Installation and Configuration",
+      "System Administration"
+    ],
+    "website": "https://www.optimi.co.nz/",
+    "description": "At Optimi, we’re not just technical experts, we’re experienced business analysts who can help you figure out which tools and automations will add the most value to your organisation.",
+    "headline": "More impact. Less Admin. Let us optimise your workflow.",
+    "networkLayout": {
+      "column": 4,
+      "row": 1261,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/optimi.png",
+      "width": 701,
+      "height": 751
+    }
+  },
+  {
+    "name": "Farox",
+    "region": "Americas",
+    "country": "Argentina",
+    "members": 9,
+    "services": [
+      "AI",
+      "Product Development",
+      "Software Development"
+    ],
+    "website": "https://farox.coop/",
+    "email": "hola@farox.coop",
+    "description": "A cooperative team helping mission-driven organizations design and ship useful digital services.",
+    "headline": "Useful services for meaningful missions",
+    "networkLayout": {
+      "column": 1,
+      "row": 1401,
+      "height": 140
+    },
+    "logo": {
+      "src": "/assets/cooperatives/farox.png",
+      "width": 2014,
+      "height": 540
+    },
+    "enabled": true
   }
 ]
