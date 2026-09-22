@@ -175,7 +175,7 @@ const mobileCoopCrosses = [
 ] as const;
 
 const mobileWorkCrosses = [156, 312, 468, 624].flatMap((top) =>
-  [0.5, 164.5, 327.5].map((left) => [left, top] as const),
+  [0, 50, 100].map((left) => [left, top] as const),
 );
 
 export function HomePage() {
@@ -679,11 +679,7 @@ export function HomePage() {
               {mobileWorkCrosses.map(([left, top]) => (
                 <span
                   key={`${left}-${top}`}
-                  style={
-                    left === 327.5
-                      ? { left: "100%", top }
-                      : { left, top }
-                  }
+                  style={{ left: `${left}%`, top }}
                 />
               ))}
             </div>

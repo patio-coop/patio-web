@@ -1005,6 +1005,7 @@ main:focus {
 
 .mobile-menu__main > a,
 .mobile-menu__main > button {
+  align-content: start;
   column-gap: 4px;
   grid-template-columns: max-content 20px;
   grid-template-rows: 15px 24px;
@@ -2338,7 +2339,6 @@ main:focus {
 
 .process-card:nth-child(5) {
   --step-color: #68e767;
-  border-right: 1px dashed var(--color-grid-light);
 }
 
 .process-card:first-child::after {
@@ -6638,10 +6638,10 @@ button.footer-menu {
   }
 
   #what-we-do .work-graphic > span {
-    bottom: 12px;
+    bottom: 18px;
     font-size: 12px;
     line-height: 13px;
-    right: 26px;
+    right: 0;
   }
 
   #what-we-do .section-intro {
@@ -6670,6 +6670,7 @@ button.footer-menu {
   }
 
   #what-we-do .segmented-control {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     height: 42px;
     left: 16px;
     margin: 0;
@@ -6693,7 +6694,7 @@ button.footer-menu {
     --mobile-grid-line: rgba(247, 247, 247, 0.4);
     background:
       repeating-linear-gradient(to bottom, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 0 0 / 1px 624px no-repeat,
-      repeating-linear-gradient(to bottom, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 164px 0 / 1px 730px no-repeat,
+      repeating-linear-gradient(to bottom, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 50% 0 / 1px 730px no-repeat,
       repeating-linear-gradient(to bottom, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 100% 0 / 1px 624px no-repeat,
       repeating-linear-gradient(to right, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 0 0 / 100% 1px no-repeat,
       repeating-linear-gradient(to right, var(--mobile-grid-line) 0 3px, transparent 3px 6px) 0 156px / 100% 1px no-repeat,
