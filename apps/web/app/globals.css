@@ -6848,6 +6848,10 @@ button.footer-menu {
     border-top: 1px dashed rgba(0, 16, 59, 0.2);
   }
 
+  .qualification::before {
+    border-top: 0;
+  }
+
   .process-card {
     --step-color: #61b4e3;
     box-sizing: border-box;
@@ -7206,10 +7210,14 @@ button.footer-menu {
   }
 
   .qualification article .button {
-    bottom: -64px;
+    bottom: -114px;
     font-size: 16px;
     height: 38px;
     min-height: 38px;
+  }
+
+  .qualification article:last-child .button {
+    bottom: -102px;
   }
 
   .philosophy {
