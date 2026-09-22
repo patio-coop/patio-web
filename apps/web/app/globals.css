@@ -806,6 +806,12 @@ main:focus {
   transform: scaleX(1);
 }
 
+.nav-dropdown__group--direct:hover .nav-dropdown__group-label::before,
+.nav-dropdown__group--direct:focus-within .nav-dropdown__group-label::before {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
 .nav-dropdown__group:hover .nav-dropdown__submenu,
 .nav-dropdown__group:focus-within .nav-dropdown__submenu {
   opacity: 1;
@@ -2153,12 +2159,12 @@ main:focus {
   width: 24px;
 }
 
-#what-we-do .work-card:hover {
+#what-we-do a.work-card:hover {
   background: var(--gradient-action);
   color: var(--color-blue);
 }
 
-#what-we-do .work-card:hover .work-card__arrow {
+#what-we-do a.work-card:hover .work-card__arrow {
   filter: brightness(0) saturate(100%) invert(5%) sepia(85%) saturate(2649%)
     hue-rotate(215deg) brightness(81%) contrast(109%);
   opacity: 0.7;

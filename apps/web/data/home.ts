@@ -42,29 +42,12 @@ export const navItems = [
       {
         label: "Industries",
         href: "#industries",
-        items: [
-          { label: "AI Product Dev", href: "/ai-product-development/" },
-          { label: "GovTech", href: "#industries" },
-          { label: "Web 3", href: "#industries" },
-          { label: "CyberSecurity", href: "#industries" },
-          { label: "HealthTech", href: "#industries" },
-          { label: "EdTech", href: "#industries" },
-          { label: "FinTech", href: "#industries" }
-        ]
+        items: []
       },
       {
         label: "Services",
         href: "#services",
-        items: [
-          { label: "Full-Stack Development", href: "#services" },
-          { label: "UI/UX Design & Animation", href: "#services" },
-          { label: "Branding & Creative", href: "#services" },
-          { label: "Mobile Development", href: "#services" },
-          { label: "IoT", href: "#services" },
-          { label: "DevOps", href: "#services" },
-          { label: "Blockchain", href: "#services" },
-          { label: "Machine Learning", href: "#services" }
-        ]
+        items: []
       }
     ]
   },

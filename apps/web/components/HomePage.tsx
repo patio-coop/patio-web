@@ -667,27 +667,10 @@ export function HomePage() {
             role="tabpanel"
             aria-labelledby={workTab}
           >
-            {workItems.map((item, index) => (
-              <a
-                className="work-card"
-                key={item}
-                href={
-                  workTab === "industries" && index === 0
-                    ? sitePath("/ai-product-development/")
-                    : workTab === "industries"
-                      ? "#industries"
-                      : "#services"
-                }
-              >
+            {workItems.map((item) => (
+              <div className="work-card work-card--disabled" key={item}>
                 <span className="work-card__title">{item}</span>
-                <Image
-                  className="work-card__arrow"
-                  src={sitePath("/assets/arrow-outward.svg")}
-                  alt=""
-                  width={24}
-                  height={24}
-                />
-              </a>
+              </div>
             ))}
             {workItems.length % 4 !== 0 ? (
               <span className="work-card work-card--empty" aria-hidden="true" />
@@ -1399,21 +1382,28 @@ function Header({
                     {item.label}
                   </a>
                   {item.groups.map((group) => (
-                    <div className="nav-dropdown__group" key={group.label}>
+                    <div
+                      className={`nav-dropdown__group${group.items.length === 0 ? " nav-dropdown__group--direct" : ""}`}
+                      key={group.label}
+                    >
                       <a
                         className="nav-dropdown__group-label"
                         href={group.href}
                       >
                         {group.label}
-                        <b aria-hidden="true">›</b>
+                        {group.items.length > 0 ? (
+                          <b aria-hidden="true">›</b>
+                        ) : null}
                       </a>
-                      <div className="nav-dropdown__submenu">
-                        {group.items.map((entry) => (
-                          <a href={sitePath(entry.href)} key={entry.label}>
-                            {entry.label}
-                          </a>
-                        ))}
-                      </div>
+                      {group.items.length > 0 ? (
+                        <div className="nav-dropdown__submenu">
+                          {group.items.map((entry) => (
+                            <a href={sitePath(entry.href)} key={entry.label}>
+                              {entry.label}
+                            </a>
+                          ))}
+                        </div>
+                      ) : null}
                     </div>
                   ))}
                 </div>
@@ -1591,16 +1581,22 @@ function MobileMenu({
           <a href={item.href} onClick={close}>
             {item.label}
           </a>
-          {item.groups.map((itemGroup, index) => (
-            <button
-              key={itemGroup.label}
-              onClick={() => setGroup(index)}
-              type="button"
-            >
-              {itemGroup.label}
-              <b aria-hidden="true">›</b>
-            </button>
-          ))}
+          {item.groups.map((itemGroup, index) =>
+            itemGroup.items.length > 0 ? (
+              <button
+                key={itemGroup.label}
+                onClick={() => setGroup(index)}
+                type="button"
+              >
+                {itemGroup.label}
+                <b aria-hidden="true">›</b>
+              </button>
+            ) : (
+              <a href={itemGroup.href} key={itemGroup.label} onClick={close}>
+                {itemGroup.label}
+              </a>
+            ),
+          )}
         </div>
       ) : (
         <div className="mobile-menu__main">
