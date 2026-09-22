@@ -6242,6 +6242,25 @@ button.footer-menu {
     position: relative;
   }
 
+  .menu-button span {
+    height: 2.5px;
+    width: 22px;
+  }
+
+  .menu-button span:nth-child(1) {
+    left: 19px;
+    top: 23px;
+  }
+
+  .menu-button span:nth-child(2) {
+    left: 13px;
+  }
+
+  .menu-button span:nth-child(3) {
+    left: 24px;
+    top: 41px;
+  }
+
   .menu-button::before,
   .menu-button::after {
     background: var(--color-off-white);
@@ -6290,6 +6309,7 @@ button.footer-menu {
 
   .hero__lead {
     font-size: 16px;
+    font-weight: 300;
     margin: 18px 0 27px calc(50% - 94px);
     max-width: 262px;
   }
@@ -6317,7 +6337,7 @@ button.footer-menu {
     left: 50%;
     margin: 0;
     position: absolute;
-    top: 444px;
+    top: 464px;
     transform: translateX(-50%);
     width: min(289px, 88%);
   }
