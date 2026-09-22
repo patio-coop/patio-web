@@ -2218,6 +2218,7 @@ function NetworkModal({ setModal }: { setModal: (modal: ModalState) => void }) {
           >
             {coop.logo ? (
               <Image
+                className={coop.name === "TNG" ? "cooperative-logo--compact" : undefined}
                 src={sitePath(coop.logo.src)}
                 alt={coop.name}
                 width={coop.logo.width}
@@ -2261,6 +2262,7 @@ function CoopModal({
       <div className="coop-modal__logo">
         {cooperative.logo ? (
           <Image
+            className={cooperative.name === "TNG" ? "cooperative-logo--compact" : undefined}
             src={sitePath(cooperative.logo.src)}
             alt={cooperative.name}
             width={cooperative.logo.width}

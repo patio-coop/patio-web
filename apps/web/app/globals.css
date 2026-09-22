@@ -1163,7 +1163,7 @@ main:focus {
     background:
       repeating-linear-gradient(90deg, var(--color-grid-dark) 0 3px, transparent 3px 6px)
         0 767px / 100% 1px no-repeat,
-      linear-gradient(to bottom, var(--color-blue) 0 963px, var(--color-off-white) 963px 100%);
+      linear-gradient(to bottom, var(--color-blue) 0 985px, var(--color-off-white) 985px 100%);
   }
 
   .section-band--hero::after {
@@ -1591,8 +1591,8 @@ main:focus {
   align-items: start;
   background: linear-gradient(
       to bottom,
-      transparent 0 196px,
-      var(--color-off-white) 196px 100%
+      transparent 0 218px,
+      var(--color-off-white) 218px 100%
     )
     left top / 50% 100% no-repeat;
   bottom: 0;
@@ -1611,7 +1611,7 @@ main:focus {
   border-right: 1px dashed var(--color-grid-dark);
   display: flex;
   flex-direction: column;
-  height: 196px;
+  height: 218px;
   justify-content: flex-start;
   min-width: 0;
   padding-top: 68px;
@@ -5454,6 +5454,11 @@ button.footer-menu {
   width: auto;
 }
 
+.network-grid button img.cooperative-logo--compact {
+  max-height: 49px;
+  max-width: min(42%, 124px);
+}
+
 .network-grid button:hover img,
 .network-grid button:focus-visible img {
   filter: grayscale(0);
@@ -5526,6 +5531,11 @@ button.footer-menu {
   max-width: 240px;
   object-fit: contain;
   width: auto;
+}
+
+.coop-modal__logo img.cooperative-logo--compact {
+  max-height: 68px;
+  max-width: 156px;
 }
 
 .coop-modal__content {
