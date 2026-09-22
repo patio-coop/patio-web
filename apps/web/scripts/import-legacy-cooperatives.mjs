@@ -75,6 +75,49 @@ const descriptionFallbacks = new Map([
 
 const disabledCooperatives = new Set(["Fiqus"]);
 
+const locationsByName = new Map([
+  ["Alt", ["Buenos Aires", -34.6037, -58.3816]],
+  ["Animus", ["Bariloche", -41.1335, -71.3103]],
+  ["Boot Coop", ["Buenos Aires", -34.6037, -58.3816]],
+  ["Cambá", ["Buenos Aires", -34.6037, -58.3816]],
+  ["Código Libre", ["Buenos Aires", -34.6037, -58.3816]],
+  ["El Maizal", ["Buenos Aires", -34.6037, -58.3816]],
+  ["Eryx", ["Buenos Aires", -34.6037, -58.3816]],
+  ["Fiqus", ["Buenos Aires", -34.6037, -58.3816]],
+  ["Gcoop", ["Buenos Aires", -34.6037, -58.3816]],
+  ["Indepi", ["Buenos Aires", -34.6037, -58.3816]],
+  ["Pollux", ["Buenos Aires", -34.6037, -58.3816]],
+  ["Redjar", ["Buenos Aires", -34.6037, -58.3816]],
+  ["Sutty", ["Buenos Aires", -34.6037, -58.3816]],
+  ["Tecso", ["Rosario", -32.9442, -60.6505]],
+  ["Tinta Sur", ["Buenos Aires", -34.6037, -58.3816]],
+  ["Nayra", ["Caseros", -34.6033, -58.5641]],
+  ["NewDev", ["Santiago", -33.4489, -70.6693]],
+  ["Albatros", ["Istanbul", 41.0082, 28.9784]],
+  ["Camplight", ["Sofia", 42.6977, 23.3219]],
+  ["Libre Code", ["Brasília", -15.7939, -47.8828]],
+  ["StartinBlox", ["Paris", 48.8566, 2.3522]],
+  ["Sofi", ["Tel Aviv", 32.0853, 34.7818]],
+  ["TNG", ["Yugawara", 35.1478, 139.1086]],
+  ["Autonomic", ["London", 51.5072, -0.1276]],
+  ["Web Architects", ["Sheffield", 53.3811, -1.4701]],
+  ["Fnordkollektiv", ["Berlin", 52.52, 13.405]],
+  ["Sociality", ["Athens", 37.9838, 23.7275]],
+  ["Slobodna Domena", ["Zagreb", 45.815, 15.9819]],
+  ["Coopdevs", ["Barcelona", 41.3874, 2.1686]],
+  ["Cooperos", ["Mexico City", 19.4326, -99.1332]],
+  ["Tierra Común", ["Mexico City", 19.4326, -99.1332]],
+  ["Rad Cop", ["Moscow", 55.7558, 37.6173]],
+  ["Agaric", ["Boston", 42.3601, -71.0589]],
+  ["ChiCommons", ["Chicago", 41.8781, -87.6298]],
+  ["Colab", ["Oak Harbor", 41.5067, -83.1466]],
+  ["Limeleaf", ["Portland", 45.5152, -122.6784]],
+  ["Polycot Associates", ["Austin", 30.2672, -97.7431]],
+  ["Position development", ["New York", 40.7128, -74.006]],
+  ["Coodi", ["Montevideo", -34.9011, -56.1645]],
+  ["Optimi", ["Wellington", -41.2866, 174.7756]],
+]);
+
 function slugify(value) {
   return value
     .normalize("NFD")
@@ -122,6 +165,10 @@ const records = sourceCooperatives.map((cooperative, index) => {
   const extension = path.extname(cooperative.logo).toLowerCase();
   const logoName = `${slugify(cooperative.name)}${extension}`;
   const logoBuffer = fs.readFileSync(sourceLogo);
+  const location = locationsByName.get(cooperative.name);
+  if (!location) {
+    throw new Error(`Missing location for ${cooperative.name}`);
+  }
   fs.copyFileSync(sourceLogo, path.join(logoDirectory, logoName));
 
   return {
@@ -129,6 +176,9 @@ const records = sourceCooperatives.map((cooperative, index) => {
     enabled: !disabledCooperatives.has(cooperative.name),
     region: regionByCountry.get(cooperative.country),
     country: cooperative.country,
+    city: location[0],
+    latitude: location[1],
+    longitude: location[2],
     services: [...new Set(cooperative.services.map((service) => serviceAliases.get(service.trim()) ?? service.trim()))],
     website: normalizeUrl(cooperative.url),
     description:
@@ -155,6 +205,9 @@ if (farox) {
     ...farox,
     enabled: true,
     region: "Americas",
+    city: "Buenos Aires",
+    latitude: -34.6037,
+    longitude: -58.3816,
     networkLayout: {
       column: (records.length % 4) + 1,
       row: Math.floor(records.length / 4) * 140 + 1,

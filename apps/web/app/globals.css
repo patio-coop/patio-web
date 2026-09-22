@@ -1509,34 +1509,42 @@ main:focus {
 }
 
 .globe-label {
-  background: rgba(219, 226, 241, 0.9);
+  appearance: none;
+  background: transparent;
+  border: 0;
   color: var(--color-blue);
+  cursor: pointer;
   font-family: var(--font-display);
   font-size: 14px;
+  height: 22px;
   letter-spacing: 0;
   opacity: 0;
-  padding: 5px 9px;
+  padding: 0;
   position: absolute;
-  transform: translate(-50%, calc(-100% - 13px));
+  transform: translate(-50%, -50%);
   transition: opacity 120ms ease;
   text-transform: uppercase;
   visibility: hidden;
+  width: 22px;
+  will-change: opacity;
+}
+
+.globe-label > span {
+  background: rgba(219, 226, 241, 0.94);
+  bottom: calc(50% + 13px);
+  left: 50%;
+  opacity: 0;
+  padding: 5px 9px;
+  pointer-events: none;
+  position: absolute;
+  transform: translate(-50%, 4px);
+  transition:
+    opacity 140ms ease,
+    transform 140ms ease;
   white-space: nowrap;
-  will-change: left, top, opacity;
 }
 
 .globe-label::before {
-  background: rgba(183, 202, 232, 0.72);
-  content: "";
-  height: 13px;
-  left: 50%;
-  position: absolute;
-  top: 100%;
-  transform: translateX(-50%);
-  width: 1px;
-}
-
-.globe-label::after {
   background: #b7cae8;
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(150, 216, 253, 0.3);
@@ -1544,9 +1552,39 @@ main:focus {
   height: 6px;
   left: 50%;
   position: absolute;
-  top: calc(100% + 12px);
+  top: 50%;
   transform: translate(-50%, -50%);
   width: 6px;
+}
+
+.globe-label::after {
+  background: rgba(183, 202, 232, 0.72);
+  bottom: 50%;
+  content: "";
+  height: 13px;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  transform: translateX(-50%);
+  transition: opacity 140ms ease;
+  width: 1px;
+}
+
+.globe-label:hover > span,
+.globe-label:focus-visible > span,
+.globe-label:hover::after,
+.globe-label:focus-visible::after {
+  opacity: 1;
+}
+
+.globe-label:hover > span,
+.globe-label:focus-visible > span {
+  transform: translate(-50%, 0);
+}
+
+.globe-label:focus-visible {
+  outline: 1px solid rgba(219, 226, 241, 0.9);
+  outline-offset: 2px;
 }
 
 .stats-grid {

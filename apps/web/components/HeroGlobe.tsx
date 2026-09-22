@@ -4,26 +4,51 @@ import createGlobe from "cobe";
 import type { Marker } from "cobe";
 import { useEffect, useRef } from "react";
 
-const locations = [
-  {
-    label: "NYC ↔ London",
-    location: [51.5072, -0.1276],
-    offset: [-18, -18]
-  },
-  { label: "Paris", location: [48.8566, 2.3522], offset: [16, 18] },
-  { label: "Dubai", location: [25.2048, 55.2708] },
-  { label: "Tokyo", location: [35.6762, 139.6503] },
-  { label: "Sydney", location: [-33.8688, 151.2093] },
-  { label: "Cape Town", location: [-33.9249, 18.4241] }
-] satisfies {
-  label: string;
-  location: [number, number];
-  offset?: [number, number];
-}[];
+import { cooperatives } from "@/data/home";
+
+const countryCoordinates = new Map<string, [number, number]>([
+  ["Argentina", [-38.4161, -63.6167]],
+  ["Brazil", [-14.235, -51.9253]],
+  ["Bulgaria", [42.7339, 25.4858]],
+  ["Chile", [-35.6751, -71.543]],
+  ["Croatia", [45.1, 15.2]],
+  ["France", [46.2276, 2.2137]],
+  ["Germany", [51.1657, 10.4515]],
+  ["Greece", [39.0742, 21.8243]],
+  ["Israel", [31.0461, 34.8516]],
+  ["Japan", [36.2048, 138.2529]],
+  ["Mexico", [23.6345, -102.5528]],
+  ["New Zealand", [-40.9006, 174.886]],
+  ["Russia", [61.524, 105.3188]],
+  ["Spain", [40.4637, -3.7492]],
+  ["Turkey", [38.9637, 35.2433]],
+  ["United Kingdom", [55.3781, -3.436]],
+  ["United States", [39.8283, -98.5795]],
+  ["Uruguay", [-32.5228, -55.7658]],
+]);
+
+const enabledCountries = Array.from(
+  new Set(
+    cooperatives
+      .map((cooperative) => cooperative.country)
+      .filter((country): country is string => Boolean(country)),
+  ),
+);
+
+const locations = enabledCountries.flatMap((country) => {
+  const location = countryCoordinates.get(country);
+
+  return location
+    ? [{
+        label: country,
+        location,
+      }]
+    : [];
+});
 
 const markers: Marker[] = locations.map(({ location }) => ({
   location,
-  size: 0.04
+  size: 0.04,
 }));
 
 const theta = 0.18;
@@ -32,7 +57,7 @@ const globeScale = 1.08;
 function projectLocation(
   [latitude, longitude]: [number, number],
   phi: number,
-  size: number
+  size: number,
 ) {
   const latitudeRadians = (latitude * Math.PI) / 180;
   const longitudeRadians = (longitude * Math.PI) / 180 - Math.PI;
@@ -40,7 +65,7 @@ function projectLocation(
   const point = [
     -latitudeCosine * Math.cos(longitudeRadians),
     Math.sin(latitudeRadians),
-    latitudeCosine * Math.sin(longitudeRadians)
+    latitudeCosine * Math.sin(longitudeRadians),
   ];
   const thetaCosine = Math.cos(theta);
   const thetaSine = Math.sin(theta);
@@ -59,13 +84,13 @@ function projectLocation(
   return {
     x: size * (0.5 + 0.4 * globeScale * x),
     y: size * (0.5 - 0.4 * globeScale * y),
-    visible: z > 0.08
+    visible: z > 0.08,
   };
 }
 
 export function HeroGlobe() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const labelRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const labelRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
 
@@ -107,26 +132,30 @@ export function HeroGlobe() {
         if (pointerInteracting.current === null) {
           phi += 0.0025;
         }
+
         const renderedPhi = phi + pointerInteractionMovement.current;
         state.phi = renderedPhi;
         state.width = width * devicePixelRatio;
         state.height = width * devicePixelRatio;
-        locations.forEach(({ location, offset = [0, 0] }, index) => {
+
+        locations.forEach(({ location }, index) => {
           const label = labelRefs.current[index];
           if (!label) {
             return;
           }
+
           const projected = projectLocation(location, renderedPhi, width);
-          label.style.left = `${projected.x + offset[0]}px`;
-          label.style.top = `${projected.y + offset[1]}px`;
+          label.style.left = `${projected.x}px`;
+          label.style.top = `${projected.y}px`;
           label.style.opacity = projected.visible ? "1" : "0";
+          label.style.pointerEvents = projected.visible ? "auto" : "none";
           label.style.visibility = projected.visible ? "visible" : "hidden";
         });
-      }
+      },
     });
 
     return () => {
-      globe?.destroy();
+      globe.destroy();
       window.removeEventListener("resize", onResize);
     };
   }, []);
@@ -135,7 +164,7 @@ export function HeroGlobe() {
     <div
       className="hero-globe"
       aria-label="Animated global network map"
-      role="img"
+      role="region"
     >
       <canvas
         ref={canvasRef}
@@ -159,15 +188,17 @@ export function HeroGlobe() {
         height="900"
       />
       {locations.map(({ label }, index) => (
-        <span
+        <button
+          aria-label={label}
           className="globe-label"
           key={label}
           ref={(node) => {
             labelRefs.current[index] = node;
           }}
+          type="button"
         >
-          {label}
-        </span>
+          <span>{label}</span>
+        </button>
       ))}
     </div>
   );

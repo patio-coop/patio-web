@@ -5,6 +5,9 @@ export type Cooperative = {
   enabled: boolean;
   region: string;
   country?: string;
+  city?: string;
+  latitude?: number;
+  longitude?: number;
   members?: number;
   services: string[];
   website: string;

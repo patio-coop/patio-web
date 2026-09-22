@@ -4,6 +4,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Buenos Aires",
+    "latitude": -34.6037,
+    "longitude": -58.3816,
     "services": [
       "Web Development",
       "Data Analytics",
@@ -30,6 +33,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Bariloche",
+    "latitude": -41.1335,
+    "longitude": -71.3103,
     "services": [
       "Software Development",
       "Content Management Systems",
@@ -56,6 +62,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Buenos Aires",
+    "latitude": -34.6037,
+    "longitude": -58.3816,
     "services": [
       "Software Development",
       "UI/UX Design",
@@ -82,6 +91,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Buenos Aires",
+    "latitude": -34.6037,
+    "longitude": -58.3816,
     "services": [
       "Software Development",
       "Mobile Development",
@@ -108,6 +120,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Buenos Aires",
+    "latitude": -34.6037,
+    "longitude": -58.3816,
     "services": [
       "Software Development",
       "Team Augmentation",
@@ -134,6 +149,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Buenos Aires",
+    "latitude": -34.6037,
+    "longitude": -58.3816,
     "services": [
       "Campaigns",
       "Branding & Identity",
@@ -160,6 +178,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Buenos Aires",
+    "latitude": -34.6037,
+    "longitude": -58.3816,
     "services": [
       "Software Development",
       "Data Science",
@@ -186,6 +207,9 @@
     "enabled": false,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Buenos Aires",
+    "latitude": -34.6037,
+    "longitude": -58.3816,
     "services": [
       "Software Development",
       "Blockchain",
@@ -212,6 +236,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Buenos Aires",
+    "latitude": -34.6037,
+    "longitude": -58.3816,
     "services": [
       "Software Development",
       "Mobile Development",
@@ -238,6 +265,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Buenos Aires",
+    "latitude": -34.6037,
+    "longitude": -58.3816,
     "services": [
       "Software Development",
       "Mobile Development",
@@ -264,6 +294,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Buenos Aires",
+    "latitude": -34.6037,
+    "longitude": -58.3816,
     "services": [
       "Web Applications",
       "Mobile Development",
@@ -290,6 +323,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Buenos Aires",
+    "latitude": -34.6037,
+    "longitude": -58.3816,
     "services": [
       "Software Development",
       "Mobile Development",
@@ -316,6 +352,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Buenos Aires",
+    "latitude": -34.6037,
+    "longitude": -58.3816,
     "services": [
       "Web Applications",
       "UI/UX Design",
@@ -341,6 +380,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Rosario",
+    "latitude": -32.9442,
+    "longitude": -60.6505,
     "services": [
       "Software Development",
       "Mobile Development",
@@ -366,6 +408,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Buenos Aires",
+    "latitude": -34.6037,
+    "longitude": -58.3816,
     "services": [
       "Video Production",
       "Communication",
@@ -392,6 +437,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
+    "city": "Caseros",
+    "latitude": -34.6033,
+    "longitude": -58.5641,
     "services": [
       "Software Development",
       "Functional Programming",
@@ -417,6 +465,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Chile",
+    "city": "Santiago",
+    "latitude": -33.4489,
+    "longitude": -70.6693,
     "services": [
       "Software Development",
       "Mobile Development",
@@ -443,6 +494,9 @@
     "enabled": true,
     "region": "Middle East",
     "country": "Turkey",
+    "city": "Istanbul",
+    "latitude": 41.0082,
+    "longitude": 28.9784,
     "services": [
       "Software Development",
       "Mobile Development",
@@ -468,6 +522,9 @@
     "enabled": true,
     "region": "Europe",
     "country": "Bulgaria",
+    "city": "Sofia",
+    "latitude": 42.6977,
+    "longitude": 23.3219,
     "services": [
       "Software Development",
       "Mobile Development",
@@ -494,6 +551,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Brazil",
+    "city": "Brasília",
+    "latitude": -15.7939,
+    "longitude": -47.8828,
     "services": [
       "Software Development",
       "Web Applications",
@@ -520,6 +580,9 @@
     "enabled": true,
     "region": "Europe",
     "country": "France",
+    "city": "Paris",
+    "latitude": 48.8566,
+    "longitude": 2.3522,
     "services": [
       "App builder for data spaces.",
       "Software Development"
@@ -543,6 +606,9 @@
     "enabled": true,
     "region": "Middle East",
     "country": "Israel",
+    "city": "Tel Aviv",
+    "latitude": 32.0853,
+    "longitude": 34.7818,
     "services": [
       "Software Development",
       "Mobile Development",
@@ -569,6 +635,9 @@
     "enabled": true,
     "region": "Asia-Pacific",
     "country": "Japan",
+    "city": "Yugawara",
+    "latitude": 35.1478,
+    "longitude": 139.1086,
     "services": [
       "Software Development",
       "Data Analytics",
@@ -595,6 +664,9 @@
     "enabled": true,
     "region": "Europe",
     "country": "United Kingdom",
+    "city": "London",
+    "latitude": 51.5072,
+    "longitude": -0.1276,
     "services": [
       "Applications",
       "Web Development",
@@ -621,6 +693,9 @@
     "enabled": true,
     "region": "Europe",
     "country": "United Kingdom",
+    "city": "Sheffield",
+    "latitude": 53.3811,
+    "longitude": -1.4701,
     "services": [
       "Server Infrastructure",
       "System Administration",
@@ -647,6 +722,9 @@
     "enabled": true,
     "region": "Europe",
     "country": "Germany",
+    "city": "Berlin",
+    "latitude": 52.52,
+    "longitude": 13.405,
     "services": [
       "Software Development",
       "DevOps",
@@ -673,6 +751,9 @@
     "enabled": true,
     "region": "Europe",
     "country": "Greece",
+    "city": "Athens",
+    "latitude": 37.9838,
+    "longitude": 23.7275,
     "services": [
       "Software Development",
       "Mobile Development",
@@ -699,6 +780,9 @@
     "enabled": true,
     "region": "Europe",
     "country": "Croatia",
+    "city": "Zagreb",
+    "latitude": 45.815,
+    "longitude": 15.9819,
     "services": [
       "Web Applications",
       "Mobile Development",
@@ -725,6 +809,9 @@
     "enabled": true,
     "region": "Europe",
     "country": "Spain",
+    "city": "Barcelona",
+    "latitude": 41.3874,
+    "longitude": 2.1686,
     "services": [
       "Business Intelligence",
       "ERP",
@@ -751,6 +838,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Mexico",
+    "city": "Mexico City",
+    "latitude": 19.4326,
+    "longitude": -99.1332,
     "services": [
       "Software Development",
       "Web Development",
@@ -777,6 +867,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Mexico",
+    "city": "Mexico City",
+    "latitude": 19.4326,
+    "longitude": -99.1332,
     "services": [
       "Technology Consulting",
       "Web Development",
@@ -803,6 +896,9 @@
     "enabled": true,
     "region": "Europe",
     "country": "Russia",
+    "city": "Moscow",
+    "latitude": 55.7558,
+    "longitude": 37.6173,
     "services": [
       "Cybersecurity",
       "Technology Project Management",
@@ -827,6 +923,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "United States",
+    "city": "Boston",
+    "latitude": 42.3601,
+    "longitude": -71.0589,
     "services": [
       "Content Management Systems",
       "Software Development",
@@ -851,6 +950,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "United States",
+    "city": "Chicago",
+    "latitude": 41.8781,
+    "longitude": -87.6298,
     "services": [
       "Technology Consulting",
       "Network Infrastructure",
@@ -877,6 +979,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "United States",
+    "city": "Oak Harbor",
+    "latitude": 41.5067,
+    "longitude": -83.1466,
     "services": [
       "Web Applications",
       "Web Development",
@@ -903,6 +1008,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "United States",
+    "city": "Portland",
+    "latitude": 45.5152,
+    "longitude": -122.6784,
     "services": [
       "Web Applications",
       "Software Development",
@@ -928,6 +1036,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "United States",
+    "city": "Austin",
+    "latitude": 30.2672,
+    "longitude": -97.7431,
     "services": [
       "Web Applications",
       "Technology Consulting",
@@ -953,6 +1064,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "United States",
+    "city": "New York",
+    "latitude": 40.7128,
+    "longitude": -74.006,
     "services": [
       "Software Development",
       "Web Development",
@@ -978,6 +1092,9 @@
     "enabled": true,
     "region": "Americas",
     "country": "Uruguay",
+    "city": "Montevideo",
+    "latitude": -34.9011,
+    "longitude": -56.1645,
     "services": [
       "Web Development",
       "Software Development",
@@ -1004,6 +1121,9 @@
     "enabled": true,
     "region": "Asia-Pacific",
     "country": "New Zealand",
+    "city": "Wellington",
+    "latitude": -41.2866,
+    "longitude": 174.7756,
     "services": [
       "Technology Consulting",
       "Community Building and Management",
@@ -1049,6 +1169,9 @@
       "width": 2014,
       "height": 540
     },
-    "enabled": true
+    "enabled": true,
+    "city": "Buenos Aires",
+    "latitude": -34.6037,
+    "longitude": -58.3816
   }
 ]
