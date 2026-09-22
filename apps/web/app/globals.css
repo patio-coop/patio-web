@@ -7830,9 +7830,9 @@ button.footer-menu {
   }
 
   .cta {
-    height: 1194px;
+    height: 1146px;
     margin: 0;
-    min-height: 1194px;
+    min-height: 1146px;
     overflow: hidden;
     padding: 0;
   }
@@ -7846,7 +7846,7 @@ button.footer-menu {
       #bbd7e7 100%
     );
     bottom: auto;
-    height: 918px;
+    height: 870px;
     left: 20px;
     overflow: visible;
     right: 15px;
@@ -7873,7 +7873,7 @@ button.footer-menu {
   }
 
   .cta-panel__line--v-1 {
-    height: 918px;
+    height: 870px;
     left: 0;
     top: 0;
   }
@@ -7887,7 +7887,7 @@ button.footer-menu {
   .cta-panel__line--v-3 {
     height: calc(100vw - 49px);
     left: 50%;
-    top: 470px;
+    top: 446px;
   }
 
   .cta-panel__line--h-1 {
@@ -7907,11 +7907,11 @@ button.footer-menu {
   }
 
   .cta-panel__line--h-3 {
-    top: 470px;
+    top: 446px;
   }
 
   .cta-panel__line--h-4 {
-    top: calc(470px + 100vw - 49px);
+    top: calc(446px + 100vw - 49px);
     width: 100%;
   }
 
@@ -7933,7 +7933,7 @@ button.footer-menu {
     height: 28px;
     left: 102px;
     right: 15px;
-    top: 1092px;
+    top: 1044px;
   }
 
   .cta-frame__cap--bottom-blue {
@@ -8034,7 +8034,7 @@ button.footer-menu {
     max-width: none;
     position: absolute;
     right: 22px;
-    top: 644px;
+    top: 620px;
     width: auto;
   }
 
@@ -8094,7 +8094,7 @@ button.footer-menu {
   .footer-menu--community,
   .footer-menu--members {
     height: 84px;
-    justify-content: center;
+    justify-content: flex-start;
     left: 0;
     padding: 0 2px;
     position: absolute;
