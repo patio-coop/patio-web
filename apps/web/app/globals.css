@@ -2339,6 +2339,7 @@ main:focus {
 
 .process-card:nth-child(5) {
   --step-color: #68e767;
+  border-right: 1px dashed var(--color-grid-light);
 }
 
 .process-card:first-child::after {
@@ -6910,6 +6911,7 @@ button.footer-menu {
 
   .process-card:last-child {
     border-bottom: 0;
+    border-right: 0;
   }
 
   .process-card h3,

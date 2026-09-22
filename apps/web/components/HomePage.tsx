@@ -1720,7 +1720,7 @@ function Footer({ setModal }: { setModal: (modal: ModalState) => void }) {
           </a>
           <div className="footer-menu__items">
             {footerIndustries.map((item) => (
-              <a href={item.href} key={item.label}>
+              <a href="#industries" key={item.label}>
                 {item.label}
               </a>
             ))}
