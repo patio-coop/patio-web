@@ -1286,7 +1286,7 @@ main:focus {
       repeating-linear-gradient(90deg, rgba(247, 247, 247, 0.4) 0 3px, transparent 3px 6px)
         0 12.851% / 100% 1px no-repeat,
       repeating-linear-gradient(90deg, rgba(247, 247, 247, 0.4) 0 3px, transparent 3px 6px)
-        0 87.068% / 100% 1px no-repeat,
+        0 1085px / 100% 1px no-repeat,
       var(--color-blue);
   }
 
@@ -1295,7 +1295,7 @@ main:focus {
       repeating-linear-gradient(90deg, rgba(247, 247, 247, 0.4) 0 3px, transparent 3px 6px)
         0 37.028% / 100% 1px no-repeat,
       repeating-linear-gradient(90deg, rgba(247, 247, 247, 0.4) 0 3px, transparent 3px 6px)
-        0 87.068% / 100% 1px no-repeat,
+        0 1085px / 100% 1px no-repeat,
       linear-gradient(to bottom, var(--color-off-white) 0 32px, var(--color-blue) 32px 100%);
   }
 
@@ -3671,7 +3671,7 @@ main:focus {
   left: 0;
   position: absolute;
   width: 20.625%;
-  z-index: 4;
+  z-index: 1;
 }
 
 .community-signal {
@@ -3852,7 +3852,7 @@ main:focus {
 .community-guide--h-10 {
   left: 0;
   right: 0;
-  top: 87.068%;
+  top: 1085px;
 }
 
 .community-crosses {
