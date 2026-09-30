@@ -25,13 +25,23 @@ const proFont = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://patio.coop"),
   title: "Patio - A global network of tech cooperatives",
   description:
     "Patio is a global network of technology cooperatives bringing the latest technology in collaboration with you.",
   openGraph: {
-    title: "Patio",
-    description: "A global network of tech cooperatives",
+    title: "Patio - A global network of tech cooperatives",
+    description:
+      "Patio is a global network of technology cooperatives bringing the latest technology in collaboration with you.",
+    siteName: "Patio",
+    locale: "en_US",
     type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Patio - A global network of tech cooperatives",
+    description:
+      "Patio is a global network of technology cooperatives bringing the latest technology in collaboration with you."
   }
 };
 
