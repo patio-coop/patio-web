@@ -1214,5 +1214,87 @@
     "city": "Buenos Aires",
     "latitude": -34.6037,
     "longitude": -58.3816
+  },
+  {
+    "name": "Indici Opponibili",
+    "featured": false,
+    "region": "Europe",
+    "country": "Italy",
+    "services": [
+      "Software Development",
+      "UX/UI Design",
+      "Animation",
+      "Branding & Creative",
+      "Videogames"
+    ],
+    "website": "https://www.indiciopponibili.com/",
+    "email": "produzione@indiciopponibili.com",
+    "description": "Indici Opponibili is a communication agency that creates websites, digital platforms, educational video games, gamification experiences, digital content, visual identities, communication materials, and interactive training projects.",
+    "headline": "Designing digital experiences that turn complex needs and content into intuitive, engaging tools.",
+    "logo": {
+      "src": "/assets/cooperatives/io.png",
+      "width": 671,
+      "height": 191
+    },
+    "enabled": true,
+    "city": "Bologna",
+    "latitude": 44.49381,
+    "longitude": 11.33875
+  },
+  {
+    "name": "Amoved",
+    "featured": true,
+    "region": "Europe",
+    "country": "Spain",
+    "services": [
+      "UX/UI",
+      "Design",
+      "Software Development",
+      "Branding & Creative",
+      "Blockchain",
+      "Devops",
+      "Consultancy",
+      "Training",
+      "Product Development",
+      "Translations",
+      "Communication",
+      "Content & Copy"
+    ],
+    "website": "https://www.amoved.es/",
+    "email": "taller@amoved.es",
+    "description": "We are a people-centered technology, design, and communication studio. We create tailored digital solutions through a collaborative and accessible approach, helping you understand the technology behind the tools you use every day.",
+    "headline": "Your digital project workshop: development, design, and communication.",
+    "logo": {
+      "src": "/assets/cooperatives/amoved.png",
+      "width": 1000,
+      "height": 355
+    },
+    "enabled": true,
+    "city": "Madrid",
+    "latitude": 40.4165,
+    "longitude": -3.70256
+  },
+  {
+    "name": "Codebase",
+    "featured": false,
+    "region": "Americas",
+    "country": "United States",
+    "services": [
+      "Software Development",
+      "Consultancy"
+    ],
+    "website": "https://cooperativecodebase.com",
+    "email": "hello@cooperativecodebase.com",
+    "description": "Cooperative Codebase believes that technology should serve communities, not the other way around. Our team works closely with cooperatives, nonprofits, and community organizations to create software solutions that strengthen their impact and efficiency.",
+    "headline": "Empowering and growing the cooperative ecosystem.",
+    "logo": {
+      "src": "/assets/cooperatives/codebase.png",
+      "width": 302,
+      "height": 302
+    },
+    "enabled": true,
+    "city": "New York",
+    "latitude": 40.71427,
+    "longitude": -74.00597
   }
 ]
