@@ -76,7 +76,7 @@
   },
   {
     "name": "Cambá",
-    "featured": true,
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -175,31 +175,6 @@
     }
   },
   {
-    "name": "Fiqus",
-    "featured": false,
-    "enabled": false,
-    "region": "Americas",
-    "country": "Argentina",
-    "city": "Buenos Aires",
-    "latitude": -34.6037,
-    "longitude": -58.3816,
-    "services": [
-      "Software Development",
-      "Blockchain",
-      "Machine Learning",
-      "Technology Consulting",
-      "Data Management"
-    ],
-    "website": "https://www.fiqus.coop/",
-    "description": "Fiqus is not just another job, it is a life project, in which we have built a consolidated team of professionals who are in continuous training to provide high quality technical solutions.",
-    "headline": "We are a software cooperative. We are collective construction, culture and minds in constant movement.",
-    "logo": {
-      "src": "/assets/cooperatives/fiqus.png",
-      "width": 1263,
-      "height": 485
-    }
-  },
-  {
     "name": "Gcoop",
     "featured": true,
     "enabled": true,
@@ -226,7 +201,7 @@
   },
   {
     "name": "Indepi",
-    "featured": false,
+    "featured": true,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -569,7 +544,7 @@
   },
   {
     "name": "Autonomic",
-    "featured": false,
+    "featured": true,
     "enabled": true,
     "region": "Europe",
     "country": "United Kingdom",
@@ -769,7 +744,7 @@
   },
   {
     "name": "Rad Cop",
-    "featured": false,
+    "featured": true,
     "enabled": true,
     "region": "Europe",
     "country": "Russia",
@@ -815,7 +790,7 @@
   },
   {
     "name": "ChiCommons",
-    "featured": false,
+    "featured": true,
     "enabled": true,
     "region": "Americas",
     "country": "United States",
@@ -840,7 +815,7 @@
   },
   {
     "name": "Colab",
-    "featured": false,
+    "featured": true,
     "enabled": true,
     "region": "Americas",
     "country": "United States",
@@ -865,7 +840,7 @@
   },
   {
     "name": "Limeleaf",
-    "featured": false,
+    "featured": true,
     "enabled": true,
     "region": "Americas",
     "country": "United States",
