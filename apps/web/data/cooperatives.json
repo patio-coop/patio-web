@@ -988,7 +988,6 @@
   {
     "name": "Farox",
     "featured": true,
-    "enabled": true,
     "region": "Americas",
     "country": "Argentina",
     "services": [
@@ -1012,6 +1011,7 @@
       "width": 2014,
       "height": 540
     },
+    "enabled": true,
     "city": "Buenos Aires",
     "latitude": -34.6037,
     "longitude": -58.3816
