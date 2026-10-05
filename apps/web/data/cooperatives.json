@@ -1,6 +1,7 @@
 [
   {
     "name": "ALT.coop",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -30,6 +31,7 @@
   },
   {
     "name": "Animus",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -59,6 +61,7 @@
   },
   {
     "name": "Boot Coop",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -88,6 +91,7 @@
   },
   {
     "name": "Cambá",
+    "featured": true,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -117,6 +121,7 @@
   },
   {
     "name": "Código Libre",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -146,6 +151,7 @@
   },
   {
     "name": "El Maizal",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -175,6 +181,7 @@
   },
   {
     "name": "Eryx",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -204,6 +211,7 @@
   },
   {
     "name": "Fiqus",
+    "featured": false,
     "enabled": false,
     "region": "Americas",
     "country": "Argentina",
@@ -233,6 +241,7 @@
   },
   {
     "name": "Gcoop",
+    "featured": true,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -262,6 +271,7 @@
   },
   {
     "name": "Indepi",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -291,6 +301,7 @@
   },
   {
     "name": "Pollux",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -320,6 +331,7 @@
   },
   {
     "name": "Redjar",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -349,6 +361,7 @@
   },
   {
     "name": "Sutty",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -377,6 +390,7 @@
   },
   {
     "name": "Tecso",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -405,6 +419,7 @@
   },
   {
     "name": "Tinta Sur",
+    "featured": true,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -434,6 +449,7 @@
   },
   {
     "name": "Nayra",
+    "featured": true,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -462,6 +478,7 @@
   },
   {
     "name": "NewDev",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Chile",
@@ -491,6 +508,7 @@
   },
   {
     "name": "Albatros",
+    "featured": false,
     "enabled": true,
     "region": "Middle East",
     "country": "Turkey",
@@ -519,6 +537,7 @@
   },
   {
     "name": "Camplight",
+    "featured": true,
     "enabled": true,
     "region": "Europe",
     "country": "Bulgaria",
@@ -548,6 +567,7 @@
   },
   {
     "name": "Libre Code",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Brazil",
@@ -577,6 +597,7 @@
   },
   {
     "name": "StartinBlox",
+    "featured": false,
     "enabled": true,
     "region": "Europe",
     "country": "France",
@@ -603,6 +624,7 @@
   },
   {
     "name": "Sofi",
+    "featured": false,
     "enabled": true,
     "region": "Middle East",
     "country": "Israel",
@@ -632,6 +654,7 @@
   },
   {
     "name": "TNG",
+    "featured": false,
     "enabled": true,
     "region": "Asia-Pacific",
     "country": "Japan",
@@ -661,6 +684,7 @@
   },
   {
     "name": "Autonomic",
+    "featured": false,
     "enabled": true,
     "region": "Europe",
     "country": "United Kingdom",
@@ -690,6 +714,7 @@
   },
   {
     "name": "Web Architects",
+    "featured": false,
     "enabled": true,
     "region": "Europe",
     "country": "United Kingdom",
@@ -719,6 +744,7 @@
   },
   {
     "name": "Fnordkollektiv",
+    "featured": false,
     "enabled": true,
     "region": "Europe",
     "country": "Germany",
@@ -748,6 +774,7 @@
   },
   {
     "name": "Sociality",
+    "featured": false,
     "enabled": true,
     "region": "Europe",
     "country": "Greece",
@@ -777,6 +804,7 @@
   },
   {
     "name": "Slobodna Domena",
+    "featured": false,
     "enabled": true,
     "region": "Europe",
     "country": "Croatia",
@@ -806,6 +834,7 @@
   },
   {
     "name": "Coopdevs",
+    "featured": true,
     "enabled": true,
     "region": "Europe",
     "country": "Spain",
@@ -835,6 +864,7 @@
   },
   {
     "name": "Cooperos",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Mexico",
@@ -864,6 +894,7 @@
   },
   {
     "name": "Tierra Común",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Mexico",
@@ -893,6 +924,7 @@
   },
   {
     "name": "Rad Cop",
+    "featured": false,
     "enabled": true,
     "region": "Europe",
     "country": "Russia",
@@ -920,6 +952,7 @@
   },
   {
     "name": "Agaric",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "United States",
@@ -947,6 +980,7 @@
   },
   {
     "name": "ChiCommons",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "United States",
@@ -976,6 +1010,7 @@
   },
   {
     "name": "Colab",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "United States",
@@ -1005,6 +1040,7 @@
   },
   {
     "name": "Limeleaf",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "United States",
@@ -1033,6 +1069,7 @@
   },
   {
     "name": "Polycot Associates",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "United States",
@@ -1061,6 +1098,7 @@
   },
   {
     "name": "Position development",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "United States",
@@ -1089,6 +1127,7 @@
   },
   {
     "name": "Coodi",
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Uruguay",
@@ -1118,6 +1157,7 @@
   },
   {
     "name": "Optimi",
+    "featured": false,
     "enabled": true,
     "region": "Asia-Pacific",
     "country": "New Zealand",
@@ -1147,6 +1187,8 @@
   },
   {
     "name": "Farox",
+    "featured": true,
+    "enabled": true,
     "region": "Americas",
     "country": "Argentina",
     "members": 9,
@@ -1169,7 +1211,6 @@
       "width": 2014,
       "height": 540
     },
-    "enabled": true,
     "city": "Buenos Aires",
     "latitude": -34.6037,
     "longitude": -58.3816

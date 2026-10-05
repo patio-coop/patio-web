@@ -3,6 +3,7 @@ import cooperativeData from "./cooperatives.json";
 export type Cooperative = {
   name: string;
   enabled: boolean;
+  featured: boolean;
   region: string;
   country?: string;
   city?: string;

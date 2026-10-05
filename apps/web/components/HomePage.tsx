@@ -100,10 +100,17 @@ const defaultFeaturedGridHeight = featuredBentoSlots.reduce(
 );
 
 function getCooperativesForRegion(region: string) {
-  return cooperatives.filter(
-    (cooperative) =>
-      cooperative.logo && (region === "All" || cooperative.region === region),
-  );
+  return cooperatives.filter((cooperative) => {
+    if (!cooperative.logo) {
+      return false;
+    }
+
+    if (region === "All") {
+      return cooperative.featured;
+    }
+
+    return cooperative.region === region;
+  });
 }
 
 function shuffleCooperatives(items: Cooperative[]) {
