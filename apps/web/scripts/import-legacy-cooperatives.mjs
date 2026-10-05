@@ -160,7 +160,7 @@ const sourceCooperatives = countries.flatMap((country) =>
   (country.coops ?? []).map((cooperative) => ({ country: country.name, ...cooperative })),
 );
 
-const records = sourceCooperatives.map((cooperative, index) => {
+const records = sourceCooperatives.map((cooperative) => {
   const sourceLogo = path.join(sourceLogoDirectory, cooperative.logo);
   const extension = path.extname(cooperative.logo).toLowerCase();
   const logoName = `${slugify(cooperative.name)}${extension}`;
@@ -186,11 +186,6 @@ const records = sourceCooperatives.map((cooperative, index) => {
       descriptionFallbacks.get(cooperative.name) ||
       "",
     headline: languages[cooperative.tagline]?.en ?? "",
-    networkLayout: {
-      column: (index % 4) + 1,
-      row: Math.floor(index / 4) * 140 + 1,
-      height: 140,
-    },
     logo: {
       src: `/assets/cooperatives/${logoName}`,
       ...imageDimensions(logoBuffer),
@@ -208,11 +203,6 @@ if (farox) {
     city: "Buenos Aires",
     latitude: -34.6037,
     longitude: -58.3816,
-    networkLayout: {
-      column: (records.length % 4) + 1,
-      row: Math.floor(records.length / 4) * 140 + 1,
-      height: 140,
-    },
   });
 }
 

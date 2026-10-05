@@ -15,11 +15,6 @@ export type Cooperative = {
   email?: string;
   description: string;
   headline: string;
-  networkLayout: {
-    column: number;
-    row: number;
-    height: number;
-  };
   logo?: {
     src: string;
     width: number;
