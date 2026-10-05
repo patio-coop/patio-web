@@ -9,7 +9,6 @@ export type Cooperative = {
   city?: string;
   latitude?: number;
   longitude?: number;
-  members?: number;
   services: string[];
   website: string;
   email?: string;
