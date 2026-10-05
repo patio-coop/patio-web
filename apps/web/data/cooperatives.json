@@ -349,7 +349,7 @@
   },
   {
     "name": "Nayra",
-    "featured": true,
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -544,7 +544,7 @@
   },
   {
     "name": "Autonomic",
-    "featured": true,
+    "featured": false,
     "enabled": true,
     "region": "Europe",
     "country": "United Kingdom",
@@ -744,7 +744,7 @@
   },
   {
     "name": "Rad Cop",
-    "featured": true,
+    "featured": false,
     "enabled": true,
     "region": "Europe",
     "country": "Russia",
@@ -840,7 +840,7 @@
   },
   {
     "name": "Limeleaf",
-    "featured": true,
+    "featured": false,
     "enabled": true,
     "region": "Americas",
     "country": "United States",
@@ -1019,7 +1019,7 @@
   },
   {
     "name": "Amoved",
-    "featured": true,
+    "featured": false,
     "region": "Europe",
     "country": "Spain",
     "services": [
