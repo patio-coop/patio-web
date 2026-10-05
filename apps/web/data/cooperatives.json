@@ -1193,14 +1193,21 @@
     "country": "Argentina",
     "members": 9,
     "services": [
-      "AI",
+      "Software Development",
       "Product Development",
-      "Software Development"
+      "Project Management",
+      "Devops",
+      "Blockchain",
+      "IoT",
+      "Web3",
+      "Artificial Inteligence",
+      "Consultancy",
+      "Training"
     ],
     "website": "https://farox.coop/",
-    "email": "hola@farox.coop",
-    "description": "A cooperative team helping mission-driven organizations design and ship useful digital services.",
-    "headline": "Useful services for meaningful missions",
+    "email": "info@farox.coop",
+    "description": "We are cooperativists, we are software developers, we work building our own code. At Farox, our culture is grounded in trust and collaboration. We approach every project with integrity, blending transparency and innovation to deliver tailored solutions. Together, we create lasting partnerships and impactful results.",
+    "headline": "Code the tech journey for your business with our dev experts",
     "networkLayout": {
       "column": 1,
       "row": 1401,
