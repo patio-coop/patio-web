@@ -349,7 +349,7 @@
   },
   {
     "name": "Nayra",
-    "featured": false,
+    "featured": true,
     "enabled": true,
     "region": "Americas",
     "country": "Argentina",
@@ -744,7 +744,7 @@
   },
   {
     "name": "Rad Cop",
-    "featured": false,
+    "featured": true,
     "enabled": true,
     "region": "Europe",
     "country": "Russia",
@@ -1019,7 +1019,7 @@
   },
   {
     "name": "Amoved",
-    "featured": false,
+    "featured": true,
     "region": "Europe",
     "country": "Spain",
     "services": [
