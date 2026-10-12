@@ -2275,17 +2275,27 @@ function CoopModal({
         </div>
       </div>
       <div className="coop-modal__footer">
-        <button
-          onClick={() =>
-            setModal({
-              type: "contact",
-              title: `Contact ${cooperative.name}`,
-            })
-          }
-          type="button"
-        >
-          Contact us
-        </button>
+        <div className="coop-modal__actions">
+          <a
+            className="coop-modal__website"
+            href={cooperative.website}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Website
+          </a>
+          <button
+            onClick={() =>
+              setModal({
+                type: "contact",
+                title: `Contact ${cooperative.name}`,
+              })
+            }
+            type="button"
+          >
+            Contact us
+          </button>
+        </div>
       </div>
     </div>
   );

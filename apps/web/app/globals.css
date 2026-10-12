@@ -5467,7 +5467,8 @@ button.footer-menu {
 
 .network-grid button:focus-visible,
 .coop-modal__breadcrumb button:focus-visible,
-.coop-modal__footer button:focus-visible {
+.coop-modal__footer button:focus-visible,
+.coop-modal__website:focus-visible {
   outline: 3px solid #61b4e3;
   outline-offset: -3px;
 }
@@ -5586,18 +5587,27 @@ button.footer-menu {
   right: 0;
 }
 
-.coop-modal__footer button {
+.coop-modal__actions {
+  bottom: 40px;
+  display: flex;
+  gap: 12px;
+  position: absolute;
+  right: 48px;
+}
+
+.coop-modal__footer button,
+.coop-modal__website {
+  align-items: center;
   background: var(--color-blue);
   border: 0;
-  bottom: 40px;
   color: #fff;
   cursor: pointer;
+  display: inline-flex;
   font-family: var(--font-display);
   font-size: 18px;
   height: 40px;
   padding: 0 16px;
-  position: absolute;
-  right: 48px;
+  text-decoration: none;
   text-transform: uppercase;
 }
 
@@ -8289,7 +8299,7 @@ button.footer-menu {
     position: relative;
   }
 
-  .coop-modal__footer button {
+  .coop-modal__footer .coop-modal__actions {
     bottom: 32px;
     right: 0;
   }
