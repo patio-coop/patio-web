@@ -41,6 +41,7 @@ type ModalState =
 
 const regions = ["All", "Americas", "Europe", "Middle East", "Asia-Pacific"];
 const membersAreaEnabled = true;
+const contactEnabled = false;
 const featuredBentoSlots = [
   { column: 1, row: 1, height: 210 },
   { column: 2, row: 1, height: 120 },
@@ -2284,17 +2285,19 @@ function CoopModal({
           >
             Website
           </a>
-          <button
-            onClick={() =>
-              setModal({
-                type: "contact",
-                title: `Contact ${cooperative.name}`,
-              })
-            }
-            type="button"
-          >
-            Contact us
-          </button>
+          {contactEnabled && (
+            <button
+              onClick={() =>
+                setModal({
+                  type: "contact",
+                  title: `Contact ${cooperative.name}`,
+                })
+              }
+              type="button"
+            >
+              Contact us
+            </button>
+          )}
         </div>
       </div>
     </div>
