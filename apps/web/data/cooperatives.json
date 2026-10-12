@@ -719,7 +719,7 @@
   },
   {
     "name": "Tierra Común",
-    "featured": false,
+    "featured": true,
     "enabled": true,
     "region": "Americas",
     "country": "Mexico",
@@ -798,15 +798,18 @@
     "latitude": 41.8781,
     "longitude": -87.6298,
     "services": [
-      "Technology Consulting",
-      "Network Infrastructure",
-      "Web Development",
-      "Software Development",
-      "Technology Project Management"
+      "Consultancy",
+      "Devops",
+      "Project Management",
+      "Infraestructure",
+      "Data Science Services",
+      "Strategic Consulting", 
+      "Website Design & Development"
     ],
-    "website": "https://www.chicommons.coop/",
-    "description": "ChiCommons is a multi-stakeholder organization that grew out of local Civic Tech and Sustainability volunteer movements for common good and evolved into a Limited Worker Cooperative Association (LWCA).",
-    "headline": "Business-technical services for small businesses, nonprofits and cooperatives",
+    "website": "https://chicommons.com",
+    "email": "consulting-inquiries@chicommons.coop",
+    "description": "We provide practical and innovative business and technology consulting services to establish and improve our clients Online / web / digital presence, for visibility and survival.",
+    "headline": "ChiCommons is a worker-owned cooperative consultancy that helps our clients and communities flourish.",
     "logo": {
       "src": "/assets/cooperatives/chicommons.png",
       "width": 797,
@@ -840,7 +843,7 @@
   },
   {
     "name": "Limeleaf",
-    "featured": false,
+    "featured": true,
     "enabled": true,
     "region": "Americas",
     "country": "United States",
